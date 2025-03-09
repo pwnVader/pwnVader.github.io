@@ -6,12 +6,14 @@
     <title>Jesus P Romero - Cybersecurity</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Jesus P Romero</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -20,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="writeups.html">Writeups</a></li>
+                    <li class="nav-item"><a class="nav-link" href="writeups.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
                 </ul>
             </div>
@@ -28,17 +30,40 @@
     </nav>
 
     <!-- Main Section -->
-    <div class="container text-center mt-5">
-        <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid mb-3" alt="Profile">
-        <h1 class="fw-bold">Jesus P Romero</h1>
-        <h4 class="text-muted">Cybersecurity Enthusiast | Aspiring Pentester</h4>
-        <p class="mt-3">
-            Computer Systems Engineering student & CPTS Candidate.<br>
-            Passionate about offensive security, penetration testing, and cybersecurity research.
-        </p>
-        <div class="mt-4">
-            <a href="https://github.com/pwnVader" target="_blank" class="btn btn-dark">GitHub</a>
-            <a href="https://www.tiktok.com/@krakensec101" target="_blank" class="btn btn-dark">TikTok</a>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Left Section (Photo & Links) -->
+            <div class="col-md-3 text-center">
+                <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid mb-3" alt="Profile">
+                <h4 class="fw-bold">Jesus P Romero</h4>
+                <p>Cybersecurity Enthusiast | Ethical Hacking</p>
+                
+                <!-- Social Icons -->
+                <p>
+                    <a href="https://github.com/pwnVader" target="_blank" class="text-dark mx-2">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@krakensec101" target="_blank" class="text-dark mx-2">
+                        <i class="fab fa-tiktok fa-2x"></i>
+                    </a>
+                    <a href="https://tryhackme.com/p/pwnVader" target="_blank" class="text-dark mx-2">
+                        <i class="fas fa-user-secret fa-2x"></i> 
+                    </a>
+                </p>
+            </div>
+
+            <!-- Right Section (Bio) -->
+            <div class="col-md-9">
+                <h2 class="fw-bold">About Me</h2>
+                <p>I am a **Computer Systems Engineering student** and an aspiring penetration tester currently preparing for the **CPTS** certification.</p>
+                <p>Passionate about **offensive security**, I share educational content and technical write-ups about **CTFs, penetration testing, and cybersecurity research**.</p>
+                <p>I specialize in **ethical hacking, network security, and penetration testing simulations**, always eager to learn and explore new challenges.</p>
+
+                <h3 class="fw-bold mt-4">Connect with Me</h3>
+                <p>Follow me on <a href="https://www.tiktok.com/@krakensec101" target="_blank">TikTok</a>, 
+                <a href="https://github.com/pwnVader" target="_blank">GitHub</a>, and 
+                <a href="https://tryhackme.com/p/pwnVader" target="_blank">TryHackMe</a> to stay updated with my latest work in cybersecurity.</p>
+            </div>
         </div>
     </div>
 
@@ -46,4 +71,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
