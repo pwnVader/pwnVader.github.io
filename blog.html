@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Jesus P Romero</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">whoami</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Section -->
+    <div class="container mt-5">
+        <h2 class="blog-title">My Blog</h2>
+        <p class="blog-description">
+            I write cybersecurity-related articles on 
+            <a href="https://medium.com/@pwnVader" target="_blank">Medium</a>. 
+            Here are some of my latest posts:
+        </p>
+        
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <div class="blog-card">
+                <img src="images/footprint.webp" alt="HTB Academy">
+                <div class="blog-content">
+                    <h5>HTB Academy - Footprinting Lab (Easy)</h5>
+                    <p>A walkthrough for the "Footprinting" lab in Hack The Box Academy. Learn reconnaissance techniques.</p>
+                    <a href="https://medium.com/@pwnVader/htb-academy-footprinting-lab-easy-37170c167abc" 
+                       class="read-more-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Read More
+                    </a>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="blog-card">
+                <img src="images/ciberinicio.webp" alt="Ciberseguridad Inicio">
+                <div class="blog-content">
+                    <h5>Ciberseguridad: ¿Por dónde inicio?</h5>
+                    <p>Una guía para principiantes en ciberseguridad. Recursos, certificaciones y caminos recomendados.</p>
+                    <a href="https://medium.com/@pwnVader/ciberseguridad-por-d%C3%B3nde-inicio-e4361e4ff60d" 
+                       class="read-more-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Read More
+                    </a>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="blog-card">
+                <img src="images/cibermex.webp" alt="Ciberseguridad México">
+                <div class="blog-content">
+                    <h5>Ciberseguridad en México: ¿Necesaria?</h5>
+                    <p>Un análisis de la importancia de la ciberseguridad en México y los desafíos actuales.</p>
+                    <a href="https://medium.com/@pwnVader/ciberseguridad-en-m%C3%A9xico-necesaria-b659923f883d" 
+                       class="read-more-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
