@@ -1,302 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>pwnVader | Offensive Security Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Portfolio of Jesús P Romero (pwnVader): cybersecurity student, CTF player and content creator.">
-
-    <!-- ASSETS -->
-    <link rel="icon" href="assets/favicon.png" type="image/png">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Boxicons para los iconos de chips -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>pwnVader | Portfolio</title>
+  <meta name="description" content="Portfolio de ciberseguridad" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="48x48" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <meta name="theme-color" content="#0c0" />
 </head>
-
-
 <body>
-    <!-- ╔══════════════ NAVBAR ══════════════╗ -->
-    <nav class="container flex" style="padding:20px 4%">
-        <a href="#top" style="font-weight:600">whoami</a>
-        <div class="flex" style="margin-left:auto;gap:2rem">
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+  <noscript>
+    <div class="no-js">Este sitio usa JavaScript para la experiencia tipo terminal. Activa JavaScript para la versión interactiva.</div>
+  </noscript>
+  <header class="skip">
+    <a href="#terminal" class="skip-link">Saltar al contenido</a>
+  </header>
 
-    <!-- ╔══════════════ HERO ════════════════╗ -->
-    <header id="top" class="container fade"
-    style="min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
-    
-    <h1 class="cursor">sudo pwnVader</h1>
-    
-    <p style="font-size:1.2rem; font-weight:600; margin-top:8px; color:var(--accent‑2); letter-spacing:0.5px;">
-        JESUS ROMERO
-    </p>
-
-    <p style="margin:18px 0 40px;color:var(--muted);max-width:600px">
-        Computer Systems Engineering student · CTF &amp; lab addict · Sharing cybersecurity tips on TikTok, LinkedIn and GitHub.
-    </p>
-    
-    <div class="flex" style="gap:1.5rem">
-        <a href="https://www.linkedin.com/in/jesuspromero/" class="btn" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="https://github.com/pwnVader" class="btn" style="border-color:var(--muted)" target="_blank" rel="noopener">GitHub ↗</a>
+  <main id="app">
+    <div class="mode-toggle" role="toolbar" aria-label="Cambiar modo de visualización">
+      <button id="toggleMode" aria-pressed="false" class="btn-toggle" title="Cambiar a modo visual estándar">Modo Visual</button>
     </div>
-</header>
-
-
-    <!-- ╔══════════════ ABOUT ═══════════════╗ -->
-    <section id="about" class="container fade">
-        <h2 class="section">About me</h2>
-        <p style="max-width:820px">
-            I’m a final‑year Computer Systems Engineering student at <strong>TECNM</strong> laser‑focused on
-            both <em>offensive</em> and <em>defensive</em> security. I rank in the <strong>top 4 %</strong> on
-            TryHackMe, maintain several open‑source Python tools,
-            and publish bite‑size hacking tutorials for Spanish‑speaking learners.<br><br>
-            <strong>2025 Roadmap&nbsp;⇢</strong> finish <em>eJPT v2</em> &amp; <em>CPTS</em>,
-            then step into a Junior Pentester / Purple‑Team role.
-        </p>
-    </section>
-
-    <!-- ╔════ PROJECTS & ACHIEVEMENTS ═════╗ -->
-    <section id="projects" class="container fade">
-        <h2 class="section">Projects & Achievements</h2>
-
-        <div class="grid grid‑3">
-            <!-- 1 -->
-            <article class="panel ribbon env">
-                <h3 class="flex" style="align-items:center;gap:8px">DorkSniper
-                    <span class="badge"><i class="bx bxs-star"></i>&nbsp;Open Source</span>
-                </h3>
-                <p>Generates categorized Google Dorks for OSINT and bug‑bounty recon.</p>
-                <a href="https://github.com/pwnVader/DorkSniper" class="btn" style="margin-top:20px" target="_blank"
-                    rel="noopener">Repo ↗</a>
-            </article>
-
-            <!-- 2 -->
-            <article class="panel ribbon blue">
-                <h3 class="flex" style="align-items:center;gap:8px">DarkScan
-                    <span class="badge"><i class="bx bx-terminal"></i>&nbsp;Python CLI</span>
-                </h3>
-                <p>Nmap wrapper that fingerprints services and exports Markdown reports.</p>
-                <a href="https://github.com/pwnVader/DarkScan" class="btn" style="margin-top:20px" target="_blank"
-                    rel="noopener">Repo ↗</a>
-            </article>
-
-            <!-- 3 -->
-            <article class="panel ribbon red">
-                <h3 class="flex" style="align-items:center;gap:8px">TryHackMe Top 4 %
-                    <span class="badge"><i class="bx bx-flag"></i>&nbsp;Rank 61 567</span>
-                </h3>
-                <p>100+ rooms solved, multiple walkthroughs featured by the community.</p>
-                <a href="https://tryhackme.com/r/p/pwnVader" class="btn" style="margin-top:20px" target="_blank"
-                    rel="noopener">Profile ↗</a>
-            </article>
-
-            <!-- 4 — NEW -->
-            <article class="panel ribbon env">
-                <h3 class="flex" style="align-items:center;gap:8px">BruteShield
-                    <span class="badge"><i class="bx bx-lock-alt"></i>&nbsp;Web Tool</span>
-                </h3>
-                <p>Estimates password crack‑time and generates secure, human‑readable passphrases.</p>
-                <a href="https://pwnvader.github.io/BruteShield/" class="btn" style="margin-top:20px" target="_blank"
-                    rel="noopener">Live ↗</a>
-            </article>
-
-            <!-- 5 — NEW -->
-            <article class="panel ribbon blue">
-                <h3 class="flex" style="align-items:center;gap:8px">Content Creation
-                    <span class="badge"><i class="bx bxl-tiktok"></i>&nbsp;26 k&nbsp;followers</span>
-                </h3>
-                <p>Short‑form videos &amp; blog posts demystifying hacking for beginners (TikTok + Medium).</p>
-                <a href="#content" class="btn" style="margin-top:20px">See more ↓</a>
-            </article>
-
-            <!-- 6 — NEW -->
-            <article class="panel ribbon red">
-                <h3 class="flex" style="align-items:center;gap:8px">Writeups&nbsp;Repo
-                    <span class="badge"><i class="bx bx-book"></i>&nbsp;Markdown</span>
-                </h3>
-                <p>Centralized collection of HTB &amp; THM walkthroughs — self‑hosted for full control.</p>
-                <a href="https://github.com/pwnVader/writeups" class="btn" style="margin-top:20px" target="_blank"
-                    rel="noopener">Repo ↗</a>
-            </article>
-
-            <article class="panel ribbon blue">
-                <h3 class="flex" style="align-items:center;gap:8px">pwn-cards
-                    <span class="badge"><i class="bx bx-collection"></i>&nbsp;Cheat Sheets</span>
-                </h3>
-                <p>Curated collection of cybersecurity cheat sheets — quick lookup cards from LinkedIn posts and study notes.</p>
-                <a href="https://github.com/pwnVader/pwn-cards" class="btn" style="margin-top:20px" target="_blank"
-                    rel="noopener">Repo ↗</a>
-            </article>
-        </div>
-    </section>
-
-
-    <!-- ╔══════════════ SKILLS ═════════════╗ -->
-    <section id="skills" class="container fade">
-        <h2 class="section">Technologies & Skills</h2>
-
-        <!-- Programming -->
-        <h3 class="sub‑title">Programming Languages</h3>
-        <div class="flex" style="gap:1rem;flex-wrap:wrap;margin-bottom:2rem">
-            <span class="badge"><i class='bx bxl-python'></i> Python</span>
-            <span class="badge"><i class='bx bxl-java'></i> Java</span>
-            <span class="badge"><i class='bx bx-data'></i> SQL</span>
-            <span class="badge"><i class='bx bx-terminal'></i> Bash</span>
-            <span class="badge"><i class='bx bxl-git'></i> Git</span>
-        </div>
-
-        <!-- Offensive -->
-        <h3 class="sub‑title">Cybersecurity (Offensive)</h3>
-        <div class="flex" style="gap:1rem;flex-wrap:wrap;margin-bottom:2rem">
-            <span class="badge"><i class='bx bx-search-alt-2'></i> Nmap</span>
-            <span class="badge"><i class='bx bx-bug'></i> Metasploit</span>
-            <span class="badge"><i class='bx bx-shield-alt'></i> Burp Suite</span>
-            <span class="badge"><i class='bx bx-hash'></i> Hashcat</span>
-            <span class="badge"><i class='bx bx-lock-open'></i> Hydra</span>
-            <span class="badge"><i class='bx bx-code-curly'></i> Sqlmap</span>
-        </div>
-
-        <!-- Defensive -->
-        <h3 class="sub‑title">Cybersecurity (Defensive)</h3>
-        <div class="flex" style="gap:1rem;flex-wrap:wrap;margin-bottom:2rem">
-            <span class="badge"><i class='bx bx-wifi'></i> Wireshark</span>
-            <span class="badge"><i class='bx bx-sitemap'></i> TCP/IP</span>
-            <span class="badge"><i class='bx bx-shield'></i> Firewall (iptables)</span>
-            <span class="badge"><i class='bx bx-git-branch'></i> Active Directory</span>
-            <span class="badge"><i class='bx bx-tachometer'></i> Splunk</span>
-            <span class="badge"><i class='bx bx-support'></i> Incident Response</span>
-        </div>
-
-        <!-- Tools -->
-        <h3 class="sub‑title">Development Environments & Tools</h3>
-        <div class="flex" style="gap:1rem;flex-wrap:wrap">
-            <span class="badge"><i class='bx bxl-visual-studio'></i> VS Code</span>
-            <span class="badge"><i class='bx bxl-python'></i> PyCharm</span>
-            <span class="badge"><i class='bx bxl-linux'></i> Linux</span>
-            <span class="badge"><i class='bx bxl-docker'></i> Docker</span>
-            <span class="badge"><i class='bx bxl-github'></i> GitHub</span>
-        </div>
-    </section>
-
-    <!-- ╔══════════ CERTIFICATIONS ═════════╗ -->
-    <section id="certs" class="container fade">
-        <h2 class="section">Certifications</h2>
-
-        <div class="timeline">
-            <!-- In progress -->
-            <div class="t‑item">
-                <span>2025 (Q3 target)</span>
-                <h3>eJPT v2 — INE / eLearnSecurity <em>(studying – voucher obtained)</em></h3>
-                <p>Foundational penetration testing, exploitation &amp; network security.</p>
+    <div id="terminal" class="terminal" aria-live="polite" aria-label="Emulador de terminal estilo 90s">
+      <div class="boot" id="bootScreen">
+  <pre class="ascii" aria-hidden="true">
+ ██▓███   █     █░███▄    █ ██▒   █▓ ▄▄▄      ▓█████▄ ▓█████  ██▀███  
+▓██░  ██▒▓█░ █ ░█░██ ▀█   █▓██░   █▒▒████▄    ▒██▀ ██▌▓█   ▀ ▓██ ▒ ██▒
+▓██░ ██▓▒▒█░ █ ░█▓██  ▀█ ██▒▓██  █▒░▒██  ▀█▄  ░██   █▌▒███   ▓██ ░▄█ ▒
+▒██▄█▓▒ ▒░█░ █ ░█▓██▒  ▐▌██▒ ▒██ █░░░██▄▄▄▄██ ░▓█▄   ▌▒▓█  ▄ ▒██▀▀█▄  
+▒██▒ ░  ░░░██▒██▓▒██░   ▓██░  ▒▀█░   ▓█   ▓██▒░▒████▓ ░▒████▒░██▓ ▒██▒
+▒▓▒░ ░  ░░ ▓░▒ ▒ ░ ▒░   ▒ ▒   ░ ▐░   ▒▒   ▓▒█░ ▒▒▓  ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░
+░▒ ░       ▒ ░ ░ ░ ░░   ░ ▒░  ░ ░░    ▒   ▒▒ ░ ░ ▒  ▒  ░ ░  ░  ░▒ ░ ▒░
+░░         ░   ░    ░   ░ ░     ░░    ░   ▒    ░ ░  ░    ░     ░░   ░ 
+       ░            ░      ░        ░  ░   ░       ░  ░   ░     
+        ░              ░                      
+  </pre>
+        <p>Iniciando entorno seguro ...</p>
+        <p>Inicializando módulos: <span class="pulse" id="bootModules">crypto, net, forense, reversa</span></p>
+        <p>Montando /home/usuario ... OK</p>
+        <p>Cargando portfolio ... OK</p>
+        <p class="boot-hint">Escribe <strong>help</strong> para ver comandos disponibles.</p>
+      </div>
+      <div id="output" class="output" tabindex="0"></div>
+      <div class="prompt-line" aria-label="Línea de comandos">
+        <span class="prompt" id="promptLabel">visitor@portfolio:~$</span>
+        <input id="cmd" autocomplete="off" spellcheck="false" aria-label="Entrada de comando" />
+      </div>
+    </div>
+    <!-- Modo visual accesible -->
+    <section id="visualMode" hidden>
+      <nav class="visual-nav" aria-label="Navegación principal">
+        <a href="#v-about">Sobre mí</a>
+        <a href="#v-skills">Habilidades</a>
+        <a href="#v-projects">Proyectos</a>
+        <a href="#v-exp">Experiencia</a>
+  <a href="#v-books">Lecturas</a>
+        <a href="#v-contact">Contacto</a>
+      </nav>
+      <div class="visual-wrapper">
+        <section id="v-about" class="v-section">
+          <h2>Sobre mí</h2>
+          <p>Ingeniero en Sistemas Computacionales (último año) enfocado en infraestructura, soporte técnico y automatización. Experiencia práctica en entornos Windows/Linux, redes y análisis de tráfico. Especializado en seguridad ofensiva (pentesting).</p>
+        </section>
+        <section id="v-skills" class="v-section">
+          <h2>Habilidades</h2>
+          <div class="skills-groups">
+            <div><strong>Sistemas & Soporte:</strong><br>
+              <span class='badge'>Windows</span><span class='badge'>Linux</span><span class='badge'>VirtualBox</span><span class='badge'>VMware</span><span class='badge'>RDP</span><span class='badge'>PuTTY</span><span class='badge'>Office</span><span class='badge'>Excel (Intermedio)</span>
             </div>
-
-            <div class="t‑item">
-                <span>2025 (Q4 target)</span>
-                <h3>CPTS — HackTheBox <em>(in progress)</em></h3>
-                <p>Advanced penetration testing &amp; vulnerability assessment.</p>
+            <div><strong>Redes:</strong><br>
+              <span class='badge'>TCP/IP</span><span class='badge'>DHCP</span><span class='badge'>NAT</span><span class='badge'>VLANs</span><span class='badge'>DNS</span><span class='badge'>ARP</span><span class='badge'>Ethernet</span><span class='badge'>Routing/Switch Básico</span>
             </div>
-
-            <!-- Completed -->
-
-            <div class="t‑item">
-                <span>2025</span>
-                <h3>CCNA 1 — Introducción a las Redes</h3>
-                <p>Networking fundamentals, IP addressing &amp; basic device configuration.</p>
+            <div><strong>Ciberseguridad:</strong><br>
+              <span class='badge'>Nmap</span><span class='badge'>Metasploit</span><span class='badge'>Burp Suite</span><span class='badge'>Wireshark</span><span class='badge'>Hashcat</span><span class='badge'>Hydra</span><span class='badge'>John</span><span class='badge'>Sqlmap</span><span class='badge'>iptables</span><span class='badge'>Active Directory (Labs)</span><span class='badge'>Splunk (Básico)</span><span class='badge'>Incident Response (Bases)</span>
             </div>
-
-            <div class="t‑item">
-                <span>2024</span>
-                <h3>CEHPC — Ethical Hacking Certification</h3>
-                <p>Core ethical‑hacking techniques and counter‑measures.</p>
+            <div><strong>Programación & Scripting:</strong><br>
+              <span class='badge'>Python</span><span class='badge'>Bash</span><span class='badge'>PowerShell</span><span class='badge'>Java</span><span class='badge'>SQL</span>
             </div>
-
-
-        </div>
+            <div><strong>Herramientas & Versionado:</strong><br>
+              <span class='badge'>Git</span><span class='badge'>GitHub</span><span class='badge'>GitHub Pages</span><span class='badge'>Markdown</span><span class='badge'>Docker</span><span class='badge'>VS Code</span><span class='badge'>PyCharm</span>
+            </div>
+            <div><strong>Aprendiendo:</strong><br>
+              <span class='badge'>AWS</span><span class='badge'>SOC</span><span class='badge'>Blue Team</span><span class='badge'>AD Hardening</span>
+            </div>
+          </div>
+        </section>
+        <section id="v-projects" class="v-section">
+          <h2>Proyectos</h2>
+          <div class="grid-projects" id="v-projects-grid">
+            <div class='card'><h4>TryHackMe Top 1% (Rank 13,963)</h4><p>100+ labs completados; percentil superior en plataforma de entrenamiento práctico.</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://tryhackme.com/r/p/pwnVader'>Profile ↗</a></div></div>
+            <div class='card'><h4>DorkSniper</h4><p>Genera Google Dorks categorizados para OSINT y bug bounty recon.</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://pwnvader.github.io/DorkSniper/'>Live ↗</a></div></div>
+            <div class='card'><h4>BruteShield</h4><p>Calcula tiempo estimado de crack y genera passphrases legibles.</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://pwnvader.github.io/BruteShield/'>Live ↗</a></div></div>
+            <div class='card'><h4>DarkScan</h4><p>Wrapper de Nmap: fingerprint de servicios y export a Markdown.</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://github.com/pwnVader/DarkScan'>Repo ↗</a></div></div>
+            <div class='card'><h4>Lab Raspberry Pi Offensive</h4><p>Laboratorio portátil de hacking con Raspberry Pi: servicios vulnerables, pruebas de explotación y automatización.</p><div class='tags'><span class='badge'>Lab</span></div></div>
+            <div class='card'><h4>Intercepción Tráfico Red Abierta (Alfa AWUS036ACH)</h4><p>Captura y análisis de peticiones inseguras en Wi‑Fi abierto para evidenciar riesgos y malas prácticas.</p><div class='tags'><span class='badge'>Análisis</span></div></div>
+            <div class='card'><h4>Marca Personal LinkedIn</h4><p>Post técnicos (ciberseguridad, herramientas, buenas prácticas) y crecimiento de engagement.</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://www.linkedin.com/in/jesuspromero/details/featured/'>LinkedIn ↗</a></div></div>
+            <div class='card'><h4>Content Creation</h4><p>Videos y posts simplificando hacking (TikTok + Medium).</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://www.tiktok.com/@pwnvader'>27k+ ↗</a></div></div>
+            <div class='card'><h4>Writeups Repo</h4><p>Walkthroughs HTB & THM centralizados para estudio.</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://github.com/pwnVader/writeups'>Repo ↗</a></div></div>
+            <div class='card'><h4>pwn-cards</h4><p>Cheat sheets de ciberseguridad de consulta rápida.</p><div class='tags'><a class='link' target='_blank' rel='noopener' href='https://github.com/pwnVader/pwn-cards'>Repo ↗</a></div></div>
+          </div>
+        </section>
+        <section id="v-exp" class="v-section">
+          <h2>Timeline 2025</h2>
+          <div class='timeline'>
+            <div class='timeline-item'>
+              <h4>Ago 2025 · Preparación CPTS (HTB Academy)</h4>
+              <span>En progreso</span>
+              <p>Escenarios avanzados de pentesting y laboratorio previo al examen.</p>
+            </div>
+            <div class='timeline-item'>
+              <h4>Jun 2025 · eJPTv2 Obtenida</h4>
+              <span>Certificación</span>
+              <p>Validación práctica en enumeración, explotación y post-explotación inicial.</p>
+            </div>
+            <div class='timeline-item'>
+              <h4>May 2025 · Top 1% TryHackMe</h4>
+              <span>Logro</span>
+              <p>Percentil superior resolviendo labs de redes, web y privesc.</p>
+            </div>
+            <div class='timeline-item'>
+              <h4>Ene 2025 · CEH-PC (CertiProf)</h4>
+              <span>Certificación</span>
+              <p>Metodologías y fases del ethical hacking.</p>
+            </div>
+            <div class='timeline-item'>
+              <h4>Ene 2025 · Inicio Ruta Ciberseguridad</h4>
+              <span>Hito inicial</span>
+              <p>Bases de redes, Linux, scripting y laboratorios (THM / HTB).</p>
+            </div>
+          </div>
+        </section>
+        <section id="v-books" class="v-section">
+          <h2>Lecturas Técnicas</h2>
+          <div class="books-list">
+            <div class='book-item'><h4>PowerShell for Sysadmins</h4><p class='meta'>Adam Bertram · <span class='topic'>Automation</span> <span class='badge' data-status='Leyendo'>Leyendo</span></p><p class='takeaway'>Scripts y gestión remota orientados a operaciones.</p></div>
+            <div class='book-item'><h4>Black Hat Python (2nd Ed.)</h4><p class='meta'>Justin Seitz & Tim Arnold · <span class='topic'>Pentesting</span> <span class='badge' data-status='Leyendo'>Leyendo</span></p><p class='takeaway'>Automatización ofensiva con Python.</p></div>
+            <div class='book-item'><h4>Automate the Boring Stuff with Python (2nd Ed.)</h4><p class='meta'>Al Sweigart · <span class='topic'>Python</span> <span class='badge' data-status='Leyendo'>Leyendo</span></p><p class='takeaway'>Flujos de automatización base y manipulación de archivos.</p></div>
+            <div class='book-item'><h4>Linux Basics for Hackers (2nd Ed.)</h4><p class='meta'>OccupyTheWeb · <span class='topic'>Linux</span> <span class='badge' data-status='Leído'>Leído</span></p><p class='takeaway'>Base práctica de Linux para hacking.</p></div>
+            <div class='book-item'><h4>The Linux Command Line (2nd Ed.)</h4><p class='meta'>William Shotts · <span class='topic'>Linux</span> <span class='badge' data-status='Leído'>Leído</span></p><p class='takeaway'>Profundización en CLI y scripting shell.</p></div>
+            <div class='book-item'><h4>Python Crash Course (3rd Ed.)</h4><p class='meta'>Eric Matthes · <span class='topic'>Python</span> <span class='badge' data-status='Leído'>Leído</span></p><p class='takeaway'>Fundamentos Python + proyectos iniciales.</p></div>
+          </div>
+          <p class="hint">Filtra en terminal: <code>books</code>, <code>books leyendo</code>, <code>books linux</code>, etc.</p>
+        </section>
+        <section id="v-contact" class="v-section">
+          <h2>Contacto</h2>
+          <ul>
+            <li>Email: <a class='link' href='mailto:contacto.broadways405@passmail.net'>contacto.broadways405@passmail.net</a></li>
+            <li>LinkedIn: <a class='link' href='https://www.linkedin.com/in/jesuspromero/' target='_blank' rel='noopener'>linkedin/in/jesuspromero</a></li>
+            <li>GitHub: <a class='link' href='https://github.com/pwnVader' target='_blank' rel='noopener'>github.com/pwnVader</a></li>
+            <li>Beacons (todas mis redes): <a class='link' href='https://beacons.ai/pwnvader' target='_blank' rel='noopener'>beacons.ai/pwnvader</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="back-terminal">
+        <button class="btn-toggle" id="backTerminal" aria-pressed="false">Volver a Terminal</button>
+      </div>
     </section>
+  </main>
 
+  <footer class="footer">
+    <p>© <span id="year"></span> Jesus Romero | <span class="accent">Ethical Hacking</span></p>
+  </footer>
 
-    <!-- ╔══════════════ CONTENT ═════════════╗ -->
-    <section id="content" class="container fade">
-        <h2 class="section">Content Creation</h2>
-
-        <!-- TikTok creator feed -->
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@pwnvader" data-unique-id="pwnvader"
-            data-embed-type="creator" style="max-width:480px;min-width:288px;margin:0 auto">
-            <section>Loading…</section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
-
-        <!-- Medium latest posts -->
-        <h3 class="sub‑title" style="margin-top:40px">Latest on Medium</h3>
-        <ul id="medium-list" class="medium-list">
-            <li><a href="https://medium.com/@pwnVader" target="_blank" rel="noopener">
-                    See all posts on Medium ↗</a>
-            </li>
-        </ul>
-
-    </section>
-
-    <!-- Script: fetch Medium RSS and inject links (graceful fallback) -->
-    <script>
-        (async () => {
-            try {
-                const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@pwnVader");
-                const { items } = await res.json();
-                const list = document.getElementById('medium-list');
-                list.innerHTML = ''; // limpia el fallback
-
-                items.slice(0, 3).forEach(post => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>`;
-                    list.appendChild(li);
-                });
-            } catch (e) {
-                /* Si falla, mantiene el enlace general */
-            }
-        })();
-    </script>
-    <!-- ╔══════════════ CONTACT ═════════════╗ -->
-    <section id="contact" class="container fade">
-        <h2 class="section">Let’s build something secure</h2>
-        <form class="panel" action="https://formspree.io/f/ID(sustituir)" method="POST"
-            style="max-width:600px;margin:auto">
-            <input required name="name" placeholder="Name"
-                style="width:100%;padding:14px;border:var(--border);border-radius:var(--r);margin-bottom:16px;background:transparent;color:var(--text)">
-            <input required type="email" name="_replyto" placeholder="Email"
-                style="width:100%;padding:14px;border:var(--border);border-radius:var(--r);margin-bottom:16px;background:transparent;color:var(--text)">
-            <textarea required name="message" rows="5" placeholder="How can I help you?"
-                style="width:100%;padding:14px;border:var(--border);border-radius:var(--r);margin-bottom:16px;background:transparent;color:var(--text)"></textarea>
-            <button class="btn" style="width:100%">Send →</button>
-        </form>
-    </section>
-
-    <!-- ╔══════════════ FOOTER ══════════════╗ -->
-    <footer class="container" style="text-align:center;padding-top:40px">
-        <div class="flex" style="justify-content:center;gap:1.2rem;font-size:1.6rem">
-            <a href="https://github.com/pwnVader" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-            <a href="https://www.linkedin.com/in/jesuspromero/" aria-label="LinkedIn"><i
-                    class='bx bxl-linkedin-square'></i></a>
-            <a href="https://www.tiktok.com/@pwnvader" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
-            <a href="https://medium.com/@pwnVader" aria-label="Medium"><i class='bx bxl-medium'></i></a>
-            <a href="https://tryhackme.com/r/p/pwnVader" aria-label="TryHackMe"><i class='bx bx-flag'></i></a>
-        </div>
-        <small style="display:block;margin-top:14px">© 2025 Jesus Romero — Open‑source enthusiast</small>
-    </footer>
-
-
-    <!-- Back‑to‑top -->
-    <a href="#top" id="to‑top" aria-label="Go to top">↑</a>
-
-    <!-- Core JS (fade‑in) -->
-    <script src="main.js" defer></script>
+  <script src="main.js"></script>
 </body>
-
 </html>
