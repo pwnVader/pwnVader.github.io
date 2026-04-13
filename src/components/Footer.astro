@@ -1,0 +1,48 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  { label: 'GitHub', href: 'https://github.com/pwnvader', icon: 'lucide:github' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/perezromerojesus', icon: 'lucide:linkedin' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@pwnvader', icon: 'social-tiktok' },
+];
+---
+
+<footer class="border-t border-border bg-bg-base mt-auto">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <!-- ASCII divider -->
+    <p class="font-mono text-xs text-border text-center mb-6 select-none overflow-hidden whitespace-nowrap">
+      ═══════════════════════════════════════════════════════════
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <!-- Terminal prompt (softened green) -->
+      <p class="font-mono text-xs text-text-muted">
+        <span class="text-accent/50">root@pwnvader</span><span class="text-border">:</span><span class="text-link/50">~</span><span class="text-border">#</span>
+        <span class="ml-1">echo "Built with Astro & ☕"</span>
+      </p>
+
+      <!-- Social icons -->
+      <div class="flex items-center gap-3">
+        {footerLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={link.label}
+            class="text-text-muted hover:text-accent transition-colors"
+          >
+            <Icon name={link.icon} class="w-4 h-4" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <p class="font-mono text-[11px] text-text-muted text-center mt-4">
+      © {year} pwnVader · Jesus P Romero
+    </p>
+  </div>
+</footer>

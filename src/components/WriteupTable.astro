@@ -1,0 +1,173 @@
+---
+import type { WriteupEntry } from '../utils/fetchWriteups';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  writeups: WriteupEntry[];
+}
+
+const { writeups } = Astro.props;
+
+/* OS: custom SVG icons + label styling */
+const osConfig: Record<string, { icon: string; label: string; class: string }> = {
+  Linux:   { icon: 'os-linux',          label: 'LNX', class: 'text-accent/80 border-accent/25 bg-accent/5' },
+  Windows: { icon: 'os-windows',        label: 'WIN', class: 'text-link/80 border-link/25 bg-link/5' },
+  Other:   { icon: 'lucide:help-circle', label: '???', class: 'text-text-muted border-border bg-transparent' },
+  'N/A':   { icon: 'lucide:minus',       label: 'N/A', class: 'text-text-muted border-border bg-transparent' },
+};
+
+/* Difficulty: subtle colors within the curated palette */
+const diffConfig: Record<string, { class: string }> = {
+  Easy:   { class: 'text-accent/80 border-accent/20 bg-accent/5' },
+  Medium: { class: 'text-link/80 border-link/20 bg-link/5' },
+  Hard:   { class: 'text-[#d29922] border-[#d29922]/20 bg-[#d29922]/5' },
+  Insane: { class: 'text-[#f85149] border-[#f85149]/20 bg-[#f85149]/5' },
+  'N/A':  { class: 'text-text-muted border-border bg-transparent' },
+};
+
+/* Platform: mapped SVG icons and color aesthetics */
+const platformConfig: Record<string, { icon: string; label: string; class: string }> = {
+  HackTheBox: { icon: 'tech-htb',   label: 'HTB', class: 'text-accent/90 border-accent/20 bg-accent/5' },
+  TryHackMe:  { icon: 'social-thm', label: 'THM', class: 'text-[#d29922]/90 border-[#d29922]/20 bg-[#d29922]/5' },
+  'N/A':      { icon: 'lucide:flag',label: 'N/A', class: 'text-text-muted border-border bg-transparent' },
+};
+
+function formatDate(dateStr: string): string {
+  if (dateStr === 'N/A') return 'N/A';
+  const d = new Date(dateStr);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${d.getUTCDate().toString().padStart(2, '0')} ${months[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+---
+
+<div class="writeup-table">
+  <!-- Terminal header -->
+  <div class="flex items-center gap-2 bg-bg-elevated px-4 py-2.5 rounded-t-lg border border-border border-b-0">
+    <div class="flex gap-1.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#f85149]"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-[#d29922]"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-[#3fb950]"></span>
+    </div>
+    <span class="ml-2 font-mono text-xs text-text-muted select-none">
+      pwnvader@kali — ls -la ~/writeups/ ({writeups.length} entries)
+    </span>
+  </div>
+
+  <!-- Table container -->
+  <div class="border border-border rounded-b-lg overflow-hidden bg-bg-surface">
+    <!-- Column headers -->
+    <div class="hidden sm:grid grid-cols-[100px_90px_1fr_70px_80px] gap-0 font-mono text-[11px] text-text-muted border-b border-border bg-bg-elevated/30 uppercase tracking-wider">
+      <span class="px-4 py-2.5">Fecha</span>
+      <span class="px-3 py-2.5">Platform</span>
+      <span class="px-3 py-2.5">Máquina</span>
+      <span class="px-3 py-2.5 text-center">OS</span>
+      <span class="px-3 py-2.5 text-center">Diff</span>
+    </div>
+
+    <!-- Rows -->
+    {writeups.length > 0 ? (
+      <div class="divide-y divide-border">
+        {writeups.map((entry, i) => (
+          <a
+            href={entry.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group grid grid-cols-1 sm:grid-cols-[100px_90px_1fr_70px_80px] gap-0 items-center transition-all duration-150 hover:bg-accent/5 animate-fade-up"
+            style={`animation-delay: ${i * 30}ms;`}
+          >
+            {/* Date */}
+            <span class="hidden sm:block px-4 py-3 font-mono text-xs text-text-muted">
+              {formatDate(entry.date)}
+            </span>
+
+            {/* Platform */}
+            <span class="hidden sm:flex items-center px-3 py-3">
+              <span class:list={[
+                'inline-flex items-center gap-1 font-mono text-[11px] px-1.5 py-0.5 rounded border',
+                (platformConfig[entry.platform] || platformConfig['N/A']).class
+              ]}>
+                <Icon name={(platformConfig[entry.platform] || platformConfig['N/A']).icon} class="w-2.5 h-2.5" />
+                {(platformConfig[entry.platform] || platformConfig['N/A']).label}
+              </span>
+            </span>
+
+            {/* Title */}
+            <span class="px-4 sm:px-3 py-3 font-mono text-sm text-text-primary group-hover:text-accent transition-colors">
+              {entry.title}
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </span>
+
+            {/* OS — badge with icon + label */}
+            <span class="hidden sm:flex justify-center py-3">
+              <span class:list={[
+                'inline-flex items-center gap-1 font-mono text-[10px] px-1.5 py-0.5 rounded border',
+                (osConfig[entry.os] || osConfig['N/A']).class,
+              ]}>
+                <Icon
+                  name={(osConfig[entry.os] || osConfig['N/A']).icon}
+                  class="w-3 h-3"
+                />
+                {(osConfig[entry.os] || osConfig['N/A']).label}
+              </span>
+            </span>
+
+            {/* Difficulty — subtle colored pill */}
+            <span class="hidden sm:flex justify-center py-3">
+              <span class:list={[
+                'font-mono text-[10px] px-2 py-0.5 rounded border',
+                (diffConfig[entry.difficulty] || diffConfig['N/A']).class,
+              ]}>
+                {entry.difficulty}
+              </span>
+            </span>
+
+            {/* Mobile metadata */}
+            <div class="flex flex-wrap items-center gap-2 px-4 pb-3 sm:hidden font-mono text-[11px]">
+              <span class:list={[
+                'inline-flex items-center gap-1',
+                (platformConfig[entry.platform] || platformConfig['N/A']).class.split(' ')[0]
+              ]}>
+                <Icon name={(platformConfig[entry.platform] || platformConfig['N/A']).icon} class="w-3 h-3" />
+                {entry.platform}
+              </span>
+              <span class="text-border">·</span>
+              <span class:list={[
+                'px-1.5 py-0.5 rounded border',
+                (diffConfig[entry.difficulty] || diffConfig['N/A']).class,
+              ]}>
+                {entry.difficulty}
+              </span>
+              <span class="text-border">·</span>
+              <span class:list={[
+                'inline-flex items-center gap-1 px-1.5 py-0.5 rounded border',
+                (osConfig[entry.os] || osConfig['N/A']).class,
+              ]}>
+                <Icon name={(osConfig[entry.os] || osConfig['N/A']).icon} class="w-3 h-3" />
+                {(osConfig[entry.os] || osConfig['N/A']).label}
+              </span>
+              <span class="text-border">·</span>
+              <span class="text-text-muted">{formatDate(entry.date)}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="px-4 py-8 text-center font-mono text-sm text-text-muted">
+        <p>No writeups found.</p>
+        <p class="mt-1 text-xs text-text-muted/60">
+          <span class="text-accent/60">$</span> echo "Check back soon..."
+        </p>
+      </div>
+    )}
+  </div>
+
+  <!-- Footer status -->
+  <div class="mt-3 font-mono text-[11px] text-text-muted/60 flex items-center justify-between px-1">
+    <span>
+      <span class="text-accent/40">$</span> total: {writeups.length} file(s)
+    </span>
+    <span>
+      source: github.com/{`${Astro.props.writeups.length > 0 ? 'pwnVader/writeups' : 'static fallback'}`}
+    </span>
+  </div>
+</div>

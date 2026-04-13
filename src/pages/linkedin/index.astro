@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LinkedInFeed from '../../components/LinkedInFeed.astro';
+import { Icon } from 'astro-icon/components';
+
+const metrics = {
+  mainTopics: [
+    { name: 'Ciberseguridad', color: 'text-accent border-accent/20 bg-accent/10' },
+    { name: 'Red Team', color: 'text-[#f85149] border-[#f85149]/20 bg-[#f85149]/10' },
+    { name: 'Carrera en Tech', color: 'text-[#58a6ff] border-[#58a6ff]/20 bg-[#58a6ff]/10' },
+    { name: 'IA & Hacking', color: 'text-[#d29922] border-[#d29922]/20 bg-[#d29922]/10' },
+  ],
+};
+---
+
+<BaseLayout
+  title="LinkedIn — pwnVader"
+  description="Comunidad y presencia de pwnVader en LinkedIn y TikTok: 28.3K seguidores en TikTok, 2.2K en LinkedIn, posts sobre ciberseguridad, Red Team y carrera en tech."
+>
+  <section class="mx-auto max-w-5xl px-4 pt-16 pb-20">
+    <!-- Page header -->
+    <header class="mb-10 animate-fade-up">
+      <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
+        <span class="text-accent">~/</span>linkedin
+      </h1>
+      <p class="mt-2 font-mono text-sm text-text-secondary">
+        <span class="text-accent/60">$</span> curl -s api.linkedin.com/pwnvader | jq '.community'
+      </p>
+    </header>
+
+    <!-- Metrics Cards — monochromatic dashboard -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12 animate-fade-up" style="animation-delay: 100ms;">
+      {[
+        { value: '28.3K', label: 'TikTok', color: 'text-accent group-hover:border-accent/40' },
+        { value: '2.2K', label: 'LinkedIn', color: 'text-[#58a6ff] group-hover:border-[#58a6ff]/40' },
+        { value: 'eJPTv2', label: 'Certificado', color: 'text-[#a371f7] group-hover:border-[#a371f7]/40' },
+        { value: 'Speaker', label: 'NetSentinel', color: 'text-[#d29922] group-hover:border-[#d29922]/40' },
+      ].map((stat) => (
+        <div class="group rounded-lg border border-border bg-bg-surface p-5 text-center transition-all">
+          <p class={`font-mono text-2xl sm:text-3xl font-bold ${stat.color.split(' ')[0]}`}>{stat.value}</p>
+          <p class="font-mono text-xs text-text-muted mt-1">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Topics -->
+    <div class="mb-12 animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-sm text-text-muted mb-3">
+        <span class="text-accent/60">$</span> echo $TOPICS
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        {metrics.mainTopics.map((topic) => (
+          <span class={`font-mono text-xs px-3 py-1.5 rounded-full border ${topic.color}`}>
+            {topic.name}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Community Highlights — LinkedIn Feed -->
+    <div class="animate-fade-up" style="animation-delay: 300ms;">
+      <h2 class="font-mono text-sm text-text-muted mb-5">
+        <span class="text-accent/60">$</span> cat community_highlights.log
+      </h2>
+      <LinkedInFeed />
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-10 text-center animate-fade-up" style="animation-delay: 700ms;">
+      <a
+        href="https://linkedin.com/in/perezromerojesus"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-lg border border-accent/40 px-6 py-2.5 font-mono text-sm text-accent transition-all hover:bg-accent/10 hover:border-accent"
+      >
+        <Icon name="lucide:linkedin" class="w-4 h-4" />
+        Conectar en LinkedIn
+      </a>
+    </div>
+  </section>
+</BaseLayout>

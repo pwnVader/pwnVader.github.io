@@ -1,0 +1,109 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Skills', href: '/skills/' },
+  { label: 'Writeups', href: '/writeups/' },
+  { label: 'LinkedIn', href: '/linkedin/' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg-base/85 backdrop-blur-md"
+  id="main-header"
+>
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+    <!-- Logo -->
+    <a href="/" class="group relative font-mono text-lg font-bold text-accent transition-all">
+      <span class="relative z-10">pwnVader</span>
+      <span
+        class="absolute inset-0 text-link opacity-0 group-hover:opacity-100 group-hover:animate-glitch"
+        aria-hidden="true"
+      >pwnVader</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-1">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              'px-3 py-1.5 font-mono text-sm rounded border transition-all',
+              isActive(link.href)
+                ? 'text-accent border-accent/30 bg-accent/10'
+                : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
+            ]}
+          >
+            {isActive(link.href) ? `> ${link.label}` : link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1 p-2 text-text-secondary hover:text-accent transition-colors"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span class="block w-5 h-0.5 bg-current transition-transform origin-center" id="bar1"></span>
+      <span class="block w-5 h-0.5 bg-current transition-opacity" id="bar2"></span>
+      <span class="block w-5 h-0.5 bg-current transition-transform origin-center" id="bar3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-border bg-bg-base/95 backdrop-blur-md"
+  >
+    <ul class="flex flex-col px-4 py-3 gap-1">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              'block px-3 py-2 font-mono text-sm rounded border transition-all',
+              isActive(link.href)
+                ? 'text-accent border-accent/30 bg-accent/10'
+                : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
+            ]}
+          >
+            {isActive(link.href) ? `> ${link.label}` : `  ${link.label}`}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(isOpen));
+
+    if (isOpen) {
+      bar1!.style.transform = 'rotate(45deg) translate(2px, 2px)';
+      bar2!.style.opacity = '0';
+      bar3!.style.transform = 'rotate(-45deg) translate(2px, -2px)';
+    } else {
+      bar1!.style.transform = '';
+      bar2!.style.opacity = '';
+      bar3!.style.transform = '';
+    }
+  });
+</script>

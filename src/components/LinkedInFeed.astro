@@ -1,0 +1,103 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface LinkedInPost {
+  title: string;
+  image: string;
+  url: string;
+  likes: number;
+  comments: number;
+  shares: number;
+}
+
+const posts: LinkedInPost[] = [
+  {
+    title: 'GPTS para hackers',
+    image: '/assets/linkedin/post-gpts.jpg',
+    url: 'https://www.linkedin.com/posts/jesuspromero_gpt-ai-ciberseguridad-activity-7337871388306767872-HfTi',
+    likes: 1462,
+    comments: 41,
+    shares: 432,
+  },
+  {
+    title: 'Toma notas como un hacker',
+    image: '/assets/linkedin/post-notas.jpg',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7398811569779851265',
+    likes: 832,
+    comments: 34,
+    shares: 197,
+  },
+  {
+    title: 'IA en tu terminal',
+    image: '/assets/linkedin/post-ia-terminal.jpg',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7401303057734758400',
+    likes: 172,
+    comments: 2,
+    shares: 58,
+  },
+  {
+    title: 'Directorios de Linux',
+    image: '/assets/linkedin/post-linux-dirs.jpg',
+    url: 'https://www.linkedin.com/posts/jesuspromero_linux-sysadmin-ciberseguridad-activity-7318664549966983168-z-0F',
+    likes: 647,
+    comments: 14,
+    shares: 167,
+  },
+];
+
+function formatNumber(n: number): string {
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  return n.toString();
+}
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  {posts.map((post, i) => (
+    <a
+      href={post.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group block rounded-lg border border-border bg-bg-surface overflow-hidden transition-all duration-200 hover:border-link/50 hover:shadow-[0_0_20px_rgba(88,166,255,0.06)] animate-fade-up"
+      style={`animation-delay: ${i * 80}ms;`}
+    >
+      {/* Image container — 16:9 standardized */}
+      <div class="relative aspect-video overflow-hidden bg-bg-elevated">
+        <img
+          src={post.image}
+          alt={post.title}
+          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          loading="lazy"
+        />
+        {/* Subtle overlay on hover */}
+        <div class="absolute inset-0 bg-bg-base/0 group-hover:bg-bg-base/10 transition-colors duration-200"></div>
+      </div>
+
+      {/* Content */}
+      <div class="p-4 space-y-3">
+        {/* Title */}
+        <h3 class="font-mono text-sm font-medium text-text-primary group-hover:text-link transition-colors leading-snug">
+          {post.title}
+        </h3>
+
+        {/* Metrics row */}
+        <div class="flex items-center gap-4 font-mono text-xs text-text-muted">
+          <span class="flex items-center gap-1.5">
+            <Icon name="lucide:heart" class="w-3.5 h-3.5" />
+            {formatNumber(post.likes)}
+          </span>
+          <span class="flex items-center gap-1.5">
+            <Icon name="lucide:message-circle" class="w-3.5 h-3.5" />
+            {formatNumber(post.comments)}
+          </span>
+          <span class="flex items-center gap-1.5">
+            <Icon name="lucide:repeat-2" class="w-3.5 h-3.5" />
+            {formatNumber(post.shares)}
+          </span>
+          <span class="ml-auto text-text-muted/50 group-hover:text-link/60 transition-colors text-[11px]">
+            ↗
+          </span>
+        </div>
+      </div>
+    </a>
+  ))}
+</div>
