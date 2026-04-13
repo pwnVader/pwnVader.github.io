@@ -30,13 +30,13 @@ const { compact = false } = Astro.props;
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        class={`group flex items-center justify-between rounded-lg border border-border bg-bg-surface px-4 py-3 transition-all duration-200 ${link.colorGroupClass.split(' ')[1]}`}
+        class={`group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-4 rounded-lg border border-border bg-bg-surface px-4 py-3 transition-all duration-200 overflow-hidden ${link.colorGroupClass.split(' ')[1]}`}
       >
-        <span class="flex items-center gap-2.5">
+        <span class="flex items-center gap-2.5 whitespace-nowrap shrink-0">
           <Icon name={link.icon} class={`w-4 h-4 text-text-muted transition-colors ${link.colorGroupClass.split(' ')[0]}`} />
           <span class="font-mono text-sm font-medium text-text-primary">{link.label}</span>
         </span>
-        <span class="font-mono text-xs text-text-muted">{link.handle} ↗</span>
+        <span class="font-mono text-xs text-text-muted truncate w-full sm:w-auto text-left sm:text-right">{link.handle} ↗</span>
       </a>
     ))}
   </div>
