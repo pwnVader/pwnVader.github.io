@@ -37,15 +37,15 @@ const metrics = {
       <LinkedInFeed />
     </div>
 
-    <!-- Metrics Cards — monochromatic dashboard -->
+    <!-- Metrics Cards — Glowing Reactive Dashboard -->
     <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 animate-fade-up" style="animation-delay: 200ms;">
       {[
-        { value: '28.3K', label: 'TikTok', icon: 'social-tiktok', color: 'text-accent group-hover:border-accent/40' },
-        { value: '2.2K', label: 'LinkedIn', icon: 'lucide:linkedin', color: 'text-[#58a6ff] group-hover:border-[#58a6ff]/40' },
-        { value: 'eJPTv2', label: 'Certificado', icon: 'cert-ejpt', color: 'text-[#a371f7] group-hover:border-[#a371f7]/40' },
-        { value: 'Speaker', label: 'NetSentinel', icon: 'lucide:mic', color: 'text-[#d29922] group-hover:border-[#d29922]/40' },
+        { value: '28.3K', label: 'TikTok', icon: 'social-tiktok', color: 'text-accent hover:border-accent hover:shadow-[0_0_15px_var(--color-accent)]' },
+        { value: '2.2K', label: 'LinkedIn', icon: 'lucide:linkedin', color: 'text-[#58a6ff] hover:border-[#58a6ff] hover:shadow-[0_0_15px_rgba(88,166,255,0.3)]' },
+        { value: 'eJPTv2', label: 'Certificado', icon: 'cert-ejpt', color: 'text-[#a371f7] hover:border-[#a371f7] hover:shadow-[0_0_15px_rgba(163,113,247,0.3)]' },
+        { value: 'Speaker', label: 'NetSentinel', icon: 'lucide:mic', color: 'text-[#d29922] hover:border-[#d29922] hover:shadow-[0_0_15px_rgba(210,153,34,0.3)]' },
       ].map((stat) => (
-        <div class="group rounded-lg border border-border bg-bg-surface p-5 text-center transition-all">
+        <div class={`group rounded-lg border border-border bg-bg-surface p-5 text-center transition-all duration-300 transform hover:-translate-y-1 ${stat.color.split(' ').slice(1).join(' ')}`}>
           <p class={`flex items-center justify-center gap-2 font-mono text-2xl sm:text-3xl font-bold ${stat.color.split(' ')[0]}`}>
             {stat.icon && <Icon name={stat.icon} class="w-6 h-6" />}
             {stat.value}

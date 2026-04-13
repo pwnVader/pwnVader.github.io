@@ -6,9 +6,12 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <BaseLayout title="pwnVader — Pentester · Red Team · eJPTv2">
-  <section class="mx-auto max-w-4xl px-4 pt-16 pb-20">
+  <section class="relative mx-auto max-w-4xl px-4 pt-16 pb-20">
+    <!-- Ambient Glare -->
+    <div class="absolute inset-x-0 -top-10 h-[400px] w-full max-w-2xl mx-auto bg-[radial-gradient(ellipse_at_top,_var(--color-accent)_0%,_transparent_60%)] opacity-[0.07] pointer-events-none blur-[80px]"></div>
+
     <!-- Hero Terminal -->
-    <div class="animate-fade-up">
+    <div class="relative animate-fade-up">
       <Terminal title="pwnvader@kali — bash">
         <div class="space-y-1.5">
           <!-- cat readme.txt command -->
@@ -87,23 +90,23 @@ import { Icon } from 'astro-icon/components';
       </Terminal>
     </div>
 
-    <!-- CTA Buttons — Ghost Button style -->
-    <div class="mt-8 flex flex-wrap gap-3 animate-fade-up" style="animation-delay: 150ms;">
+    <!-- CTA Buttons — Explosive Neon Reactive Buttons -->
+    <div class="mt-10 flex flex-wrap gap-3 animate-fade-up" style="animation-delay: 150ms;">
       <a
         href="/skills/"
-        class="rounded-lg border border-accent/40 px-5 py-2 font-mono text-sm text-accent transition-all hover:bg-accent/10 hover:border-accent"
+        class="rounded-lg border border-accent/40 bg-accent/5 px-6 py-2.5 font-mono text-sm text-accent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_10px_rgba(46,230,95,0.2)]"
       >
         ./skills.sh
       </a>
       <a
         href="/writeups/"
-        class="rounded-lg border border-[#58a6ff]/40 px-5 py-2 font-mono text-sm text-[#58a6ff] transition-all hover:bg-[#58a6ff]/10 hover:border-[#58a6ff]"
+        class="rounded-lg border border-[#58a6ff]/40 bg-[#58a6ff]/5 px-6 py-2.5 font-mono text-sm text-[#58a6ff] transition-all duration-300 hover:bg-[#58a6ff]/10 hover:border-[#58a6ff] hover:shadow-[0_0_10px_rgba(88,166,255,0.2)]"
       >
         ls writeups/
       </a>
       <a
         href="/linkedin/"
-        class="rounded-lg border border-[#a371f7]/40 px-5 py-2 font-mono text-sm text-[#a371f7] transition-all hover:bg-[#a371f7]/10 hover:border-[#a371f7]"
+        class="rounded-lg border border-[#a371f7]/40 bg-[#a371f7]/5 px-6 py-2.5 font-mono text-sm text-[#a371f7] transition-all duration-300 hover:bg-[#a371f7]/10 hover:border-[#a371f7] hover:shadow-[0_0_10px_rgba(163,113,247,0.2)]"
       >
         cat community.txt
       </a>
@@ -117,15 +120,15 @@ import { Icon } from 'astro-icon/components';
       <SocialLinks />
     </div>
 
-    <!-- Quick Stats — monochromatic dashboard -->
+    <!-- Quick Stats — Glowing Reactive Dashboard -->
     <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 animate-fade-up" style="animation-delay: 450ms;">
       {[
-        { value: 'eJPTv2', label: 'Certificación', icon: 'cert-ejpt', color: 'text-[#a371f7] group-hover:border-[#a371f7]/40' },
-        { value: 'Top 1%', label: 'TryHackMe', icon: 'social-thm', color: 'text-[#d29922] group-hover:border-[#d29922]/40' },
-        { value: '28.3K', label: 'TikTok', icon: 'social-tiktok', color: 'text-accent group-hover:border-accent/40' },
-        { value: '2.2K', label: 'LinkedIn', icon: 'lucide:linkedin', color: 'text-[#58a6ff] group-hover:border-[#58a6ff]/40' },
+        { value: 'eJPTv2', label: 'Certificación', icon: 'cert-ejpt', color: 'text-[#a371f7] hover:border-[#a371f7] hover:shadow-[0_0_15px_rgba(163,113,247,0.3)]' },
+        { value: 'Top 1%', label: 'TryHackMe', icon: 'social-thm', color: 'text-[#d29922] hover:border-[#d29922] hover:shadow-[0_0_15px_rgba(210,153,34,0.3)]' },
+        { value: '28.3K', label: 'TikTok', icon: 'social-tiktok', color: 'text-accent hover:border-accent hover:shadow-[0_0_15px_var(--color-accent)]' },
+        { value: '2.2K', label: 'LinkedIn', icon: 'lucide:linkedin', color: 'text-[#58a6ff] hover:border-[#58a6ff] hover:shadow-[0_0_15px_rgba(88,166,255,0.3)]' },
       ].map((stat) => (
-        <div class="group rounded-lg border border-border bg-bg-surface p-4 text-center transition-all">
+        <div class={`group rounded-lg border border-border bg-bg-surface p-4 text-center transition-all duration-300 transform hover:-translate-y-1 ${stat.color.split(' ').slice(1).join(' ')}`}>
           <p class={`flex items-center justify-center gap-2 font-mono text-lg font-bold ${stat.color.split(' ')[0]}`}>
             {stat.icon && <Icon name={stat.icon} class="w-5 h-5" />}
             {stat.value}

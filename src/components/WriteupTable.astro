@@ -48,13 +48,13 @@ function formatDate(dateStr: string): string {
       <span class="w-2.5 h-2.5 rounded-full bg-[#d29922]"></span>
       <span class="w-2.5 h-2.5 rounded-full bg-[#3fb950]"></span>
     </div>
-    <span class="ml-2 font-mono text-xs text-text-muted select-none">
-      pwnvader@kali — ls -la ~/writeups/ ({writeups.length} entries)
+    <span class="ml-2 font-mono text-xs select-none">
+      <span class="text-accent">pwnvader@kali</span><span class="text-border"> — </span><span class="text-text-secondary">ls -la ~/writeups/</span> <span class="text-link">({writeups.length} entries)</span>
     </span>
   </div>
 
   <!-- Table container -->
-  <div class="border border-border rounded-b-lg overflow-hidden bg-bg-surface">
+  <div class="border border-border rounded-b-lg overflow-hidden bg-bg-surface relative shadow-[0_0_30px_rgba(0,0,0,0.3)]">
     <!-- Column headers -->
     <div class="hidden sm:grid grid-cols-[120px_100px_1fr_90px_90px] gap-0 font-mono text-[11px] text-text-muted border-b border-border bg-bg-elevated/30 uppercase tracking-wider">
       <span class="px-4 py-2.5">Fecha</span>
@@ -72,7 +72,7 @@ function formatDate(dateStr: string): string {
             href={entry.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group grid grid-cols-1 sm:grid-cols-[120px_100px_1fr_90px_90px] gap-0 items-center transition-all duration-150 hover:bg-accent/5 animate-fade-up"
+            class="group grid grid-cols-1 sm:grid-cols-[120px_100px_1fr_90px_90px] gap-0 items-center transition-all duration-150 hover:bg-accent/10 border-l-[3px] border-transparent hover:border-accent animate-fade-up"
             style={`animation-delay: ${i * 30}ms;`}
           >
             {/* Date */}

@@ -24,7 +24,7 @@ import { skillCategories } from '../../data/skills';
     <div class="grid gap-5 md:grid-cols-2">
       {skillCategories.map((category, catIdx) => (
         <div
-          class="animate-fade-up rounded-lg border border-border bg-bg-surface overflow-hidden transition-all duration-300 hover:border-accent/30"
+          class={`animate-fade-up rounded-lg border border-border bg-bg-surface overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:-translate-x-1 ${category.hoverClass}`}
           style={`animation-delay: ${catIdx * 100}ms;`}
         >
           <!-- Category header -->
