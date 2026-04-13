@@ -121,9 +121,9 @@ import { Icon } from 'astro-icon/components';
     <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 animate-fade-up" style="animation-delay: 450ms;">
       {[
         { value: 'eJPTv2', label: 'Certificación', icon: 'cert-ejpt', color: 'text-[#a371f7] group-hover:border-[#a371f7]/40' },
-        { value: 'Top 1%', label: 'TryHackMe', color: 'text-[#d29922] group-hover:border-[#d29922]/40' },
-        { value: '28.3K', label: 'TikTok', color: 'text-accent group-hover:border-accent/40' },
-        { value: '2.2K', label: 'LinkedIn', color: 'text-[#58a6ff] group-hover:border-[#58a6ff]/40' },
+        { value: 'Top 1%', label: 'TryHackMe', icon: 'social-thm', color: 'text-[#d29922] group-hover:border-[#d29922]/40' },
+        { value: '28.3K', label: 'TikTok', icon: 'social-tiktok', color: 'text-accent group-hover:border-accent/40' },
+        { value: '2.2K', label: 'LinkedIn', icon: 'lucide:linkedin', color: 'text-[#58a6ff] group-hover:border-[#58a6ff]/40' },
       ].map((stat) => (
         <div class="group rounded-lg border border-border bg-bg-surface p-4 text-center transition-all">
           <p class={`flex items-center justify-center gap-2 font-mono text-lg font-bold ${stat.color.split(' ')[0]}`}>
