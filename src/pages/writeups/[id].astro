@@ -1,0 +1,63 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+export async function getStaticPaths() {
+  const writeups = await getCollection('writeups');
+  return writeups.map(entry => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout 
+  title={`${entry.data.title} — Writeup`} 
+  description={`Solución y técnicas de pentesting para la máquina ${entry.data.title} en ${entry.data.platform}.`}
+>
+  <section class="max-w-4xl mx-auto px-4 pt-12 pb-24">
+    <!-- Breadcrumb -->
+    <div class="mb-8 animate-fade-up">
+      <a href="/writeups" class="font-mono text-sm inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-bg-surface text-text-muted hover:text-accent hover:border-accent transition-all duration-300">
+        <Icon name="lucide:arrow-left" class="w-4 h-4" />
+        cd ~/writeups/
+      </a>
+    </div>
+
+    <!-- Writeup Header -->
+    <header class="mb-10 animate-fade-up border-b border-border/60 pb-8" style="animation-delay: 50ms;">
+      <h1 class="font-mono text-3xl sm:text-5xl font-bold text-text-primary flex items-center gap-4 mb-5">
+        <span class="text-accent/80 text-4xl">#</span> {entry.data.title}
+      </h1>
+      
+      <!-- Meta Tags -->
+      <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
+        <span class="px-3 py-1.5 rounded-full border border-border bg-bg-elevated flex items-center gap-1.5 text-text-secondary">
+          <Icon name="lucide:calendar" class="w-3.5 h-3.5" />
+          {entry.data.date}
+        </span>
+        <span class="text-border">/</span>
+        <span class="px-3 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent flex items-center gap-1.5 shadow-[0_0_10px_rgba(46,230,95,0.15)]">
+          {entry.data.platform}
+        </span>
+        <span class="px-3 py-1.5 rounded-full border border-[#f85149]/30 bg-[#f85149]/10 text-[#f85149] uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_10px_rgba(248,81,73,0.15)]">
+          <Icon name="lucide:crosshair" class="w-3.5 h-3.5" />
+          Diff: {entry.data.difficulty}
+        </span>
+        <span class="px-3 py-1.5 rounded-full border border-[#58a6ff]/30 bg-[#58a6ff]/10 text-[#58a6ff] flex items-center gap-1.5 shadow-[0_0_10px_rgba(88,166,255,0.15)]">
+          <Icon name={entry.data.os === 'Windows' ? 'os-windows' : 'os-linux'} class="w-3.5 h-3.5" />
+          {entry.data.os}
+        </span>
+      </div>
+    </header>
+
+    <!-- Raw Markdown Output Target -->
+    <article class="hacker-prose animate-fade-up" style="animation-delay: 150ms;">
+      <Content />
+    </article>
+  </section>
+</BaseLayout>

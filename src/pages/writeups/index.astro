@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WriteupTable from '../../components/WriteupTable.astro';
+import { Icon } from 'astro-icon/components';
 import { getWriteups } from '../../utils/fetchWriteups';
 
 // Build-time fetch: recursive GitHub API call with static fallback
@@ -24,8 +25,68 @@ const writeups = await getWriteups();
       </p>
     </header>
 
-    <!-- Dynamic writeup table -->
+    <!-- HTB Academy Section -->
     <div class="animate-fade-up" style="animation-delay: 100ms;">
+      <h2 class="font-mono text-sm text-text-muted mb-5">
+        <span class="text-accent/60">$</span> ls ~/writeups/htb-academy/
+      </h2>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <!-- COAE Card -->
+        <a
+          href="https://github.com/pwnVader/writeups/tree/main/htb-academy/coae"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#d29922] hover:shadow-[0_0_20px_rgba(210,153,34,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <img src="/images/certs/coae.webp" alt="COAE Badge" class="w-12 h-12 object-contain" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#d29922] transition-colors">
+              COAE
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Certified Offensive AI Expert
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#d29922]/60 border border-[#d29922]/20 bg-[#d29922]/5 px-1.5 py-0.5 rounded">
+            HTB Academy
+          </span>
+        </a>
+
+        <!-- CPTS Card -->
+        <a
+          href="https://github.com/pwnVader/writeups/tree/main/htb-academy/cpts"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_20px_rgba(46,230,95,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <img src="/images/certs/cpts.webp" alt="CPTS Badge" class="w-12 h-12 object-contain" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-accent transition-colors">
+              CPTS
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Certified Penetration Testing Specialist
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-accent/60 border border-accent/20 bg-accent/5 px-1.5 py-0.5 rounded">
+            HTB Academy
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Dynamic writeup table -->
+    <div class="mt-14 animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-sm text-text-muted mb-5">
+        <span class="text-accent/60">$</span> ls ~/writeups/machines/
+      </h2>
       <WriteupTable writeups={writeups} />
     </div>
   </section>
