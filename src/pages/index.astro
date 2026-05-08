@@ -2,10 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Terminal from '../components/Terminal.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import StatsGrid from '../components/StatsGrid.astro';
 import { Icon } from 'astro-icon/components';
 ---
 
-<BaseLayout title="pwnVader — Pentester · Red Team · eJPTv2">
+<BaseLayout title="pwnVader — Pentester · eJPTv2 · COAE">
   <section class="relative mx-auto max-w-4xl px-4 pt-16 pb-20">
     <!-- Ambient Glare -->
     <div class="absolute inset-x-0 -top-10 h-[400px] w-full max-w-2xl mx-auto bg-[radial-gradient(ellipse_at_top,_var(--color-accent)_0%,_transparent_60%)] opacity-[0.07] pointer-events-none blur-[80px]"></div>
@@ -16,7 +17,7 @@ import { Icon } from 'astro-icon/components';
         <div class="space-y-1.5">
           <!-- cat readme.txt command -->
           <p>
-            <span class="text-accent">pwnvader@kali</span><span class="text-border">:</span><span class="text-link">~</span><span class="text-border">$</span>
+            <span class="text-accent">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-accent">~</span><span class="text-accent">$</span>
             <span class="ml-2 text-text-secondary">cat readme.txt</span>
           </p>
 
@@ -27,26 +28,42 @@ import { Icon } from 'astro-icon/components';
             <p class="text-2xl sm:text-3xl font-bold text-text-primary leading-tight">
               Jesus P Romero
             </p>
-            <p class="text-lg sm:text-xl font-bold text-accent">
+            <p class="text-lg sm:text-xl font-bold text-text-secondary">
               pwnVader
             </p>
           </div>
 
           <div class="h-2"></div>
 
-          <!-- Tagline — unified with link color -->
+          <!-- Tagline — IDE syntax pills. Cert tags wear their grid identity at rest. -->
           <div class="flex flex-wrap items-center gap-2">
             {[
-              { label: 'Pentester', color: 'text-accent border-accent/20 bg-accent/10' },
-              { label: 'Red Team', color: 'text-[#f85149] border-[#f85149]/20 bg-[#f85149]/10' },
-              { label: 'eJPTv2', icon: 'cert-ejpt', color: 'text-[#a371f7] border-[#a371f7]/20 bg-[#a371f7]/10' },
-              { label: 'Ing. Sistemas Computacionales', color: 'text-[#58a6ff] border-[#58a6ff]/20 bg-[#58a6ff]/10' },
-            ].map((tag) => (
-              <span class={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded border ${tag.color}`}>
-                {tag.icon && <Icon name={tag.icon} class="w-4 h-4" />}
-                {tag.label}
-              </span>
-            ))}
+              { label: 'COAE', iconImg: '/images/certs/coae.webp', tone: 'text-[#9388d4] border-[#9388d4]/30', href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4' },
+              { label: 'eJPTv2', icon: 'cert-ejpt', tone: 'text-[#c75d8e] border-[#c75d8e]/30', href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt' },
+              { label: 'Pentester', tone: 'text-[#f85149]/90 border-[#f85149]/25' },
+              { label: 'Ing. Sistemas Computacionales', tone: 'text-[#58a6ff]/90 border-[#58a6ff]/25' },
+            ].map((tag) => {
+              const tagClass = `flex items-center gap-1.5 text-xs px-2.5 py-1 rounded border bg-bg-surface ${tag.tone}`;
+              return tag.href ? (
+                <a href={tag.href} target="_blank" rel="noopener noreferrer" class={`${tagClass} transition-colors hover:brightness-110`}>
+                  {tag.iconImg ? (
+                    <img src={tag.iconImg} alt="" class="w-4 h-4 object-contain" />
+                  ) : tag.icon ? (
+                    <Icon name={tag.icon} class="w-4 h-4" />
+                  ) : null}
+                  {tag.label}
+                </a>
+              ) : (
+                <span class={tagClass}>
+                  {tag.iconImg ? (
+                    <img src={tag.iconImg} alt="" class="w-4 h-4 object-contain" />
+                  ) : tag.icon ? (
+                    <Icon name={tag.icon} class="w-4 h-4" />
+                  ) : null}
+                  {tag.label}
+                </span>
+              );
+            })}
           </div>
 
           <div class="h-2"></div>
@@ -55,7 +72,7 @@ import { Icon } from 'astro-icon/components';
           <p class="text-text-secondary text-sm leading-relaxed max-w-xl">
             Pentester especializado en seguridad ofensiva, mentoría técnica en
             comunidades como NicaSecurity y ponente en NetSentinel Academy sobre
-            IA aplicada a la ciberseguridad. Certificado eJPTv2. Próximo objetivo: CPTS.
+            IA aplicada a la ciberseguridad. Certificado COAE y eJPTv2. Próximo objetivo: CPTS.
           </p>
 
           <div class="h-4"></div>
@@ -63,17 +80,19 @@ import { Icon } from 'astro-icon/components';
           <!-- Timeline / Experience -->
           <ul class="border-l border-border/60 ml-[5px] space-y-4 pt-1 pb-3">
             {[
-              { date: 'Mar 2026', title: 'Technical Clinics: Road to eJPT: Lab Series', org: 'NicaSecurity' },
-              { date: 'Ene 2026', title: 'Workshop Agentic Workflow: Tu Primer Entorno de Pentest con IA y MCP', org: 'NetSentinel Academy' },
+              { date: 'Mar 2026', title: 'Technical Clinics: Road to eJPT: Lab Series' },
+              { date: 'Ene 2026', title: 'Workshop Agentic Workflow: Tu Primer Entorno de Pentest con IA y MCP' },
               { date: 'Dic 2025', title: 'Internship Automatización y digitalización de auditoría de producto', org: 'Volkswagen' },
-              { date: 'Nov 2025', title: 'Mentor', org: 'Nación Hacker' },
+              { date: 'Nov 2025', title: 'Mentor de Ciberseguridad' },
             ].map(exp => (
               <li class="relative pl-4">
                 <span class="absolute -left-[4.5px] top-1.5 w-2 h-2 rounded-full border border-border bg-bg-surface"></span>
-                <p class="font-mono text-[10px] text-text-muted">{exp.date}</p>
-                <p class="text-sm text-text-primary mt-0.5 leading-snug">
-                  <span class="text-accent/90">{exp.title}</span> 
-                  <span class="text-text-muted mt-0.5 block sm:inline sm:ml-1">— {exp.org}</span>
+                <p class="font-mono text-[10px] text-accent">{exp.date}</p>
+                <p class="text-sm mt-0.5 leading-snug">
+                  <span class="text-text-primary">{exp.title}</span>
+                  {exp.org && (
+                    <span class="text-text-muted mt-0.5 block sm:inline sm:ml-1">— {exp.org}</span>
+                  )}
                 </p>
               </li>
             ))}
@@ -83,30 +102,30 @@ import { Icon } from 'astro-icon/components';
 
           <!-- Prompt cursor -->
           <p class="flex items-center gap-1">
-            <span class="text-accent">pwnvader@kali</span><span class="text-border">:</span><span class="text-link">~</span><span class="text-border">$</span>
+            <span class="text-accent">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-accent">~</span><span class="text-accent">$</span>
             <span class="ml-2 text-text-muted animate-pulse">█</span>
           </p>
         </div>
       </Terminal>
     </div>
 
-    <!-- CTA Buttons — Explosive Neon Reactive Buttons -->
+    <!-- CTA Buttons — Monochrome with ember interaction accent -->
     <div class="mt-10 flex flex-wrap gap-3 animate-fade-up" style="animation-delay: 150ms;">
       <a
         href="/skills/"
-        class="rounded-lg border border-accent/40 bg-accent/5 px-6 py-2.5 font-mono text-sm text-accent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_10px_rgba(46,230,95,0.2)]"
+        class="rounded-lg border border-border bg-bg-surface px-6 py-2.5 font-mono text-sm text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
       >
         ./skills.sh
       </a>
       <a
         href="/writeups/"
-        class="rounded-lg border border-[#58a6ff]/40 bg-[#58a6ff]/5 px-6 py-2.5 font-mono text-sm text-[#58a6ff] transition-all duration-300 hover:bg-[#58a6ff]/10 hover:border-[#58a6ff] hover:shadow-[0_0_10px_rgba(88,166,255,0.2)]"
+        class="rounded-lg border border-border bg-bg-surface px-6 py-2.5 font-mono text-sm text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
       >
         ls writeups/
       </a>
       <a
         href="/linkedin/"
-        class="rounded-lg border border-[#a371f7]/40 bg-[#a371f7]/5 px-6 py-2.5 font-mono text-sm text-[#a371f7] transition-all duration-300 hover:bg-[#a371f7]/10 hover:border-[#a371f7] hover:shadow-[0_0_10px_rgba(163,113,247,0.2)]"
+        class="rounded-lg border border-border bg-bg-surface px-6 py-2.5 font-mono text-sm text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
       >
         cat community.txt
       </a>
@@ -115,27 +134,14 @@ import { Icon } from 'astro-icon/components';
     <!-- Social Links Section -->
     <div class="mt-12 animate-fade-up" style="animation-delay: 300ms;">
       <h2 class="font-mono text-sm text-text-muted mb-4">
-        <span class="text-accent/60">$</span> cat social_links.txt
+        <span class="text-accent">$</span> cat social_links.txt
       </h2>
       <SocialLinks />
     </div>
 
     <!-- Quick Stats — Glowing Reactive Dashboard -->
-    <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 animate-fade-up" style="animation-delay: 450ms;">
-      {[
-        { value: 'eJPTv2', label: 'Certificación', icon: 'cert-ejpt', color: 'text-[#a371f7] hover:border-[#a371f7] hover:shadow-[0_0_15px_rgba(163,113,247,0.3)]' },
-        { value: 'Top 1%', label: 'TryHackMe', icon: 'social-thm', color: 'text-[#d29922] hover:border-[#d29922] hover:shadow-[0_0_15px_rgba(210,153,34,0.3)]' },
-        { value: '28.3K', label: 'TikTok', icon: 'social-tiktok', color: 'text-accent hover:border-accent hover:shadow-[0_0_15px_var(--color-accent)]' },
-        { value: '2.2K', label: 'LinkedIn', icon: 'lucide:linkedin', color: 'text-[#58a6ff] hover:border-[#58a6ff] hover:shadow-[0_0_15px_rgba(88,166,255,0.3)]' },
-      ].map((stat) => (
-        <div class={`group rounded-lg border border-border bg-bg-surface p-4 text-center transition-all duration-300 transform hover:-translate-y-1 ${stat.color.split(' ').slice(1).join(' ')}`}>
-          <p class={`flex items-center justify-center gap-2 font-mono text-lg font-bold ${stat.color.split(' ')[0]}`}>
-            {stat.icon && <Icon name={stat.icon} class="w-5 h-5" />}
-            {stat.value}
-          </p>
-          <p class="font-mono text-xs text-text-muted mt-2">{stat.label}</p>
-        </div>
-      ))}
+    <div class="mt-12 animate-fade-up" style="animation-delay: 450ms;">
+      <StatsGrid />
     </div>
   </section>
 </BaseLayout>

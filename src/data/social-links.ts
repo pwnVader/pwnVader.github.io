@@ -19,7 +19,7 @@ export const socialLinks: SocialLink[] = [
   {
     label: 'LinkedIn',
     href: 'https://linkedin.com/in/perezromerojesus',
-    icon: 'lucide:linkedin',
+    icon: 'social-linkedin',
     handle: '2.2K seguidores',
     colorHoverClass: 'hover:border-[#58a6ff] hover:text-[#58a6ff] hover:shadow-[0_0_15px_rgba(88,166,255,0.3)]',
     colorGroupClass: 'group-hover:text-[#58a6ff] group-hover:border-[#58a6ff] group-hover:shadow-[0_0_15px_rgba(88,166,255,0.3)]'

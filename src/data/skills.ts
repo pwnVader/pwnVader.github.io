@@ -89,7 +89,7 @@ export const skillCategories: SkillCategory[] = [
     hoverClass: 'hover:border-accent hover:shadow-[0_0_20px_rgba(46,230,95,0.25)]',
     skills: [
       { name: 'HTB Certified Penetration Testing Specialist (CPTS)', icon: 'tech-htb' },
-      { name: 'Certified Offensive AI Expert (COAE)', icon: 'tech-htb' },
+      { name: 'TCM Practical Network Penetration Tester (PNPT)' },
     ],
   },
 ];

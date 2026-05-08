@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Curated Palette: Hacker-Minimal ── */
+  /* ── Curated Palette: Graphite & Ember (Modern Monochrome Terminal) ── */
 
-  /* Primary accent — soft terminal green (prompts, success, highlights) */
-  --color-accent: #2ee65f;
+  /* Tactical accent — IDE steel blue (prompt symbols, paths, hover, dates) */
+  --color-accent: #58a6ff;
 
-  /* Secondary accent — cyber blue (links, tags, secondary elements) */
+  /* Link color unified with accent for monochrome interaction language */
   --color-link: #58a6ff;
 
-  /* Background scale */
-  --color-bg-base: #0d1117;
-  --color-bg-surface: #161b22;
-  --color-bg-elevated: #21262d;
+  /* Background scale — warm graphite */
+  --color-bg-base: #10131a;
+  --color-bg-surface: #1a1e28;
+  --color-bg-elevated: #252a36;
 
-  /* Text scale */
-  --color-text-primary: #c9d1d9;
-  --color-text-secondary: #8b949e;
-  --color-text-muted: #6e7681;
+  /* Text scale — warm off-white descending to muted graphite */
+  --color-text-primary: #d8d4cc;
+  --color-text-secondary: #9a978f;
+  --color-text-muted: #6b6963;
 
   /* Border */
-  --color-border: #30363d;
+  --color-border: #2e3340;
 
   /* Typography */
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;

@@ -4,9 +4,24 @@ import { Icon } from 'astro-icon/components';
 const year = new Date().getFullYear();
 
 const footerLinks = [
-  { label: 'GitHub', href: 'https://github.com/pwnvader', icon: 'lucide:github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/perezromerojesus', icon: 'lucide:linkedin' },
-  { label: 'TikTok', href: 'https://www.tiktok.com/@pwnvader', icon: 'social-tiktok' },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/pwnvader',
+    icon: 'lucide:github',
+    hoverClass: 'hover:text-text-primary',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/perezromerojesus',
+    icon: 'social-linkedin',
+    hoverClass: 'hover:text-[#5d8fc7]',
+  },
+  {
+    label: 'TikTok',
+    href: 'https://www.tiktok.com/@pwnvader',
+    icon: 'social-tiktok',
+    hoverClass: 'hover:text-[#5fb8b0]',
+  },
 ];
 ---
 
@@ -18,23 +33,24 @@ const footerLinks = [
     </p>
 
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <!-- Terminal prompt (softened green) -->
+      <!-- Terminal prompt (softened) -->
       <p class="font-mono text-xs text-text-muted">
-        <span class="text-accent/50">root@pwnvader</span><span class="text-border">:</span><span class="text-link/50">~</span><span class="text-border">#</span>
+        <span class="text-accent/60">root@pwnvader</span><span class="text-border">:</span><span class="text-accent/60">~</span><span class="text-border">#</span>
         <span class="ml-1">echo "Built with Astro & ☕"</span>
       </p>
 
-      <!-- Social icons -->
-      <div class="flex items-center gap-3">
+      <!-- Social icons — neutral by default, brand color on hover -->
+      <div class="flex items-center gap-2">
         {footerLinks.map((link) => (
           <a
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
             title={link.label}
-            class="text-text-muted hover:text-accent transition-colors"
+            aria-label={link.label}
+            class={`inline-flex items-center justify-center w-7 h-7 rounded text-text-muted transition-colors ${link.hoverClass}`}
           >
-            <Icon name={link.icon} class="w-4 h-4" />
+            <Icon name={link.icon} class="w-4 h-4 block" />
           </a>
         ))}
       </div>

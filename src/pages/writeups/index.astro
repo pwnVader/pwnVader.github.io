@@ -21,29 +21,86 @@ const writeups = await getWriteups();
         <span class="text-accent">~/</span>writeups
       </h1>
       <p class="mt-2 font-mono text-sm text-text-secondary">
-        <span class="text-accent/60">$</span> find ~/writeups -name "*.md" -type f | sort -r
+        <span class="text-accent">$</span> find ~/writeups -name "*.md" -type f | sort -r
       </p>
     </header>
+
+    <!-- CTF Profile Section -->
+    <div class="mb-12 animate-fade-up" style="animation-delay: 50ms;">
+      <h2 class="font-mono text-sm text-text-muted mb-5">
+        <span class="text-accent">$</span> ls ~/profiles/ctf/
+      </h2>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <!-- HackTheBox Card -->
+        <a
+          href="https://app.hackthebox.com/users/1247070"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <Icon name="tech-htb" class="w-10 h-10 text-[#3fb950]" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#3fb950] transition-colors">
+              HackTheBox
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Profile · pwnVader
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#3fb950]/60 border border-[#3fb950]/20 bg-[#3fb950]/5 px-1.5 py-0.5 rounded">
+            CTF
+          </span>
+        </a>
+
+        <!-- TryHackMe Card -->
+        <a
+          href="https://tryhackme.com/p/pwnVader"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#f85149] hover:shadow-[0_0_20px_rgba(248,81,73,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <Icon name="social-thm" class="w-10 h-10 text-[#f85149]" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#f85149] transition-colors">
+              TryHackMe
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Top 1% · pwnVader
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#f85149]/60 border border-[#f85149]/20 bg-[#f85149]/5 px-1.5 py-0.5 rounded">
+            CTF
+          </span>
+        </a>
+      </div>
+    </div>
 
     <!-- HTB Academy Section -->
     <div class="animate-fade-up" style="animation-delay: 100ms;">
       <h2 class="font-mono text-sm text-text-muted mb-5">
-        <span class="text-accent/60">$</span> ls ~/writeups/htb-academy/
+        <span class="text-accent">$</span> ls ~/writeups/htb-academy/
       </h2>
 
       <div class="grid gap-4 sm:grid-cols-2">
-        <!-- COAE Card -->
+        <!-- COAE Card — lavender identity, matches home cert tag -->
         <a
           href="https://github.com/pwnVader/writeups/tree/main/htb-academy/coae"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#d29922] hover:shadow-[0_0_20px_rgba(210,153,34,0.25)] overflow-hidden"
+          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#9388d4] hover:shadow-[0_0_20px_rgba(147,136,212,0.25)] overflow-hidden"
         >
           <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
             <img src="/images/certs/coae.webp" alt="COAE Badge" class="w-12 h-12 object-contain" />
           </div>
           <div>
-            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#d29922] transition-colors">
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#9388d4] transition-colors">
               COAE
               <span class="text-text-muted text-xs ml-1.5">↗</span>
             </p>
@@ -51,23 +108,23 @@ const writeups = await getWriteups();
               Certified Offensive AI Expert
             </p>
           </div>
-          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#d29922]/60 border border-[#d29922]/20 bg-[#d29922]/5 px-1.5 py-0.5 rounded">
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#9388d4]/60 border border-[#9388d4]/20 bg-[#9388d4]/5 px-1.5 py-0.5 rounded">
             HTB Academy
           </span>
         </a>
 
-        <!-- CPTS Card -->
+        <!-- CPTS Card — HTB green identity -->
         <a
           href="https://github.com/pwnVader/writeups/tree/main/htb-academy/cpts"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_20px_rgba(46,230,95,0.25)] overflow-hidden"
+          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
         >
           <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
             <img src="/images/certs/cpts.webp" alt="CPTS Badge" class="w-12 h-12 object-contain" />
           </div>
           <div>
-            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-accent transition-colors">
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#3fb950] transition-colors">
               CPTS
               <span class="text-text-muted text-xs ml-1.5">↗</span>
             </p>
@@ -75,7 +132,7 @@ const writeups = await getWriteups();
               Certified Penetration Testing Specialist
             </p>
           </div>
-          <span class="absolute top-2 right-3 font-mono text-[10px] text-accent/60 border border-accent/20 bg-accent/5 px-1.5 py-0.5 rounded">
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#3fb950]/60 border border-[#3fb950]/20 bg-[#3fb950]/5 px-1.5 py-0.5 rounded">
             HTB Academy
           </span>
         </a>
@@ -85,7 +142,7 @@ const writeups = await getWriteups();
     <!-- Dynamic writeup table -->
     <div class="mt-14 animate-fade-up" style="animation-delay: 200ms;">
       <h2 class="font-mono text-sm text-text-muted mb-5">
-        <span class="text-accent/60">$</span> ls ~/writeups/machines/
+        <span class="text-accent">$</span> ls ~/writeups/machines/
       </h2>
       <WriteupTable writeups={writeups} />
     </div>
