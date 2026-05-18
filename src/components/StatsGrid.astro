@@ -37,6 +37,8 @@ const stats = [
     value: '2.3K',
     label: 'LinkedIn',
     icon: 'social-linkedin',
+    isVector: false,
+    restColor: 'text-[#74c7ec]',
     hoverWrap: 'hover:border-[#74c7ec] hover:text-[#74c7ec] hover:shadow-[0_0_18px_rgba(116,199,236,0.18)]',
     hoverIcon: 'group-hover:text-[#74c7ec]',
     href: 'https://linkedin.com/in/perezromerojesus',
@@ -52,7 +54,7 @@ const stats = [
 ];
 
 const vectorIconClass = 'w-6 h-6 block transition-all duration-300';
-const currentIconClassBase = 'w-6 h-6 block text-text-secondary transition-colors duration-300';
+const currentIconClassBase = 'w-6 h-6 block transition-colors duration-300';
 ---
 
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -63,7 +65,7 @@ const currentIconClassBase = 'w-6 h-6 block text-text-secondary transition-color
     const iconNode = stat.iconImg
       ? <img src={stat.iconImg} alt="" class={`object-contain ${vectorIconClass}`} />
       : stat.icon
-        ? <Icon name={stat.icon} class={stat.isVector ? vectorIconClass : `${currentIconClassBase} ${stat.hoverIcon ?? ''}`} />
+        ? <Icon name={stat.icon} class={stat.isVector ? vectorIconClass : `${currentIconClassBase} ${stat.restColor ?? 'text-text-secondary'} ${stat.hoverIcon ?? ''}`} />
         : null;
 
     return stat.href ? (

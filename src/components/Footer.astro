@@ -8,18 +8,21 @@ const footerLinks = [
     label: 'GitHub',
     href: 'https://github.com/pwnvader',
     icon: 'lucide:github',
-    hoverClass: 'hover:text-text-primary',
+    colorClass: 'text-[#cdd6f4]/60',
+    hoverClass: 'hover:text-[#cdd6f4]',
   },
   {
     label: 'LinkedIn',
     href: 'https://linkedin.com/in/perezromerojesus',
     icon: 'social-linkedin',
+    colorClass: 'text-[#74c7ec]/60',
     hoverClass: 'hover:text-[#74c7ec]',
   },
   {
     label: 'TikTok',
     href: 'https://www.tiktok.com/@pwnvader',
     icon: 'social-tiktok',
+    colorClass: 'text-[#94e2d5]/60',
     hoverClass: 'hover:text-[#94e2d5]',
   },
 ];
@@ -48,7 +51,7 @@ const footerLinks = [
             rel="noopener noreferrer"
             title={link.label}
             aria-label={link.label}
-            class={`inline-flex items-center justify-center w-7 h-7 rounded text-text-muted transition-colors ${link.hoverClass}`}
+            class={`inline-flex items-center justify-center w-7 h-7 rounded transition-colors ${link.colorClass} ${link.hoverClass}`}
           >
             <Icon name={link.icon} class="w-4 h-4 block" />
           </a>

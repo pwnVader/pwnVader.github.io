@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const certifications = [
+  {
+    name: 'COAE',
+    fullName: 'Certified Offensive AI Expert',
+    org: 'Hack The Box',
+    date: 'May 2026',
+    color: 'text-[#cba6f7]',
+    borderColor: 'border-[#cba6f7]/30',
+    glowColor: 'hover:shadow-[0_0_18px_rgba(203,166,247,0.15)]',
+    href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4',
+    iconImg: '/images/certs/coae.webp',
+  },
+  {
+    name: 'eJPTv2',
+    fullName: 'eLearnSecurity Junior Penetration Tester',
+    org: 'INE Security',
+    date: '2025',
+    color: 'text-[#f5c2e7]',
+    borderColor: 'border-[#f5c2e7]/30',
+    glowColor: 'hover:shadow-[0_0_18px_rgba(245,194,231,0.15)]',
+    href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt',
+    icon: 'cert-ejpt',
+  },
+];
+
+const timeline = [
+  {
+    date: 'May 2026',
+    title: 'Certified Offensive AI Expert (COAE)',
+    type: 'cert',
+    color: 'text-[#cba6f7]',
+    dotColor: 'bg-[#cba6f7]/20 border-[#cba6f7]/40',
+  },
+  {
+    date: 'Mar 2026',
+    title: 'Technical Clinics: Road to eJPT: Lab Series',
+    subtitle: 'Instructor — NicaSecurity',
+    type: 'speaker',
+    color: 'text-[#94e2d5]',
+    dotColor: 'bg-[#94e2d5]/20 border-[#94e2d5]/40',
+  },
+  {
+    date: 'Ene 2026',
+    title: 'Workshop Agentic Workflow: Pentest con IA y MCP',
+    subtitle: 'Ponente — NetSentinel Academy',
+    type: 'speaker',
+    color: 'text-[#fab387]',
+    dotColor: 'bg-[#fab387]/20 border-[#fab387]/40',
+  },
+  {
+    date: 'Dic 2025',
+    title: 'Internship — Automatización de auditoría',
+    subtitle: 'Volkswagen Group',
+    type: 'work',
+    color: 'text-[#89b4fa]',
+    dotColor: 'bg-[#89b4fa]/20 border-[#89b4fa]/40',
+  },
+  {
+    date: 'Nov 2025',
+    title: 'Mentor de Ciberseguridad',
+    subtitle: 'Nación Hacker',
+    type: 'mentor',
+    color: 'text-[#a6e3a1]',
+    dotColor: 'bg-[#a6e3a1]/20 border-[#a6e3a1]/40',
+  },
+  {
+    date: '2025',
+    title: 'eJPTv2 Certified',
+    type: 'cert',
+    color: 'text-[#f5c2e7]',
+    dotColor: 'bg-[#f5c2e7]/20 border-[#f5c2e7]/40',
+  },
+];
+---
+
+<BaseLayout
+  title="About — pwnVader"
+  description="Conoce a Jesus P Romero (pwnVader) — Pentester certificado COAE y eJPTv2, speaker, mentor y creador de contenido en ciberseguridad."
+>
+  <section class="mx-auto max-w-4xl px-4 pt-16 pb-20">
+    <!-- Page header -->
+    <header class="mb-12 animate-fade-up">
+      <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
+        <span class="text-[#89b4fa]">~/</span>about
+      </h1>
+      <p class="mt-2 font-mono text-sm text-text-secondary">
+        <span class="text-[#a6e3a1]">$</span> cat /etc/pwnvader/profile.conf
+      </p>
+    </header>
+
+    <!-- Bio Section -->
+    <div class="animate-fade-up space-y-6" style="animation-delay: 100ms;">
+      <div class="rounded-lg border border-border bg-bg-surface p-6 sm:p-8">
+        <div class="space-y-4">
+          <div>
+            <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-3">
+              <span class="text-[#a6e3a1]">#</span> whoami
+            </h2>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Soy <span class="text-text-primary font-medium">Jesus P. Romero</span>, mejor conocido como
+              <span class="text-[#cba6f7] font-medium">pwnVader</span>. Pentester enfocado en
+              <span class="text-[#f38ba8]">seguridad ofensiva</span>, con experiencia en pruebas de penetración de redes,
+              aplicaciones web y entornos de Active Directory.
+            </p>
+          </div>
+
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Actualmente curso <span class="text-[#89b4fa]">Ingeniería en Sistemas Computacionales</span> en el
+            TECNM y trabajo como intern en <span class="text-text-primary">Volkswagen</span>, donde desarrollo
+            automatizaciones para auditoría de datos e integridad de producto.
+          </p>
+
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Fuera del pentesting, soy <span class="text-[#fab387]">ponente e instructor</span> en comunidades como
+            <span class="text-[#94e2d5]">NicaSecurity</span> y <span class="text-[#94e2d5]">NetSentinel Academy</span>,
+            donde imparto talleres sobre seguridad ofensiva e
+            <span class="text-[#fab387]">IA aplicada al hacking</span>. También creo contenido en
+            <span class="text-[#94e2d5]">LinkedIn</span> y <span class="text-[#94e2d5]">TikTok</span> para
+            acercar la ciberseguridad a más personas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="mt-10 animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
+        <span class="text-[#a6e3a1]">#</span> certifications --verified
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {certifications.map((cert) => (
+          <a
+            href={cert.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`group flex items-center gap-4 rounded-lg border ${cert.borderColor} bg-bg-surface p-5 transition-all duration-300 hover:-translate-y-0.5 ${cert.glowColor}`}
+          >
+            <div class="shrink-0">
+              {cert.iconImg ? (
+                <img src={cert.iconImg} alt="" class="w-10 h-10 object-contain" />
+              ) : (
+                <Icon name={cert.icon!} class="w-10 h-10" />
+              )}
+            </div>
+            <div>
+              <p class={`font-mono text-sm font-bold ${cert.color}`}>{cert.name}</p>
+              <p class="font-mono text-xs text-text-secondary mt-0.5">{cert.fullName}</p>
+              <p class="font-mono text-[10px] text-text-muted mt-1">{cert.org} · {cert.date}</p>
+            </div>
+            <Icon name="lucide:external-link" class="w-3.5 h-3.5 text-text-muted ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mt-10 animate-fade-up" style="animation-delay: 300ms;">
+      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-5">
+        <span class="text-[#a6e3a1]">#</span> cat /var/log/career.log | tail -6
+      </h2>
+      <div class="relative">
+        <div class="absolute left-[7px] top-2 bottom-2 w-px bg-border/40"></div>
+        <ul class="space-y-5">
+          {timeline.map((item) => (
+            <li class="relative pl-7">
+              <span class={`absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border ${item.dotColor}`}></span>
+              <p class={`font-mono text-[10px] ${item.color}`}>{item.date}</p>
+              <p class="text-sm mt-0.5 text-text-primary font-medium leading-snug">{item.title}</p>
+              {item.subtitle && (
+                <p class="font-mono text-xs text-text-muted mt-0.5">{item.subtitle}</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Current Focus -->
+    <div class="mt-10 animate-fade-up" style="animation-delay: 400ms;">
+      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
+        <span class="text-[#a6e3a1]">#</span> echo $NEXT_OBJECTIVE
+      </h2>
+      <div class="rounded-lg border border-[#f9e2af]/20 bg-[#f9e2af]/5 p-5">
+        <div class="flex items-center gap-3">
+          <span class="text-[#f9e2af] text-lg">⏳</span>
+          <div>
+            <p class="font-mono text-sm text-[#f9e2af] font-bold">CPTS — Certified Penetration Testing Specialist</p>
+            <p class="font-mono text-xs text-text-muted mt-1">Hack The Box · En progreso</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
