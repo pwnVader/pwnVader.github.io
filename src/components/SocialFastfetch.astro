@@ -1,0 +1,172 @@
+---
+/**
+ * Fastfetch-style social showcase.
+ *
+ * Left: Kali ASCII (desktop only — hidden on mobile to keep layout tight).
+ * Right: socials rendered as `key: value · badge` rows, fastfetch info-style.
+ * Collapsible via header button; state persisted in localStorage.
+ *
+ * Kali ASCII sourced from fastfetch-cli/fastfetch (src/logo/ascii/kali.txt),
+ * `$1` / `$2` color tokens stripped — we render one Kali-blue color.
+ */
+
+const kaliAscii = `..............
+            ..,;:ccc,.
+          ......''';lxO.
+.....''''..........,:ld;
+           .';;;:::;,,.x,
+      ..'''.            0Xxoc:,.  ...
+  ....                ,ONkc;,;cokOdc',.
+ .                   OMo           ':ddo.
+                    dMc               :OO;
+                    0M.                 .:o.
+                    ;Wd
+                     ;XO,
+                       ,d0Odlc;,..
+                           ..',;:cdOOd::,.
+                                    .:d;.':;.
+                                       'd,  .'
+                                         ;l   ..
+                                          .o
+                                            c
+                                            .'
+                                             .`;
+
+interface SocialRow {
+  key: string;
+  value: string;
+  badge?: string;
+  href: string;
+}
+
+const socials: SocialRow[] = [
+  { key: 'LinkedIn',   value: 'jesuspromero',          badge: '2.3K',   href: 'https://www.linkedin.com/in/jesuspromero/' },
+  { key: 'TikTok',     value: '@pwnvader',             badge: '28.3K',  href: 'https://www.tiktok.com/@pwnvader' },
+  { key: 'GitHub',     value: 'pwnvader',                               href: 'https://github.com/pwnvader' },
+  { key: 'Medium',     value: '@pwnvader',                              href: 'https://medium.com/@pwnvader' },
+  { key: 'TryHackMe',  value: 'pwnVader',              badge: 'Top 1%', href: 'https://tryhackme.com/p/pwnVader' },
+  { key: 'HackTheBox', value: 'pwnVader',                               href: 'https://app.hackthebox.com/users/1247070' },
+  { key: 'Email',      value: 'contacto@pwnvader.com',                  href: 'mailto:contacto@pwnvader.com' },
+];
+
+// `ch` width — align the colons. +2 = colon + breathing space.
+const keyColCh = Math.max(...socials.map(s => s.key.length)) + 2;
+const separatorWidth = 32;
+---
+
+<div
+  id="social-fastfetch"
+  class="terminal-window rounded-lg border border-border overflow-hidden bg-bg-surface"
+  style="box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);"
+>
+  <!-- Title bar with collapse button -->
+  <div class="flex items-center justify-between gap-2 bg-bg-elevated px-4 py-2.5 border-b border-border">
+    <div class="flex items-center gap-2">
+      <div class="flex gap-1.5">
+        <span class="w-3 h-3 rounded-full bg-[#f38ba8]"></span>
+        <span class="w-3 h-3 rounded-full bg-[#f9e2af]"></span>
+        <span class="w-3 h-3 rounded-full bg-[#a6e3a1]"></span>
+      </div>
+      <span class="ml-2 font-mono text-xs text-text-muted select-none">pwnvader@kali — fastfetch</span>
+    </div>
+    <button
+      id="fastfetch-toggle"
+      type="button"
+      class="font-mono text-[10px] tracking-wide text-text-muted hover:text-accent transition-colors px-2 py-0.5 rounded border border-border/40 hover:border-accent/40"
+      aria-controls="fastfetch-body"
+      aria-expanded="true"
+      title="Mostrar / ocultar fastfetch"
+    >
+      <span data-fastfetch-state="expanded">[ — hide ]</span>
+      <span data-fastfetch-state="collapsed" class="hidden">[ + show ]</span>
+    </button>
+  </div>
+
+  <!-- Body -->
+  <div id="fastfetch-body" class="bg-bg-surface p-5 sm:p-6 font-mono text-sm leading-relaxed">
+    <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
+      <!-- Kali ASCII — desktop only -->
+      <pre
+        class="hidden md:block text-[#89b4fa] text-[13px] leading-[1.15] select-none shrink-0"
+        aria-hidden="true"
+      >{kaliAscii}</pre>
+
+      <!-- Info column -->
+      <div class="flex-1 min-w-0 space-y-1">
+        <p class="text-base">
+          <span class="text-[#a6e3a1]">root</span><span class="text-text-muted">@</span><span class="text-[#89b4fa]">pwnvader</span>
+        </p>
+        <p class="text-text-muted/60 select-none leading-none">{'-'.repeat(separatorWidth)}</p>
+
+        <div class="space-y-0.5 pt-1">
+          {socials.map((s) => (
+            <a
+              href={s.href}
+              target={s.href.startsWith('mailto') ? undefined : '_blank'}
+              rel={s.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+              class="group flex items-baseline gap-1 sm:gap-2 rounded px-1.5 -mx-1.5 py-0.5 transition-colors hover:bg-bg-elevated/40"
+            >
+              <span
+                class="font-bold shrink-0 text-[#89b4fa]"
+                style={`min-width: ${keyColCh}ch;`}
+              >{s.key}:</span>
+              <span class="text-text-secondary group-hover:text-text-primary transition-colors truncate">
+                {s.value}
+                {s.badge && <span class="text-text-muted ml-1.5 sm:ml-2">· {s.badge}</span>}
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <!-- Color palette row — fastfetch signature -->
+        <div class="flex gap-1 pt-3" aria-hidden="true">
+          <span class="w-5 h-2.5 bg-[#1e1e2e] border border-border/40"></span>
+          <span class="w-5 h-2.5 bg-[#f38ba8]"></span>
+          <span class="w-5 h-2.5 bg-[#a6e3a1]"></span>
+          <span class="w-5 h-2.5 bg-[#f9e2af]"></span>
+          <span class="w-5 h-2.5 bg-[#89b4fa]"></span>
+          <span class="w-5 h-2.5 bg-[#cba6f7]"></span>
+          <span class="w-5 h-2.5 bg-[#94e2d5]"></span>
+          <span class="w-5 h-2.5 bg-[#cdd6f4]"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'pwnvader.fastfetch.collapsed';
+
+  function initFastfetch() {
+    const wrapper = document.getElementById('social-fastfetch');
+    if (!wrapper) return;
+    const btn = document.getElementById('fastfetch-toggle');
+    const body = document.getElementById('fastfetch-body');
+    if (!btn || !body) return;
+
+    const expandedLabel = btn.querySelector('[data-fastfetch-state="expanded"]') as HTMLElement | null;
+    const collapsedLabel = btn.querySelector('[data-fastfetch-state="collapsed"]') as HTMLElement | null;
+
+    const apply = (collapsed: boolean) => {
+      body.classList.toggle('hidden', collapsed);
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      expandedLabel?.classList.toggle('hidden', collapsed);
+      collapsedLabel?.classList.toggle('hidden', !collapsed);
+    };
+
+    try {
+      if (localStorage.getItem(STORAGE_KEY) === '1') apply(true);
+    } catch {}
+
+    btn.addEventListener('click', () => {
+      const isCollapsed = body.classList.contains('hidden');
+      const next = !isCollapsed;
+      apply(next);
+      try {
+        localStorage.setItem(STORAGE_KEY, next ? '1' : '0');
+      } catch {}
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFastfetch);
+</script>

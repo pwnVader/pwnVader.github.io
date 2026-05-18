@@ -20,7 +20,7 @@
 
   /* Background scale — Mocha depths */
   --color-bg-base: #11111b;     /* Crust  */
-  --color-bg-surface: #1e1e2e;  /* Base   */
+  --color-bg-surface: #181825;  /* Mantle  — one step deeper than stock Base for richer card contrast */
   --color-bg-elevated: #313244; /* Surface0 */
 
   /* Text scale */

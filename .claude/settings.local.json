@@ -7,7 +7,9 @@
       "PowerShell(npm run *)",
       "PowerShell(npx astro build 2>&1 | Select-Object -Last 40)",
       "PowerShell(npx astro build 2>&1 | Select-Object -Last 25)",
-      "PowerShell(npx astro build 2>&1 | Select-Object -Last 20)"
+      "PowerShell(npx astro build 2>&1 | Select-Object -Last 20)",
+      "Bash(curl *)",
+      "PowerShell(npx astro build 2>&1 | Select-Object -Last 10)"
     ]
   }
 }
