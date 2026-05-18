@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -11,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'Portafolio profesional de Jesus P Romero (pwnVader) — Pentester, Red Teaming, eJPTv2. Writeups, Skills y comunidad.',
+  description = 'Portafolio profesional de Jesus P Romero (pwnVader) — Pentester, COAE, eJPTv2. Seguridad ofensiva, IA Red Team, writeups y comunidad.',
   ogImage = '/images/og-default.png',
 } = Astro.props;
 
@@ -45,13 +46,10 @@ const fullOgImage = new URL(ogImage, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullOgImage} />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts: self-hosted via @fontsource (zero external tracking) -->
+
+    <!-- View Transitions -->
+    <ClientRouter />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

@@ -86,24 +86,33 @@ function isActive(href: string): boolean {
 </header>
 
 <script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const bar1 = document.getElementById('bar1');
-  const bar2 = document.getElementById('bar2');
-  const bar3 = document.getElementById('bar3');
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
 
-  btn?.addEventListener('click', () => {
-    const isOpen = menu?.classList.toggle('hidden') === false;
-    btn.setAttribute('aria-expanded', String(isOpen));
+    // Close menu on navigation
+    menu?.classList.add('hidden');
+    btn?.setAttribute('aria-expanded', 'false');
+    if (bar1) bar1.style.transform = '';
+    if (bar2) bar2.style.opacity = '';
+    if (bar3) bar3.style.transform = '';
 
-    if (isOpen) {
-      bar1!.style.transform = 'rotate(45deg) translate(2px, 2px)';
-      bar2!.style.opacity = '0';
-      bar3!.style.transform = 'rotate(-45deg) translate(2px, -2px)';
-    } else {
-      bar1!.style.transform = '';
-      bar2!.style.opacity = '';
-      bar3!.style.transform = '';
-    }
+    btn?.addEventListener('click', () => {
+      const isOpen = menu?.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(isOpen));
+
+      if (isOpen) {
+        bar1!.style.transform = 'rotate(45deg) translate(2px, 2px)';
+        bar2!.style.opacity = '0';
+        bar3!.style.transform = 'rotate(-45deg) translate(2px, -2px)';
+      } else {
+        bar1!.style.transform = '';
+        bar2!.style.opacity = '';
+        bar3!.style.transform = '';
+      }
+    });
   });
 </script>
