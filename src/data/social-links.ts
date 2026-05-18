@@ -50,9 +50,9 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: 'Email',
-    href: 'mailto:contacto.jesuspr.upon866@passmail.com',
+    href: 'mailto:contacto@pwnvader.com',
     icon: 'social-proton',
-    handle: 'contacto.jesuspr.upon866@passmail.com',
+    handle: 'contacto@pwnvader.com',
     colorHoverClass: 'hover:border-[#a371f7] hover:text-[#a371f7] hover:shadow-[0_0_15px_rgba(163,113,247,0.3)]',
     colorGroupClass: 'group-hover:text-[#a371f7] group-hover:border-[#a371f7] group-hover:shadow-[0_0_15px_rgba(163,113,247,0.3)]'
   },

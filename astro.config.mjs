@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 
 export default defineConfig({
-  site: 'https://pwnvader.github.io',
+  site: 'https://pwnvader.com',
   integrations: [sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
