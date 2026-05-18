@@ -20,17 +20,17 @@ const osConfig: Record<string, { icon: string; label: string; class: string }> =
 
 /* Difficulty: subtle colors within the curated palette */
 const diffConfig: Record<string, { class: string }> = {
-  Easy:   { class: 'text-[#3fb950]/90 border-[#3fb950]/20 bg-[#3fb950]/5' },
+  Easy:   { class: 'text-[#a6e3a1]/90 border-[#a6e3a1]/20 bg-[#a6e3a1]/5' },
   Medium: { class: 'text-link/80 border-link/20 bg-link/5' },
-  Hard:   { class: 'text-[#d29922] border-[#d29922]/20 bg-[#d29922]/5' },
-  Insane: { class: 'text-[#f85149] border-[#f85149]/20 bg-[#f85149]/5' },
+  Hard:   { class: 'text-[#fab387] border-[#fab387]/20 bg-[#fab387]/5' },
+  Insane: { class: 'text-[#f38ba8] border-[#f38ba8]/20 bg-[#f38ba8]/5' },
   'N/A':  { class: 'text-text-muted border-border bg-transparent' },
 };
 
 /* Platform: HTB green, TryHackMe red — matching the cards above */
 const platformConfig: Record<string, { icon: string; label: string; class: string }> = {
-  HackTheBox: { icon: 'tech-htb',   label: 'HTB', class: 'text-[#3fb950]/90 border-[#3fb950]/20 bg-[#3fb950]/5' },
-  TryHackMe:  { icon: 'social-thm', label: 'THM', class: 'text-[#f85149]/90 border-[#f85149]/20 bg-[#f85149]/5' },
+  HackTheBox: { icon: 'tech-htb',   label: 'HTB', class: 'text-[#a6e3a1]/90 border-[#a6e3a1]/20 bg-[#a6e3a1]/5' },
+  TryHackMe:  { icon: 'social-thm', label: 'THM', class: 'text-[#f38ba8]/90 border-[#f38ba8]/20 bg-[#f38ba8]/5' },
   'N/A':      { icon: 'lucide:flag',label: 'N/A', class: 'text-text-muted border-border bg-transparent' },
 };
 ---
@@ -39,9 +39,9 @@ const platformConfig: Record<string, { icon: string; label: string; class: strin
   <!-- Terminal header -->
   <div class="flex items-center gap-2 bg-bg-elevated px-4 py-2.5 rounded-t-lg border border-border border-b-0">
     <div class="flex gap-1.5">
-      <span class="w-2.5 h-2.5 rounded-full bg-[#f85149]"></span>
-      <span class="w-2.5 h-2.5 rounded-full bg-[#d29922]"></span>
-      <span class="w-2.5 h-2.5 rounded-full bg-[#3fb950]"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-[#f38ba8]"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-[#f9e2af]"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-[#a6e3a1]"></span>
     </div>
     <span class="ml-2 font-mono text-xs select-none">
       <span class="text-accent">pwnvader@kali</span><span class="text-border"> — </span><span class="text-text-secondary">ls -la ~/writeups/</span> <span class="text-link">({writeups.length} entries)</span>

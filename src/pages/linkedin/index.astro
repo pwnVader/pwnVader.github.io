@@ -22,17 +22,17 @@ const metrics = {
     <!-- Page header -->
     <header class="mb-10 animate-fade-up">
       <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
-        <span class="text-accent">~/</span>linkedin
+        <span class="text-[#a6e3a1]">~/</span>linkedin
       </h1>
       <p class="mt-2 font-mono text-sm text-text-secondary">
-        <span class="text-accent">$</span> curl -s api.linkedin.com/pwnvader | jq '.community'
+        <span class="text-[#a6e3a1]">$</span> curl -s api.linkedin.com/pwnvader | jq '.community'
       </p>
     </header>
 
     <!-- Community Highlights — LinkedIn Feed (Now first) -->
     <div class="animate-fade-up" style="animation-delay: 100ms;">
       <h2 class="font-mono text-sm text-text-muted mb-5">
-        <span class="text-accent">$</span> cat recent_posts.txt
+        <span class="text-[#a6e3a1]">$</span> cat recent_posts.txt
         <span class="block text-xs mt-1 text-text-muted/70"># Algunos de los posts más relevantes de mi comunidad en línea</span>
       </h2>
       <LinkedInFeed />
@@ -46,7 +46,7 @@ const metrics = {
     <!-- Topics -->
     <div class="mb-12 animate-fade-up" style="animation-delay: 300ms;">
       <h2 class="font-mono text-sm text-text-muted mb-3">
-        <span class="text-accent">$</span> echo $TOPICS
+        <span class="text-[#a6e3a1]">$</span> echo $TOPICS
       </h2>
       <div class="flex flex-wrap gap-2">
         {metrics.mainTopics.map((topic) => (

@@ -10,26 +10,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Curated Palette: Graphite & Ember (Modern Monochrome Terminal) ── */
+  /* ── Palette: Catppuccin Mocha ── */
 
-  /* Tactical accent — IDE steel blue (prompt symbols, paths, hover, dates) */
-  --color-accent: #58a6ff;
+  /* Accent — Blue (prompts, paths, interactive elements) */
+  --color-accent: #89b4fa;
 
-  /* Link color unified with accent for monochrome interaction language */
-  --color-link: #58a6ff;
+  /* Link — Sapphire (distinct from accent for visual depth) */
+  --color-link: #74c7ec;
 
-  /* Background scale — warm graphite */
-  --color-bg-base: #10131a;
-  --color-bg-surface: #1a1e28;
-  --color-bg-elevated: #252a36;
+  /* Background scale — Mocha depths */
+  --color-bg-base: #11111b;     /* Crust  */
+  --color-bg-surface: #1e1e2e;  /* Base   */
+  --color-bg-elevated: #313244; /* Surface0 */
 
-  /* Text scale — warm off-white descending to muted graphite */
-  --color-text-primary: #d8d4cc;
-  --color-text-secondary: #9a978f;
-  --color-text-muted: #6b6963;
+  /* Text scale */
+  --color-text-primary: #cdd6f4;   /* Text     */
+  --color-text-secondary: #bac2de; /* Subtext1 */
+  --color-text-muted: #7f849c;     /* Overlay1 */
 
-  /* Border */
-  --color-border: #2e3340;
+  /* Border — Surface1 */
+  --color-border: #45475a;
 
   /* Typography */
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;

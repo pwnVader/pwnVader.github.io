@@ -17,8 +17,8 @@ import { Icon } from 'astro-icon/components';
         <div class="space-y-1.5">
           <!-- cat readme.txt command -->
           <p>
-            <span class="text-accent">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-accent">~</span><span class="text-accent">$</span>
-            <span class="ml-2 text-text-secondary">cat readme.txt</span>
+            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~</span><span class="text-text-muted">$</span>
+            <span class="ml-2 text-text-primary">cat readme.txt</span>
           </p>
 
           <div class="h-2"></div>
@@ -28,7 +28,7 @@ import { Icon } from 'astro-icon/components';
             <p class="text-2xl sm:text-3xl font-bold text-text-primary leading-tight">
               Jesus P Romero
             </p>
-            <p class="text-lg sm:text-xl font-bold text-text-secondary">
+            <p class="text-lg sm:text-xl font-bold text-[#cba6f7]">
               pwnVader
             </p>
           </div>
@@ -38,10 +38,10 @@ import { Icon } from 'astro-icon/components';
           <!-- Tagline — IDE syntax pills. Cert tags wear their grid identity at rest. -->
           <div class="flex flex-wrap items-center gap-2">
             {[
-              { label: 'COAE', iconImg: '/images/certs/coae.webp', tone: 'text-[#9388d4] border-[#9388d4]/30', href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4' },
-              { label: 'eJPTv2', icon: 'cert-ejpt', tone: 'text-[#c75d8e] border-[#c75d8e]/30', href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt' },
-              { label: 'Pentester', tone: 'text-[#f85149]/90 border-[#f85149]/25' },
-              { label: 'Ing. Sistemas Computacionales', tone: 'text-[#58a6ff]/90 border-[#58a6ff]/25' },
+              { label: 'COAE', iconImg: '/images/certs/coae.webp', tone: 'text-[#cba6f7] border-[#cba6f7]/30', href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4' },
+              { label: 'eJPTv2', icon: 'cert-ejpt', tone: 'text-[#f5c2e7] border-[#f5c2e7]/30', href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt' },
+              { label: 'Pentester', tone: 'text-[#f38ba8]/90 border-[#f38ba8]/25' },
+              { label: 'Ing. Sistemas Computacionales', tone: 'text-[#89b4fa]/90 border-[#89b4fa]/25' },
             ].map((tag) => {
               const tagClass = `flex items-center gap-1.5 text-xs px-2.5 py-1 rounded border bg-bg-surface ${tag.tone}`;
               return tag.href ? (
@@ -70,9 +70,9 @@ import { Icon } from 'astro-icon/components';
 
           <!-- Bio -->
           <p class="text-text-secondary text-sm leading-relaxed max-w-xl">
-            Pentester especializado en seguridad ofensiva, mentoría técnica en
-            comunidades como NicaSecurity y ponente en NetSentinel Academy sobre
-            IA aplicada a la ciberseguridad. Certificado COAE y eJPTv2. Próximo objetivo: CPTS.
+            Pentester especializado en <span class="text-[#f38ba8]">seguridad ofensiva</span>, mentoría técnica en
+            comunidades como <span class="text-[#94e2d5]">NicaSecurity</span> y ponente en <span class="text-[#94e2d5]">NetSentinel Academy</span> sobre
+            <span class="text-[#fab387]">IA aplicada a la ciberseguridad</span>. Certificado <span class="text-[#cba6f7]">COAE</span> y <span class="text-[#f5c2e7]">eJPTv2</span>. Próximo objetivo: <span class="text-[#f9e2af]">CPTS</span>.
           </p>
 
           <div class="h-4"></div>
@@ -86,8 +86,8 @@ import { Icon } from 'astro-icon/components';
               { date: 'Nov 2025', title: 'Mentor de Ciberseguridad' },
             ].map(exp => (
               <li class="relative pl-4">
-                <span class="absolute -left-[4.5px] top-1.5 w-2 h-2 rounded-full border border-border bg-bg-surface"></span>
-                <p class="font-mono text-[10px] text-accent">{exp.date}</p>
+                <span class="absolute -left-[4.5px] top-1.5 w-2 h-2 rounded-full border border-accent/40 bg-accent/20"></span>
+                <p class="font-mono text-[10px] text-[#a6e3a1]">{exp.date}</p>
                 <p class="text-sm mt-0.5 leading-snug">
                   <span class="text-text-primary">{exp.title}</span>
                   {exp.org && (
@@ -102,7 +102,7 @@ import { Icon } from 'astro-icon/components';
 
           <!-- Prompt cursor -->
           <p class="flex items-center gap-1">
-            <span class="text-accent">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-accent">~</span><span class="text-accent">$</span>
+            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~</span><span class="text-text-muted">$</span>
             <span class="ml-2 text-text-muted animate-pulse">█</span>
           </p>
         </div>
