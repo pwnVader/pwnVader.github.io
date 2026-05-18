@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Terminal from '../components/Terminal.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import StatsGrid from '../components/StatsGrid.astro';
 import { Icon } from 'astro-icon/components';
 ---
 
@@ -69,12 +68,16 @@ import { Icon } from 'astro-icon/components';
           <div class="h-2"></div>
 
           <!-- Bio — snapshot only; full story vive en /about -->
-          <p class="text-text-secondary text-sm leading-relaxed max-w-xl">
-            Pentester enfocado en <span class="text-[#f38ba8]">seguridad ofensiva</span>: redes, web y
-            Active Directory. Mentor en <span class="text-[#94e2d5]">NicaSecurity</span> y ponente en
-            <span class="text-[#94e2d5]">NetSentinel Academy</span> sobre
-            <span class="text-[#fab387]">IA aplicada al hacking</span>.
-          </p>
+          <div class="text-text-secondary text-sm leading-relaxed max-w-xl space-y-2">
+            <p>
+              Pentester especializado en <span class="text-[#f38ba8]">seguridad ofensiva</span>: redes,
+              aplicaciones web y <span class="text-[#89b4fa]">Active Directory</span>.
+            </p>
+            <p>
+              Entrenamiento continuo en <span class="text-[#a6e3a1]">plataformas de hacking</span> y
+              <span class="text-[#94e2d5]">laboratorios técnicos</span>.
+            </p>
+          </div>
 
           <div class="h-3"></div>
 
@@ -94,39 +97,12 @@ import { Icon } from 'astro-icon/components';
       </Terminal>
     </div>
 
-    <!-- CTA Buttons — Monochrome with ember interaction accent -->
-    <div class="mt-10 flex flex-wrap gap-3 animate-fade-up" style="animation-delay: 150ms;">
-      <a
-        href="/skills/"
-        class="rounded-lg border border-border bg-bg-surface px-6 py-2.5 font-mono text-sm text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
-      >
-        ./skills.sh
-      </a>
-      <a
-        href="/writeups/"
-        class="rounded-lg border border-border bg-bg-surface px-6 py-2.5 font-mono text-sm text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
-      >
-        ls writeups/
-      </a>
-      <a
-        href="/linkedin/"
-        class="rounded-lg border border-border bg-bg-surface px-6 py-2.5 font-mono text-sm text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
-      >
-        cat community.txt
-      </a>
-    </div>
-
     <!-- Social Links Section -->
-    <div class="mt-12 animate-fade-up" style="animation-delay: 300ms;">
+    <div class="mt-10 animate-fade-up" style="animation-delay: 200ms;">
       <h2 class="font-mono text-sm text-text-muted mb-4">
         <span class="text-accent">$</span> cat social_links.txt
       </h2>
       <SocialLinks />
-    </div>
-
-    <!-- Quick Stats — Glowing Reactive Dashboard -->
-    <div class="mt-12 animate-fade-up" style="animation-delay: 450ms;">
-      <StatsGrid />
     </div>
   </section>
 </BaseLayout>

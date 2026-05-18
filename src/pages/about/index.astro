@@ -27,29 +27,46 @@ const certifications = [
   },
 ];
 
+const typeIcon = {
+  cert: 'lucide:award',
+  speaker: 'lucide:mic',
+  work: 'lucide:briefcase',
+  mentor: 'lucide:users',
+};
+
+const typeLabel = {
+  cert: 'CERT',
+  speaker: 'TALK',
+  work: 'WORK',
+  mentor: 'MENTOR',
+};
+
 const timeline = [
   {
     date: 'May 2026',
     title: 'Certified Offensive AI Expert (COAE)',
     type: 'cert',
     color: 'text-[#cba6f7]',
-    dotColor: 'bg-[#cba6f7]/20 border-[#cba6f7]/40',
+    borderHover: 'hover:border-[#cba6f7]/40',
+    dotBg: 'bg-[#cba6f7]/15 border-[#cba6f7]/40',
   },
   {
     date: 'Mar 2026',
-    title: 'Technical Clinics: Road to eJPT: Lab Series',
-    subtitle: 'Instructor — NicaSecurity',
+    title: 'Technical Clinics: Road to eJPT — Lab Series',
+    subtitle: 'Instructor · NicaSecurity',
     type: 'speaker',
     color: 'text-[#94e2d5]',
-    dotColor: 'bg-[#94e2d5]/20 border-[#94e2d5]/40',
+    borderHover: 'hover:border-[#94e2d5]/40',
+    dotBg: 'bg-[#94e2d5]/15 border-[#94e2d5]/40',
   },
   {
     date: 'Ene 2026',
     title: 'Workshop Agentic Workflow: Pentest con IA y MCP',
-    subtitle: 'Ponente — NetSentinel Academy',
+    subtitle: 'Ponente · NetSentinel Academy',
     type: 'speaker',
     color: 'text-[#fab387]',
-    dotColor: 'bg-[#fab387]/20 border-[#fab387]/40',
+    borderHover: 'hover:border-[#fab387]/40',
+    dotBg: 'bg-[#fab387]/15 border-[#fab387]/40',
   },
   {
     date: 'Dic 2025',
@@ -57,7 +74,8 @@ const timeline = [
     subtitle: 'Volkswagen Group',
     type: 'work',
     color: 'text-[#89b4fa]',
-    dotColor: 'bg-[#89b4fa]/20 border-[#89b4fa]/40',
+    borderHover: 'hover:border-[#89b4fa]/40',
+    dotBg: 'bg-[#89b4fa]/15 border-[#89b4fa]/40',
   },
   {
     date: 'Nov 2025',
@@ -65,14 +83,16 @@ const timeline = [
     subtitle: 'Nación Hacker',
     type: 'mentor',
     color: 'text-[#a6e3a1]',
-    dotColor: 'bg-[#a6e3a1]/20 border-[#a6e3a1]/40',
+    borderHover: 'hover:border-[#a6e3a1]/40',
+    dotBg: 'bg-[#a6e3a1]/15 border-[#a6e3a1]/40',
   },
   {
     date: '2025',
     title: 'eJPTv2 Certified',
     type: 'cert',
     color: 'text-[#f5c2e7]',
-    dotColor: 'bg-[#f5c2e7]/20 border-[#f5c2e7]/40',
+    borderHover: 'hover:border-[#f5c2e7]/40',
+    dotBg: 'bg-[#f5c2e7]/15 border-[#f5c2e7]/40',
   },
 ];
 ---
@@ -101,25 +121,29 @@ const timeline = [
               <span class="text-[#a6e3a1]">#</span> whoami
             </h2>
             <p class="text-text-secondary text-sm leading-relaxed">
-              Soy <span class="text-text-primary font-medium">Jesus P. Romero</span>, mejor conocido como
-              <span class="text-[#cba6f7] font-medium">pwnVader</span>. Pentester enfocado en
-              <span class="text-[#f38ba8]">seguridad ofensiva</span>, con experiencia en pruebas de penetración de redes,
-              aplicaciones web y entornos de Active Directory.
+              Soy <span class="text-text-primary font-medium">Jesus Perez Romero</span>. Pentester enfocado en
+              <span class="text-[#f38ba8]">seguridad ofensiva</span>.
             </p>
           </div>
 
           <p class="text-text-secondary text-sm leading-relaxed">
-            Actualmente curso <span class="text-[#89b4fa]">Ingeniería en Sistemas Computacionales</span> en el
-            TECNM y trabajo como intern en <span class="text-text-primary">Volkswagen</span>, donde desarrollo
-            automatizaciones para auditoría de datos e integridad de producto.
+            Actualmente curso mi último año de
+            <span class="text-[#89b4fa]">Ingeniería en Sistemas Computacionales</span>.
           </p>
 
           <p class="text-text-secondary text-sm leading-relaxed">
-            Fuera del pentesting, imparto <span class="text-[#fab387]">talleres y clinics</span> en
-            <span class="text-[#94e2d5]">NicaSecurity</span> y <span class="text-[#94e2d5]">NetSentinel Academy</span>
-            sobre pentest con <span class="text-[#fab387]">IA y agentic workflows</span>. En paralelo construyo audiencia en
-            <span class="text-[#94e2d5]">LinkedIn</span> y <span class="text-[#94e2d5]">TikTok</span> traduciendo
-            conceptos de seguridad ofensiva para nuevos pentesters.
+            Fuera del pentesting, imparto talleres en
+            <span class="text-[#94e2d5]">NicaSecurity</span> y
+            <span class="text-[#94e2d5]">NetSentinel Academy</span> sobre
+            <span class="text-[#fab387]">pentest con IA</span>, así como laboratorios técnicos guiados para la
+            preparación de certificaciones como la <span class="text-[#f5c2e7]">eJPTv2</span>.
+          </p>
+
+          <p class="text-text-secondary text-sm leading-relaxed">
+            En paralelo, mantengo una presencia activa en
+            <span class="text-[#74c7ec]">LinkedIn</span>, donde desgloso y comparto conceptos técnicos de
+            <span class="text-[#f38ba8]">seguridad ofensiva</span> para aportar valor y fortalecer a la
+            <span class="text-[#a6e3a1]">comunidad de ciberseguridad</span>.
           </p>
         </div>
       </div>
@@ -162,16 +186,28 @@ const timeline = [
         <span class="text-[#a6e3a1]">#</span> cat /var/log/career.log | tail -6
       </h2>
       <div class="relative">
-        <div class="absolute left-[7px] top-2 bottom-2 w-px bg-border/40"></div>
-        <ul class="space-y-5">
+        <!-- Vertical connector — aligned with center of dots -->
+        <div class="absolute left-[15px] top-4 bottom-4 w-px bg-gradient-to-b from-border/50 via-border/30 to-border/50"></div>
+
+        <ul class="space-y-3">
           {timeline.map((item) => (
-            <li class="relative pl-7">
-              <span class={`absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border ${item.dotColor}`}></span>
-              <p class={`font-mono text-[10px] ${item.color}`}>{item.date}</p>
-              <p class="text-sm mt-0.5 text-text-primary font-medium leading-snug">{item.title}</p>
-              {item.subtitle && (
-                <p class="font-mono text-xs text-text-muted mt-0.5">{item.subtitle}</p>
-              )}
+            <li class="relative pl-11">
+              <!-- Type-icon dot -->
+              <span class={`absolute left-0 top-3 z-10 flex items-center justify-center w-[31px] h-[31px] rounded-full border ${item.dotBg}`}>
+                <Icon name={typeIcon[item.type as keyof typeof typeIcon]} class={`w-3.5 h-3.5 ${item.color}`} />
+              </span>
+
+              <!-- Entry card -->
+              <div class={`rounded-lg border border-border/40 bg-bg-surface/50 px-4 py-3 transition-all duration-300 ${item.borderHover} hover:bg-bg-surface`}>
+                <div class="flex items-center justify-between gap-3 flex-wrap">
+                  <span class={`font-mono text-[10px] tracking-wider ${item.color}`}>{typeLabel[item.type as keyof typeof typeLabel]}</span>
+                  <span class="font-mono text-[10px] text-text-muted">{item.date}</span>
+                </div>
+                <p class="text-sm mt-1.5 text-text-primary font-medium leading-snug">{item.title}</p>
+                {item.subtitle && (
+                  <p class="font-mono text-xs text-text-muted mt-1">{item.subtitle}</p>
+                )}
+              </div>
             </li>
           ))}
         </ul>
@@ -184,8 +220,8 @@ const timeline = [
         <span class="text-[#a6e3a1]">#</span> echo $NEXT_OBJECTIVE
       </h2>
       <div class="rounded-lg border border-[#f9e2af]/20 bg-[#f9e2af]/5 p-5">
-        <div class="flex items-center gap-3">
-          <span class="text-[#f9e2af] text-lg">⏳</span>
+        <div class="flex items-center gap-4">
+          <img src="/images/certs/cpts.webp" alt="CPTS" class="w-12 h-12 object-contain shrink-0" />
           <div>
             <p class="font-mono text-sm text-[#f9e2af] font-bold">CPTS — Certified Penetration Testing Specialist</p>
             <p class="font-mono text-xs text-text-muted mt-1">Hack The Box · En progreso</p>
