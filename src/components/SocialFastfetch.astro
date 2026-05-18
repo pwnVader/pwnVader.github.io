@@ -37,8 +37,6 @@ interface SocialRow {
   value: string;
   badge?: string;
   href: string;
-  /** When set, the row is rendered as a protected-email link rehydrated by the BaseLayout script. */
-  protectedEmail?: { user: string; domain: string };
 }
 
 const socials: SocialRow[] = [
@@ -48,7 +46,7 @@ const socials: SocialRow[] = [
   { key: 'Medium',     value: '@pwnvader',                             href: 'https://medium.com/@pwnvader' },
   { key: 'TryHackMe',  value: 'pwnVader',             badge: 'Top 1%', href: 'https://tryhackme.com/p/pwnVader' },
   { key: 'HackTheBox', value: 'pwnVader',                              href: 'https://app.hackthebox.com/users/1247070' },
-  { key: 'Email',      value: '[email protected]',                                href: '#', protectedEmail: { user: 'contacto', domain: 'pwnvader.com' } },
+  { key: 'Email',      value: 'contacto@pwnvader.com',                 href: 'mailto:contacto@pwnvader.com' },
 ];
 
 // `ch` width — align the colons. +2 = colon + breathing space.
@@ -101,39 +99,23 @@ const separatorWidth = 32;
         <p class="text-text-muted/60 select-none leading-none">{'-'.repeat(separatorWidth)}</p>
 
         <div class="space-y-0.5 pt-1">
-          {socials.map((s) => {
-            const isProtected = !!s.protectedEmail;
-            const anchorAttrs = isProtected
-              ? {
-                  'data-pwn-email': '',
-                  'data-pwn-u': s.protectedEmail!.user,
-                  'data-pwn-d': s.protectedEmail!.domain,
-                }
-              : {
-                  target: '_blank',
-                  rel: 'noopener noreferrer',
-                };
-            return (
-              <a
-                href={s.href}
-                class="group flex items-baseline gap-1 sm:gap-2 rounded px-1.5 -mx-1.5 py-0.5 transition-colors hover:bg-bg-elevated/40"
-                {...anchorAttrs}
-              >
-                <span
-                  class="font-bold shrink-0 text-[#89b4fa]"
-                  style={`min-width: ${keyColCh}ch;`}
-                >{s.key}:</span>
-                <span class="text-text-secondary group-hover:text-text-primary transition-colors truncate">
-                  {isProtected ? (
-                    <span data-pwn-email-text>{s.value}</span>
-                  ) : (
-                    s.value
-                  )}
-                  {s.badge && <span class="text-text-muted ml-1.5 sm:ml-2">· {s.badge}</span>}
-                </span>
-              </a>
-            );
-          })}
+          {socials.map((s) => (
+            <a
+              href={s.href}
+              target={s.href.startsWith('mailto') ? undefined : '_blank'}
+              rel={s.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+              class="group flex items-baseline gap-1 sm:gap-2 rounded px-1.5 -mx-1.5 py-0.5 transition-colors hover:bg-bg-elevated/40"
+            >
+              <span
+                class="font-bold shrink-0 text-[#89b4fa]"
+                style={`min-width: ${keyColCh}ch;`}
+              >{s.key}:</span>
+              <span class="text-text-secondary group-hover:text-text-primary transition-colors truncate">
+                {s.value}
+                {s.badge && <span class="text-text-muted ml-1.5 sm:ml-2">· {s.badge}</span>}
+              </span>
+            </a>
+          ))}
         </div>
 
         <!-- Color palette row — fastfetch signature -->

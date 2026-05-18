@@ -5,12 +5,6 @@ export interface SocialLink {
   handle: string;
   colorHoverClass: string;
   colorGroupClass: string;
-  /**
-   * When set, the link is rendered with email obfuscation: visible address stays as
-   * `[email protected]` placeholder and href stays at `#` until JS rehydrates it.
-   * `handle` should already contain the same placeholder so the layout doesn't shift.
-   */
-  protectedEmail?: { user: string; domain: string };
 }
 
 export const socialLinks: SocialLink[] = [
@@ -56,10 +50,9 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: 'Email',
-    href: '#',
+    href: 'mailto:contacto@pwnvader.com',
     icon: 'social-proton',
-    handle: '[email protected]',
-    protectedEmail: { user: 'contacto', domain: 'pwnvader.com' },
+    handle: 'contacto@pwnvader.com',
     colorHoverClass: 'hover:border-[#b4befe] hover:text-[#b4befe] hover:shadow-[0_0_15px_rgba(180,190,254,0.3)]',
     colorGroupClass: 'group-hover:text-[#b4befe] group-hover:border-[#b4befe] group-hover:shadow-[0_0_15px_rgba(180,190,254,0.3)]'
   },

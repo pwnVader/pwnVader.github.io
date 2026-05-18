@@ -65,30 +65,5 @@ const fullOgImage = new URL(ogImage, Astro.site);
       <slot />
     </main>
     <Footer />
-
-    <!--
-      Email obfuscation. With JS disabled (Mullvad strict, Tor, scrapers/bots),
-      visible address stays as `[email protected]` and the href stays as `#`.
-      JS-enabled clients get the real address restored client-side.
-      Mirrors Cloudflare Scrape Shield behavior at the source so it works even
-      when CF caches a non-obfuscated response.
-    -->
-    <script>
-      function revealProtectedEmails() {
-        document.querySelectorAll<HTMLAnchorElement>('a[data-pwn-email]').forEach((el) => {
-          const u = el.dataset.pwnU;
-          const d = el.dataset.pwnD;
-          if (!u || !d) return;
-          const email = `${u}@${d}`;
-          const subject = el.dataset.pwnSubject;
-          el.href = subject
-            ? `mailto:${email}?subject=${encodeURIComponent(subject)}`
-            : `mailto:${email}`;
-          const text = el.querySelector<HTMLElement>('[data-pwn-email-text]');
-          if (text) text.textContent = email;
-        });
-      }
-      document.addEventListener('astro:page-load', revealProtectedEmails);
-    </script>
   </body>
 </html>
