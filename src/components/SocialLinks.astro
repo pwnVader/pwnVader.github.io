@@ -7,37 +7,76 @@ interface Props {
 }
 
 const { compact = false } = Astro.props;
+
+/**
+ * Per-link presentation attrs. For the email entry we swap target/rel and inject
+ * `data-pwn-*` markers; the body-level reveal script (BaseLayout) re-hydrates the
+ * href + visible text on JS-enabled clients.
+ */
+function buildLinkAttrs(link: (typeof socialLinks)[number]) {
+  if (link.protectedEmail) {
+    return {
+      anchor: {
+        target: undefined as string | undefined,
+        rel: undefined as string | undefined,
+        'data-pwn-email': '',
+        'data-pwn-u': link.protectedEmail.user,
+        'data-pwn-d': link.protectedEmail.domain,
+      },
+      handleAttrs: { 'data-pwn-email-text': '' } as Record<string, string>,
+      tooltipText: link.label,
+    };
+  }
+  return {
+    anchor: {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    handleAttrs: {} as Record<string, string>,
+    tooltipText: `${link.label} — ${link.handle}`,
+  };
+}
 ---
 
 {compact ? (
   <div class="flex flex-wrap gap-3">
-    {socialLinks.map((link) => (
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        title={`${link.label} — ${link.handle}`}
-        class={`flex items-center justify-center w-10 h-10 rounded-lg border border-border bg-bg-surface text-text-muted transition-all duration-300 transform hover:-translate-y-1 ${link.colorHoverClass}`}
-      >
-        <Icon name={link.icon} class="w-5 h-5" />
-      </a>
-    ))}
+    {socialLinks.map((link) => {
+      const { anchor, tooltipText } = buildLinkAttrs(link);
+      return (
+        <a
+          href={link.href}
+          title={tooltipText}
+          class={`flex items-center justify-center w-10 h-10 rounded-lg border border-border bg-bg-surface text-text-muted transition-all duration-300 transform hover:-translate-y-1 ${link.colorHoverClass}`}
+          {...anchor}
+        >
+          <Icon name={link.icon} class="w-5 h-5" />
+        </a>
+      );
+    })}
   </div>
 ) : (
   <div class="grid gap-2.5 sm:grid-cols-2">
-    {socialLinks.map((link) => (
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        class={`group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-4 rounded-lg border border-border bg-bg-surface px-4 py-3 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden ${link.colorGroupClass.split(' ').slice(1).join(' ')}`}
-      >
-        <span class="flex items-center gap-2.5 whitespace-nowrap shrink-0">
-          <Icon name={link.icon} class={`w-4 h-4 text-text-muted transition-colors ${link.colorGroupClass.split(' ')[0]}`} />
-          <span class="font-mono text-sm font-medium text-text-primary transition-colors ${link.colorGroupClass.split(' ')[0]}">{link.label}</span>
-        </span>
-        <span class="font-mono text-xs text-text-muted truncate w-full sm:w-auto text-left sm:text-right">{link.handle} ↗</span>
-      </a>
-    ))}
+    {socialLinks.map((link) => {
+      const { anchor, handleAttrs } = buildLinkAttrs(link);
+      return (
+        <a
+          href={link.href}
+          class={`group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-4 rounded-lg border border-border bg-bg-surface px-4 py-3 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden ${link.colorGroupClass.split(' ').slice(1).join(' ')}`}
+          {...anchor}
+        >
+          <span class="flex items-center gap-2.5 whitespace-nowrap shrink-0">
+            <Icon name={link.icon} class={`w-4 h-4 text-text-muted transition-colors ${link.colorGroupClass.split(' ')[0]}`} />
+            <span class="font-mono text-sm font-medium text-text-primary transition-colors ${link.colorGroupClass.split(' ')[0]}">{link.label}</span>
+          </span>
+          <span class="font-mono text-xs text-text-muted truncate w-full sm:w-auto text-left sm:text-right">
+            {link.protectedEmail ? (
+              <><span {...handleAttrs}>{link.handle}</span> ↗</>
+            ) : (
+              <>{link.handle} ↗</>
+            )}
+          </span>
+        </a>
+      );
+    })}
   </div>
 )}
