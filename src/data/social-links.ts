@@ -11,7 +11,7 @@ export const socialLinks: SocialLink[] = [
   {
     label: 'GitHub',
     href: 'https://github.com/pwnvader',
-    icon: 'lucide:github',
+    icon: 'social-github',
     handle: 'pwnVader',
     colorHoverClass: 'hover:border-[#cdd6f4] hover:text-[#cdd6f4] hover:shadow-[0_0_15px_rgba(205,214,244,0.25)]',
     colorGroupClass: 'group-hover:text-[#cdd6f4] group-hover:border-[#cdd6f4] group-hover:shadow-[0_0_15px_rgba(205,214,244,0.25)]'

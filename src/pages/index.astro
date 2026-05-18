@@ -68,35 +68,20 @@ import { Icon } from 'astro-icon/components';
 
           <div class="h-2"></div>
 
-          <!-- Bio -->
+          <!-- Bio — snapshot only; full story vive en /about -->
           <p class="text-text-secondary text-sm leading-relaxed max-w-xl">
-            Pentester especializado en <span class="text-[#f38ba8]">seguridad ofensiva</span>, mentoría técnica en
-            comunidades como <span class="text-[#94e2d5]">NicaSecurity</span> y ponente en <span class="text-[#94e2d5]">NetSentinel Academy</span> sobre
-            <span class="text-[#fab387]">IA aplicada a la ciberseguridad</span>. Certificado <span class="text-[#cba6f7]">COAE</span> y <span class="text-[#f5c2e7]">eJPTv2</span>. Próximo objetivo: <span class="text-[#f9e2af]">CPTS</span>.
+            Pentester enfocado en <span class="text-[#f38ba8]">seguridad ofensiva</span>: redes, web y
+            Active Directory. Mentor en <span class="text-[#94e2d5]">NicaSecurity</span> y ponente en
+            <span class="text-[#94e2d5]">NetSentinel Academy</span> sobre
+            <span class="text-[#fab387]">IA aplicada al hacking</span>.
           </p>
 
-          <div class="h-4"></div>
+          <div class="h-3"></div>
 
-          <!-- Timeline / Experience -->
-          <ul class="border-l border-border/60 ml-[5px] space-y-4 pt-1 pb-3">
-            {[
-              { date: 'Mar 2026', title: 'Technical Clinics: Road to eJPT: Lab Series' },
-              { date: 'Ene 2026', title: 'Workshop Agentic Workflow: Tu Primer Entorno de Pentest con IA y MCP' },
-              { date: 'Dic 2025', title: 'Internship Automatización y digitalización de auditoría de producto', org: 'Volkswagen' },
-              { date: 'Nov 2025', title: 'Mentor de Ciberseguridad' },
-            ].map(exp => (
-              <li class="relative pl-4">
-                <span class="absolute -left-[4.5px] top-1.5 w-2 h-2 rounded-full border border-accent/40 bg-accent/20"></span>
-                <p class="font-mono text-[10px] text-[#a6e3a1]">{exp.date}</p>
-                <p class="text-sm mt-0.5 leading-snug">
-                  <span class="text-text-primary">{exp.title}</span>
-                  {exp.org && (
-                    <span class="text-text-muted mt-0.5 block sm:inline sm:ml-1">— {exp.org}</span>
-                  )}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <!-- Hint to deeper page -->
+          <p class="font-mono text-xs text-text-muted">
+            <span class="text-text-muted">→</span> <a href="/about/" class="text-accent hover:underline">cat /etc/pwnvader/profile.conf</a> para detalle completo
+          </p>
 
           <div class="h-3"></div>
 

@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx astro *)"
+      "Bash(npx astro *)",
+      "PowerShell(npx astro check 2>&1 | Select-Object -Last 30)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(npm run *)",
+      "PowerShell(npx astro build 2>&1 | Select-Object -Last 40)"
     ]
   }
 }
