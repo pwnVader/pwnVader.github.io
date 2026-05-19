@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<BaseLayout
+  title="Tools — pwnVader"
+  description="Suite de herramientas ofensivas desarrolladas por pwnVader. Próximamente en hacking.pwnvader.com"
+>
+  <section class="mx-auto max-w-4xl px-4 pt-16 pb-20">
+
+    <!-- Page header -->
+    <header class="mb-12 animate-fade-up">
+      <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
+        <span class="text-[#89b4fa]">~/</span>tools
+      </h1>
+      <p class="mt-2 font-mono text-sm text-text-secondary">
+        <span class="text-[#a6e3a1]">$</span> curl -s hacking.pwnvader.com/api/tools | jq '.'
+      </p>
+    </header>
+
+    <!-- Terminal with build progress -->
+    <div class="animate-fade-up" style="animation-delay: 100ms;">
+      <div class="rounded-lg border border-border overflow-hidden shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
+
+        <!-- Title bar -->
+        <div class="flex items-center gap-2 bg-bg-elevated px-4 py-2.5 border-b border-border">
+          <div class="flex gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#f38ba8]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#f9e2af]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#a6e3a1]"></span>
+          </div>
+          <span class="ml-2 font-mono text-xs text-text-muted">hacking.pwnvader.com — build log</span>
+        </div>
+
+        <!-- Terminal body -->
+        <div class="bg-bg-surface p-6 font-mono text-sm space-y-2 leading-relaxed">
+          <p>
+            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~/tools</span><span class="text-text-muted">$</span>
+            <span class="ml-2 text-text-primary">git clone https://github.com/pwnvader/tools.git</span>
+          </p>
+          <p class="text-text-muted pl-4">Cloning into 'tools'...</p>
+          <p class="text-text-muted pl-4">remote: Enumerating objects: <span class="text-[#f9e2af]">∞</span></p>
+
+          <div class="h-1"></div>
+
+          <p>
+            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~/tools</span><span class="text-text-muted">$</span>
+            <span class="ml-2 text-text-primary">make build</span>
+          </p>
+          <p class="text-text-muted pl-4">[<span class="text-[#fab387]">  0%</span>] Compiling offensive toolkit...</p>
+          <p class="text-text-muted pl-4">[<span class="text-[#f9e2af]"> 33%</span>] Integrating AI modules...</p>
+          <p class="text-text-muted pl-4">[<span class="text-[#a6e3a1]"> 66%</span>] Testing in controlled environments...</p>
+
+          <div class="h-1"></div>
+
+          <!-- Progress bar -->
+          <div class="flex items-center gap-3">
+            <span class="text-text-muted">[</span>
+            <div class="flex-1 h-1.5 bg-bg-elevated rounded-full overflow-hidden">
+              <div class="h-full w-[66%] bg-gradient-to-r from-[#a6e3a1]/60 to-[#a6e3a1] rounded-full animate-pulse"></div>
+            </div>
+            <span class="text-text-muted">]</span>
+            <span class="text-[#a6e3a1] text-xs">66%</span>
+          </div>
+
+          <div class="h-1"></div>
+
+          <p>
+            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~/tools</span><span class="text-text-muted">$</span>
+            <span class="ml-2 text-text-muted animate-pulse">█</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What's coming -->
+    <div class="mt-10 animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
+        <span class="text-[#a6e3a1]">#</span> cat upcoming.txt
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {[
+          { icon: 'lucide:scan', label: 'Recon Tools', desc: 'Automatización de reconocimiento OSINT y escaneo', color: 'text-[#89b4fa]', border: 'border-[#89b4fa]/20' },
+          { icon: 'lucide:bot', label: 'AI Red Team', desc: 'Herramientas de pentesting asistidas por IA', color: 'text-[#cba6f7]', border: 'border-[#cba6f7]/20' },
+          { icon: 'lucide:terminal', label: 'Exploit Dev', desc: 'Scripts y utilities para desarrollo de exploits', color: 'text-[#f38ba8]', border: 'border-[#f38ba8]/20' },
+        ].map(item => (
+          <div class={`rounded-lg border ${item.border} bg-bg-surface p-4 opacity-60`}>
+            <Icon name={item.icon} class={`w-5 h-5 ${item.color} mb-3`} />
+            <p class={`font-mono text-sm font-bold ${item.color}`}>{item.label}</p>
+            <p class="font-mono text-xs text-text-muted mt-1.5 leading-relaxed">{item.desc}</p>
+            <span class="inline-block mt-3 font-mono text-[10px] text-[#f9e2af]/70 border border-[#f9e2af]/20 rounded px-1.5 py-0.5">
+              próximamente
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-10 animate-fade-up" style="animation-delay: 300ms;">
+      <div class="rounded-lg border border-[#fab387]/25 bg-[#fab387]/5 p-6 text-center">
+        <p class="font-mono text-xs text-text-muted mb-1">
+          <span class="text-[#a6e3a1]">$</span> xdg-open https://hacking.pwnvader.com
+        </p>
+        <p class="text-text-secondary text-sm mt-3 mb-5">
+          Las herramientas estarán disponibles directamente en
+          <span class="text-[#fab387] font-medium">hacking.pwnvader.com</span>
+        </p>
+        <a
+          href="https://hacking.pwnvader.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 font-mono text-sm rounded border border-[#fab387]/40 text-[#fab387] bg-[#fab387]/10 transition-all hover:bg-[#fab387]/20 hover:border-[#fab387]/60 hover:shadow-[0_0_20px_rgba(250,179,135,0.2)]"
+        >
+          <Icon name="lucide:external-link" class="w-4 h-4" />
+          Visitar hacking.pwnvader.com
+        </a>
+      </div>
+    </div>
+
+  </section>
+</BaseLayout>
