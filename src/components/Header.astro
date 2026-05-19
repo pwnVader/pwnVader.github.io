@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about/' },
   { label: 'Skills', href: '/skills/' },
-  { label: 'Writeups', href: '/writeups/' },
+  { label: 'Writeups ↗', href: '/writeups/' },
   { label: 'LinkedIn', href: '/linkedin/' },
   { label: 'Tools ↗', href: '/tools/' },
 ];
@@ -44,6 +44,7 @@ function isActive(href: string): boolean {
       <ul class="flex items-center gap-1">
         {navLinks.map((link) => {
           const isTools = link.href === '/tools/';
+          const isWriteups = link.href === '/writeups/';
           const active = isActive(link.href);
           return (
             <li>
@@ -54,10 +55,14 @@ function isActive(href: string): boolean {
                   active
                     ? isTools
                       ? 'text-[#fab387] border-[#fab387]/30 bg-[#fab387]/10'
-                      : 'text-accent border-accent/30 bg-accent/10'
+                      : isWriteups
+                        ? 'text-[#cba6f7] border-[#cba6f7]/30 bg-[#cba6f7]/10'
+                        : 'text-accent border-accent/30 bg-accent/10'
                     : isTools
                       ? 'text-[#fab387]/60 border-transparent hover:text-[#fab387] hover:border-[#fab387]/30 hover:bg-[#fab387]/5'
-                      : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
+                      : isWriteups
+                        ? 'text-[#cba6f7]/60 border-transparent hover:text-[#cba6f7] hover:border-[#cba6f7]/30 hover:bg-[#cba6f7]/5'
+                        : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
                 ]}
               >
                 {active ? `> ${link.label}` : link.label}
@@ -123,21 +128,34 @@ function isActive(href: string): boolean {
     class="hidden md:hidden border-t border-border bg-bg-base/95 backdrop-blur-md"
   >
     <ul class="flex flex-col px-4 py-3 gap-1">
-      {navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class:list={[
-              'block px-3 py-2 font-mono text-sm rounded border transition-all',
-              isActive(link.href)
-                ? 'text-accent border-accent/30 bg-accent/10'
-                : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
-            ]}
-          >
-            {isActive(link.href) ? `> ${link.label}` : `  ${link.label}`}
-          </a>
-        </li>
-      ))}
+      {navLinks.map((link) => {
+        const isTools = link.href === '/tools/';
+        const isWriteups = link.href === '/writeups/';
+        const active = isActive(link.href);
+        return (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                'block px-3 py-2 font-mono text-sm rounded border transition-all',
+                active
+                  ? isTools
+                    ? 'text-[#fab387] border-[#fab387]/30 bg-[#fab387]/10'
+                    : isWriteups
+                      ? 'text-[#cba6f7] border-[#cba6f7]/30 bg-[#cba6f7]/10'
+                      : 'text-accent border-accent/30 bg-accent/10'
+                  : isTools
+                    ? 'text-[#fab387]/60 border-transparent hover:text-[#fab387] hover:border-[#fab387]/30 hover:bg-[#fab387]/5'
+                    : isWriteups
+                      ? 'text-[#cba6f7]/60 border-transparent hover:text-[#cba6f7] hover:border-[#cba6f7]/30 hover:bg-[#cba6f7]/5'
+                      : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
+              ]}
+            >
+              {active ? `> ${link.label}` : `  ${link.label}`}
+            </a>
+          </li>
+        );
+      })}
       <!-- Mobile Connect links -->
       <li class="mt-2 pt-2 border-t border-border/50">
         <span class="block px-3 py-1 font-mono text-[10px] text-text-muted uppercase tracking-wider">Conectar</span>
