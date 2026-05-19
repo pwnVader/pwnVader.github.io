@@ -21,23 +21,48 @@ import { Icon } from 'astro-icon/components';
 
     <!-- Prominent Subdomain CTA (Top-level) -->
     <div class="mb-10 animate-fade-up" style="animation-delay: 100ms;">
-      <div class="rounded-lg border border-[#fab387]/30 bg-[#fab387]/5 p-6 text-center shadow-[0_4px_24px_rgba(250,179,135,0.05)]">
-        <p class="font-mono text-xs text-text-muted mb-1">
-          <span class="text-[#a6e3a1]">$</span> xdg-open https://hacking.pwnvader.com
-        </p>
-        <p class="text-text-primary text-sm sm:text-base mt-3 mb-5 leading-relaxed font-mono">
-          Explora la suite completa y corre auditorías directas desde tu navegador en
-          <span class="text-[#fab387] font-bold underline decoration-2">hacking.pwnvader.com</span>
-        </p>
-        <a
-          href="https://hacking.pwnvader.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2.5 px-6 py-3 font-mono text-sm font-bold rounded border border-[#fab387]/50 text-[#fab387] bg-[#fab387]/10 transition-all duration-300 hover:bg-[#fab387]/20 hover:border-[#fab387]/80 hover:shadow-[0_0_25px_rgba(250,179,135,0.35)] transform hover:-translate-y-0.5"
-        >
-          <Icon name="lucide:external-link" class="w-4 h-4 animate-pulse" />
-          Acceder al Laboratorio
-        </a>
+      <div class="relative overflow-hidden rounded-xl border border-[#fab387]/40 bg-[#fab387]/5 p-6 sm:p-8 text-center shadow-[0_0_30px_rgba(250,179,135,0.08)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(250,179,135,0.18)] hover:border-[#fab387]/70">
+        
+        <!-- Blinking operational badge -->
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#a6e3a1]/10 border border-[#a6e3a1]/30 font-mono text-[9px] sm:text-[10px] text-[#a6e3a1] uppercase tracking-wider font-semibold animate-pulse">
+          <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#a6e3a1] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-[#a6e3a1]"></span>
+          </span>
+          Live Lab
+        </div>
+
+        <!-- Tech corner brackets -->
+        <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#fab387]/40"></div>
+        <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#fab387]/40"></div>
+
+        <div class="flex flex-col items-center">
+          <p class="font-mono text-xs text-text-muted mb-3 flex items-center gap-1.5">
+            <span class="text-[#a6e3a1]">$</span> xdg-open https://hacking.pwnvader.com
+          </p>
+
+          <h2 class="text-text-primary text-base sm:text-lg md:text-xl font-bold leading-relaxed font-mono max-w-2xl mt-1 mb-6">
+            Explora la suite completa y corre auditorías directas desde tu navegador en
+            <a 
+              href="https://hacking.pwnvader.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#fab387] font-bold underline decoration-wavy decoration-1 underline-offset-4 hover:text-[#f9e2af] transition-colors"
+            >
+              hacking.pwnvader.com
+            </a>
+          </h2>
+
+          <a
+            href="https://hacking.pwnvader.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 px-8 py-4 font-mono text-sm sm:text-base font-bold rounded border-2 border-[#fab387] text-[#fab387] bg-[#fab387]/15 transition-all duration-300 hover:bg-[#fab387]/25 hover:shadow-[0_0_35px_rgba(250,179,135,0.4)] hover:scale-105 active:scale-95 transform cursor-pointer"
+          >
+            <Icon name="lucide:shield-check" class="w-5 h-5 animate-pulse" />
+            Acceder al Laboratorio
+          </a>
+        </div>
       </div>
     </div>
 
