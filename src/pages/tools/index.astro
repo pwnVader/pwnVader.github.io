@@ -10,7 +10,7 @@ import { Icon } from 'astro-icon/components';
   <section class="mx-auto max-w-4xl px-4 pt-16 pb-20">
 
     <!-- Page header -->
-    <header class="mb-12 animate-fade-up">
+    <header class="mb-10 animate-fade-up">
       <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
         <span class="text-[#89b4fa]">~/</span>tools
       </h1>
@@ -19,8 +19,85 @@ import { Icon } from 'astro-icon/components';
       </p>
     </header>
 
-    <!-- Terminal with build progress -->
-    <div class="animate-fade-up" style="animation-delay: 100ms;">
+    <!-- Prominent Subdomain CTA (Top-level) -->
+    <div class="mb-10 animate-fade-up" style="animation-delay: 100ms;">
+      <div class="rounded-lg border border-[#fab387]/30 bg-[#fab387]/5 p-6 text-center shadow-[0_4px_24px_rgba(250,179,135,0.05)]">
+        <p class="font-mono text-xs text-text-muted mb-1">
+          <span class="text-[#a6e3a1]">$</span> xdg-open https://hacking.pwnvader.com
+        </p>
+        <p class="text-text-primary text-sm sm:text-base mt-3 mb-5 leading-relaxed font-mono">
+          Explora la suite completa y corre auditorías directas desde tu navegador en
+          <span class="text-[#fab387] font-bold underline decoration-2">hacking.pwnvader.com</span>
+        </p>
+        <a
+          href="https://hacking.pwnvader.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 px-6 py-3 font-mono text-sm font-bold rounded border border-[#fab387]/50 text-[#fab387] bg-[#fab387]/10 transition-all duration-300 hover:bg-[#fab387]/20 hover:border-[#fab387]/80 hover:shadow-[0_0_25px_rgba(250,179,135,0.35)] transform hover:-translate-y-0.5"
+        >
+          <Icon name="lucide:external-link" class="w-4 h-4 animate-pulse" />
+          Acceder al Laboratorio
+        </a>
+      </div>
+    </div>
+
+    <!-- Available Tools -->
+    <div class="mb-12 animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
+        <span class="text-[#a6e3a1]">#</span> cat available_tools.txt
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          {
+            icon: 'lucide:network',
+            label: 'Networking / RevShell',
+            desc: 'Calculadora de subnetting IPv4 interactiva y generador de reverse shells multi-lenguaje con encoding.',
+            color: 'text-[#89b4fa]',
+            border: 'border-[#89b4fa]/20 hover:border-[#89b4fa]/50 hover:shadow-[0_0_15px_rgba(137,180,250,0.1)]',
+            href: 'https://hacking.pwnvader.com/networking'
+          },
+          {
+            icon: 'lucide:shield-alert',
+            label: 'CMS Audit',
+            desc: 'Auditoría pasiva de seguridad para WordPress: chequeo de cabeceras, enumeración de usuarios y endpoints expuestos.',
+            color: 'text-[#cba6f7]',
+            border: 'border-[#cba6f7]/20 hover:border-[#cba6f7]/50 hover:shadow-[0_0_15px_rgba(203,166,247,0.1)]',
+            href: 'https://hacking.pwnvader.com/cms'
+          },
+          {
+            icon: 'lucide:sparkles',
+            label: 'Encoders / Stegano',
+            desc: 'Codificaciones (Base64, URL, Hex, ROT) y esteganografía especial para ocultar texto invisible dentro de emojis.',
+            color: 'text-[#f38ba8]',
+            border: 'border-[#f38ba8]/20 hover:border-[#f38ba8]/50 hover:shadow-[0_0_15px_rgba(243,139,168,0.1)]',
+            href: 'https://hacking.pwnvader.com/encoders'
+          },
+        ].map(item => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`group rounded-lg border ${item.border} bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 block`}
+          >
+            <div class="flex items-center justify-between mb-3">
+              <Icon name={item.icon} class={`w-5 h-5 ${item.color} transition-transform group-hover:scale-110`} />
+              <Icon name="lucide:arrow-up-right" class="w-4 h-4 text-text-muted/60 opacity-0 group-hover:opacity-100 transition-all transform translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0" />
+            </div>
+            <p class={`font-mono text-sm font-bold ${item.color} group-hover:text-text-primary transition-colors`}>{item.label}</p>
+            <p class="font-mono text-xs text-text-muted mt-2 leading-relaxed">{item.desc}</p>
+            <span class="inline-block mt-4 font-mono text-[10px] text-[#a6e3a1] border border-[#a6e3a1]/30 bg-[#a6e3a1]/5 rounded px-2 py-0.5 font-semibold">
+              online
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Terminal with build progress (Deployment log) -->
+    <div class="animate-fade-up" style="animation-delay: 300ms;">
+      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
+        <span class="text-[#a6e3a1]">#</span> tail -n 25 deploy.log
+      </h2>
       <div class="rounded-lg border border-border overflow-hidden shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
 
         <!-- Title bar -->
@@ -76,80 +153,6 @@ import { Icon } from 'astro-icon/components';
             <span class="ml-2 text-text-muted animate-pulse">█</span>
           </p>
         </div>
-      </div>
-    </div>
-
-    <!-- Available Tools -->
-    <div class="mt-10 animate-fade-up" style="animation-delay: 200ms;">
-      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
-        <span class="text-[#a6e3a1]">#</span> cat available_tools.txt
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {[
-          {
-            icon: 'lucide:network',
-            label: 'Networking / RevShell',
-            desc: 'Calculadora de subnetting IPv4 interactiva y generador de reverse shells multi-lenguaje con encoding.',
-            color: 'text-[#89b4fa]',
-            border: 'border-[#89b4fa]/20 hover:border-[#89b4fa]/50 hover:shadow-[0_0_15px_rgba(137,180,250,0.1)]',
-            href: 'https://hacking.pwnvader.com/networking'
-          },
-          {
-            icon: 'lucide:shield-alert',
-            label: 'CMS Audit',
-            desc: 'Auditoría pasiva de seguridad para WordPress: chequeo de cabeceras, enumeración de usuarios y endpoints expuestos.',
-            color: 'text-[#cba6f7]',
-            border: 'border-[#cba6f7]/20 hover:border-[#cba6f7]/50 hover:shadow-[0_0_15px_rgba(203,166,247,0.1)]',
-            href: 'https://hacking.pwnvader.com/cms'
-          },
-          {
-            icon: 'lucide:sparkles',
-            label: 'Encoders / Stegano',
-            desc: 'Codificaciones (Base64, URL, Hex, ROT) y esteganografía especial para ocultar texto invisible dentro de emojis.',
-            color: 'text-[#f38ba8]',
-            border: 'border-[#f38ba8]/20 hover:border-[#f38ba8]/50 hover:shadow-[0_0_15px_rgba(243,139,168,0.1)]',
-            href: 'https://hacking.pwnvader.com/encoders'
-          },
-        ].map(item => (
-          <a
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class={`group rounded-lg border ${item.border} bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 block`}
-          >
-            <div class="flex items-center justify-between mb-3">
-              <Icon name={item.icon} class={`w-5 h-5 ${item.color} transition-transform group-hover:scale-110`} />
-              <Icon name="lucide:arrow-up-right" class="w-4 h-4 text-text-muted/60 opacity-0 group-hover:opacity-100 transition-all transform translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0" />
-            </div>
-            <p class={`font-mono text-sm font-bold ${item.color} group-hover:text-text-primary transition-colors`}>{item.label}</p>
-            <p class="font-mono text-xs text-text-muted mt-2 leading-relaxed">{item.desc}</p>
-            <span class="inline-block mt-4 font-mono text-[10px] text-[#a6e3a1] border border-[#a6e3a1]/30 bg-[#a6e3a1]/5 rounded px-2 py-0.5 font-semibold">
-              online
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="mt-10 animate-fade-up" style="animation-delay: 300ms;">
-      <div class="rounded-lg border border-[#fab387]/25 bg-[#fab387]/5 p-6 text-center">
-        <p class="font-mono text-xs text-text-muted mb-1">
-          <span class="text-[#a6e3a1]">$</span> xdg-open https://hacking.pwnvader.com
-        </p>
-        <p class="text-text-secondary text-sm mt-3 mb-5">
-          Explora la suite completa y corre auditorías directas desde tu navegador en
-          <span class="text-[#fab387] font-medium">hacking.pwnvader.com</span>
-        </p>
-        <a
-          href="https://hacking.pwnvader.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-5 py-2.5 font-mono text-sm rounded border border-[#fab387]/40 text-[#fab387] bg-[#fab387]/10 transition-all hover:bg-[#fab387]/20 hover:border-[#fab387]/60 hover:shadow-[0_0_20px_rgba(250,179,135,0.2)]"
-        >
-          <Icon name="lucide:external-link" class="w-4 h-4" />
-          Acceder al Laboratorio
-        </a>
       </div>
     </div>
 
