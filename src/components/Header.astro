@@ -9,11 +9,9 @@ const navLinks = [
   { label: 'Skills', href: '/skills/' },
   { label: 'Writeups', href: '/writeups/' },
   { label: 'LinkedIn', href: '/linkedin/' },
+  { label: 'Tools ↗', href: '/tools/' },
 ];
 
-const externalNavLinks = [
-  { label: 'Tools ↗', href: 'https://hacking.pwnvader.com', title: 'hacking.pwnvader.com' },
-];
 
 const connectLinks = [
   { label: 'Email', href: 'mailto:contacto@pwnvader.com?subject=Contacto%20desde%20pwnvader.com', icon: 'social-proton', color: 'text-[#b4befe]' },
@@ -44,34 +42,29 @@ function isActive(href: string): boolean {
     <!-- Desktop nav + Connect -->
     <div class="hidden md:flex items-center gap-1">
       <ul class="flex items-center gap-1">
-        {navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={[
-                'px-3 py-1.5 font-mono text-sm rounded border transition-all',
-                isActive(link.href)
-                  ? 'text-accent border-accent/30 bg-accent/10'
-                  : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
-              ]}
-            >
-              {isActive(link.href) ? `> ${link.label}` : link.label}
-            </a>
-          </li>
-        ))}
-        {externalNavLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={link.title}
-              class="px-3 py-1.5 font-mono text-sm rounded border border-transparent transition-all text-[#fab387]/70 hover:text-[#fab387] hover:border-[#fab387]/30 hover:bg-[#fab387]/5"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {navLinks.map((link) => {
+          const isTools = link.href === '/tools/';
+          const active = isActive(link.href);
+          return (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  'px-3 py-1.5 font-mono text-sm rounded border transition-all',
+                  active
+                    ? isTools
+                      ? 'text-[#fab387] border-[#fab387]/30 bg-[#fab387]/10'
+                      : 'text-accent border-accent/30 bg-accent/10'
+                    : isTools
+                      ? 'text-[#fab387]/60 border-transparent hover:text-[#fab387] hover:border-[#fab387]/30 hover:bg-[#fab387]/5'
+                      : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
+                ]}
+              >
+                {active ? `> ${link.label}` : link.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
 
       <!-- Connect Button (Desktop) -->
@@ -142,18 +135,6 @@ function isActive(href: string): boolean {
             ]}
           >
             {isActive(link.href) ? `> ${link.label}` : `  ${link.label}`}
-          </a>
-        </li>
-      ))}
-      {externalNavLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block px-3 py-2 font-mono text-sm rounded border border-transparent transition-all text-[#fab387]/70 hover:text-[#fab387] hover:border-[#fab387]/30"
-          >
-            {'  '}{link.label}
           </a>
         </li>
       ))}
