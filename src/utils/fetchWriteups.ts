@@ -27,7 +27,7 @@ interface TreeResponse {
 // ── Config ─────────────────────────────────────────────
 
 const REPO_OWNER = 'pwnVader';
-const REPO_NAME = 'writeups';
+const REPO_NAME = 'CybersecurityDocs';
 const CANDIDATE_BRANCHES = ['main', 'master'];
 
 // Optional auth raises rate limit from 60 → 5000 req/h.
@@ -192,9 +192,13 @@ export async function getWriteups(): Promise<WriteupEntry[]> {
 
   const mdNodes = tree.tree.filter((n) => {
     if (n.type !== 'blob') return false;
-    if (!n.path.toLowerCase().endsWith('.md')) return false;
-    if (n.path.toLowerCase().endsWith('readme.md')) return false;
-    if (n.path.toLowerCase().startsWith('htb-academy/')) return false;
+    const lowerPath = n.path.toLowerCase();
+    if (!lowerPath.endsWith('.md')) return false;
+    if (lowerPath.endsWith('readme.md')) return false;
+    // Only fetch files inside the writeups_src/ directory
+    if (!lowerPath.startsWith('writeups_src/')) return false;
+    // Skip HTB Academy files since they have dedicated cards
+    if (lowerPath.startsWith('writeups_src/htb-academy/')) return false;
     return true;
   });
 
