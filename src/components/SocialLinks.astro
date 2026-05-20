@@ -34,7 +34,7 @@ const { compact = false } = Astro.props;
       >
         <span class="flex items-center gap-2.5 whitespace-nowrap shrink-0">
           <Icon name={link.icon} class={`w-4 h-4 text-text-muted transition-colors ${link.colorGroupClass.split(' ')[0]}`} />
-          <span class="font-mono text-sm font-medium text-text-primary transition-colors ${link.colorGroupClass.split(' ')[0]}">{link.label}</span>
+          <span class={`font-mono text-sm font-medium text-text-primary transition-colors ${link.colorGroupClass.split(' ')[0]}`}>{link.label}</span>
         </span>
         <span class="font-mono text-xs text-text-muted truncate w-full sm:w-auto text-left sm:text-right">{link.handle} ↗</span>
       </a>
