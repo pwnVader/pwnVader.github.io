@@ -6,8 +6,8 @@ const currentPath = Astro.url.pathname;
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about/' },
-  { label: 'Lab · hacking.pwnvader.com', href: '/tools/' },
-  { label: 'Docs · docs.pwnvader.com', href: '/writeups/' },
+  { label: 'Lab', href: 'https://hacking.pwnvader.com', title: 'hacking.pwnvader.com · suite serverless de herramientas' },
+  { label: 'Docs', href: 'https://docs.pwnvader.com', title: 'docs.pwnvader.com · writeups y metodologías' },
   { label: 'Skills', href: '/skills/' },
   { label: 'LinkedIn', href: '/linkedin/' },
 ];
@@ -26,7 +26,7 @@ function isActive(href: string): boolean {
 ---
 
 <header
-  class="fixed top-7 left-0 right-0 z-50 border-b border-border bg-bg-base/85 backdrop-blur-md"
+  class="w-full border-b border-border bg-bg-base/85 backdrop-blur-md"
   id="main-header"
 >
   <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
@@ -43,13 +43,16 @@ function isActive(href: string): boolean {
     <div class="hidden md:flex items-center gap-1">
       <ul class="flex items-center gap-1">
         {navLinks.map((link) => {
-          const isTools = link.href === '/tools/';
-          const isWriteups = link.href === '/writeups/';
+          const isTools = link.label === 'Lab';
+          const isWriteups = link.label === 'Docs';
           const active = isActive(link.href);
           return (
             <li>
               <a
                 href={link.href}
+                title={link.title}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 class:list={[
                   'px-3 py-1.5 font-mono text-sm rounded border transition-all',
                   active
@@ -129,13 +132,16 @@ function isActive(href: string): boolean {
   >
     <ul class="flex flex-col px-4 py-3 gap-1">
       {navLinks.map((link) => {
-        const isTools = link.href === '/tools/';
-        const isWriteups = link.href === '/writeups/';
+        const isTools = link.label === 'Lab';
+        const isWriteups = link.label === 'Docs';
         const active = isActive(link.href);
         return (
           <li>
             <a
               href={link.href}
+              title={link.title}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
               class:list={[
                 'block px-3 py-2 font-mono text-sm rounded border transition-all',
                 active
