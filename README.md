@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# pwnVader.com — Personal Portfolio & Cybersecurity Showcase
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Este repositorio contiene el código fuente del portafolio profesional de **Jesus P Romero (pwnVader)**, especialista en ciberseguridad ofensiva, pentesting de infraestructura y seguridad de inteligencia artificial.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+El sitio está diseñado bajo una estética terminal hacker minimalista y premium, ofreciendo una puerta de entrada centralizada a todo el ecosistema de proyectos, laboratorios, certificaciones (COAE, eJPTv2) y writeups técnicos.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠️ Arquitectura y Stack Tecnológico
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+El proyecto está diseñado para ofrecer máxima velocidad de carga, accesibilidad inmaculada y una experiencia visual altamente interactiva:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+* **Core Framework:** [Astro](https://astro.build/) v6 (Generador de Sitios Estáticos - SSG para rendimiento óptimo y SEO).
+* **Diseño y Estilos:** [Tailwind CSS](https://tailwindcss.com/) v4 (Estética premium oscura basada en la paleta *Catppuccin Mocha* con micro-animaciones, efectos scanline y respuesta móvil fluida).
+* **Iconografía:** [Astro Icon](https://github.com/natemoo-re/astro-icon) (Integración optimizada y ligera de iconos Lucide y customizados).
+* **Fuentes Autoalojadas:** `@fontsource/jetbrains-mono` y `@fontsource/inter` (Cumplimiento de RGPD de privacidad al evitar llamadas de rastreo externas).
+* **Automatización y Despliegue:** GitHub Actions para el despliegue automático de producción al confirmar cambios en la rama `main`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🌐 Navegación del Ecosistema
 
-## 🧞 Commands
+Este portafolio actúa como el nodo central del ecosistema **pwnVader**. Puedes navegar a los subdominios dedicados haciendo clic en los siguientes enlaces:
 
-All commands are run from the root of the project, from a terminal:
+* **El Portafolio Principal (Este sitio):** [pwnvader.com](https://pwnvader.com)
+  * *Portal central, biografía, timeline profesional, conjunto de habilidades y enlaces a la comunidad.*
+* **El Laboratorio de Herramientas:** [hacking.pwnvader.com](https://hacking.pwnvader.com)
+  * *Suite interactiva de utilidades de pentesting, reverse shells, encoders y herramientas de auditoría de CMS.*
+* **El Centro de Documentación:** [docs.pwnvader.com](https://docs.pwnvader.com)
+  * *Writeups paso a paso de laboratorios de HackTheBox, TryHackMe, CTFs y metodologías detalladas de explotación.*
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## ⚠️ Disclaimer & OPSEC
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+La información, enlaces y herramientas enlazados a través de este ecosistema se presentan con fines estrictamente educativos, de investigación técnica y para la ejecución de auditorías de ciberseguridad debidamente autorizadas. El autor no se hace responsable por el uso indebido o malicioso de los recursos fuera de entornos controlados o sin la debida autorización explícita y escrita de los propietarios de los sistemas.
+
+---
+
+## 🤝 Contacto y Comunidad
+
+* **LinkedIn:** [linkedin.com/in/jesuspromero](https://www.linkedin.com/in/jesuspromero/)
+* **GitHub:** [github.com/pwnvader](https://github.com/pwnvader)
+* **Correo Electrónico:** [contacto@pwnvader.com](mailto:contacto@pwnvader.com)
