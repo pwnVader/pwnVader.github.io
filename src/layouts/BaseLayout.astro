@@ -8,17 +8,17 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogUrl?: string;
 }
 
 const {
-  title = "Jesus P Romero (pwnVader) — Pentester Certificado COAE & eJPTv2",
-  description = "Portafolio profesional de Jesus P Romero (pwnVader), especialista en ciberseguridad ofensiva, pentesting de infraestructura, Active Directory, auditoría web y entrenamiento técnico.",
-  ogImage = "/og-image.png",
+  title = "Consultor de Ciberseguridad | pwnVader",
+  description = "Portafolio profesional. Especialista en seguridad ofensiva, pentesting y Red Teaming. Certificaciones COAE y eJPTv2.",
+  ogImage = "https://pwnvader.com/og-image.png",
+  ogUrl = "https://pwnvader.com",
 } = Astro.props;
 
-const siteURL = "https://pwnvader.com";
-const canonicalURL = new URL(Astro.url.pathname, siteURL);
-const ogImageURL = `${siteURL}${ogImage}`;
+const canonicalURL = new URL(Astro.url.pathname, "https://pwnvader.com");
 ---
 
 <!doctype html>
@@ -36,17 +36,17 @@ const ogImageURL = `${siteURL}${ogImage}`;
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={ogUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image" content={ogImage} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:url" content={ogUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Fonts: self-hosted via @fontsource (zero external tracking) -->
 
