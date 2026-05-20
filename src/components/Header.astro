@@ -6,8 +6,8 @@ const currentPath = Astro.url.pathname;
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about/' },
-  { label: 'Tools ↗', href: '/tools/' },
-  { label: 'Writeups ↗', href: '/writeups/' },
+  { label: 'Lab · hacking.pwnvader.com', href: '/tools/' },
+  { label: 'Docs · docs.pwnvader.com', href: '/writeups/' },
   { label: 'Skills', href: '/skills/' },
   { label: 'LinkedIn', href: '/linkedin/' },
 ];
@@ -26,7 +26,7 @@ function isActive(href: string): boolean {
 ---
 
 <header
-  class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg-base/85 backdrop-blur-md"
+  class="fixed top-7 left-0 right-0 z-50 border-b border-border bg-bg-base/85 backdrop-blur-md"
   id="main-header"
 >
   <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">

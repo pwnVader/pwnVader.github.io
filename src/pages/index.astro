@@ -103,6 +103,60 @@ import { Icon } from 'astro-icon/components';
       <SocialFastfetch />
     </div>
 
+    <!-- Ecosistema pwnVader — consolidated web assets card -->
+    <div class="mt-10 animate-fade-up" style="animation-delay: 250ms;">
+      <h2 class="font-mono text-sm text-text-muted mb-4">
+        <span class="text-accent">$</span> cat ecosystem.json
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Portfolio card -->
+        <a 
+          href="/" 
+          class="group relative overflow-hidden rounded-lg border border-[#89b4fa]/20 bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#89b4fa]/50 hover:shadow-[0_0_15px_rgba(137,180,250,0.1)] block"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <Icon name="lucide:terminal" class="w-5 h-5 text-[#89b4fa]" />
+            <span class="text-[9px] sm:text-[10px] text-orange-400 border border-orange-400/30 bg-orange-400/5 px-2 py-0.5 rounded font-mono uppercase font-bold select-none">active</span>
+          </div>
+          <p class="font-mono text-sm font-bold text-[#89b4fa] group-hover:text-text-primary transition-colors">pwnvader.com</p>
+          <p class="font-mono text-xs text-text-secondary mt-1 font-semibold">Portfolio Principal</p>
+          <p class="font-mono text-[11px] text-text-muted mt-2 leading-relaxed">Presentación profesional, certificaciones, trayectoria y contacto ejecutivo.</p>
+        </a>
+
+        <!-- Lab card -->
+        <a 
+          href="https://hacking.pwnvader.com" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="group relative overflow-hidden rounded-lg border border-border bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#fab387]/50 hover:shadow-[0_0_15px_rgba(250,179,135,0.1)] block"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <Icon name="lucide:shield-check" class="w-5 h-5 text-[#fab387]" />
+            <span class="text-[9px] sm:text-[10px] text-zinc-500 border border-zinc-700 bg-zinc-800/10 px-2 py-0.5 rounded font-mono uppercase select-none">external</span>
+          </div>
+          <p class="font-mono text-sm font-bold text-[#fab387] group-hover:text-text-primary transition-colors font-semibold">hacking.pwnvader.com</p>
+          <p class="font-mono text-xs text-text-secondary mt-1 font-semibold">Laboratorio Táctico</p>
+          <p class="font-mono text-[11px] text-text-muted mt-2 leading-relaxed">Suite de herramientas ofensivas (RevShells, subnetting, encoders, auditorías de CMS).</p>
+        </a>
+
+        <!-- Docs card -->
+        <a 
+          href="https://docs.pwnvader.com" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="group relative overflow-hidden rounded-lg border border-border bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#cba6f7]/50 hover:shadow-[0_0_15px_rgba(203,166,247,0.1)] block"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <Icon name="lucide:book-open" class="w-5 h-5 text-[#cba6f7]" />
+            <span class="text-[9px] sm:text-[10px] text-zinc-500 border border-zinc-700 bg-zinc-800/10 px-2 py-0.5 rounded font-mono uppercase select-none">external</span>
+          </div>
+          <p class="font-mono text-sm font-bold text-[#cba6f7] group-hover:text-text-primary transition-colors font-semibold">docs.pwnvader.com</p>
+          <p class="font-mono text-xs text-text-secondary mt-1 font-semibold">Writeups & Docs</p>
+          <p class="font-mono text-[11px] text-text-muted mt-2 leading-relaxed">Metodologías, cheatsheets y guías detalladas de explotación de máquinas (HTB, THM).</p>
+        </a>
+      </div>
+    </div>
+
     <!-- Social Links Section — functional click-through cards -->
     <div class="mt-10 animate-fade-up" style="animation-delay: 300ms;">
       <h2 class="font-mono text-sm text-text-muted mb-4">
