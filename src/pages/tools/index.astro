@@ -10,35 +10,25 @@ import { Icon } from 'astro-icon/components';
   <section class="mx-auto max-w-4xl px-4 pt-16 pb-20">
 
     <!-- Page header -->
-    <header class="mb-10 animate-fade-up">
-      <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
-        <span class="text-[#89b4fa]">~/</span>tools
-      </h1>
-      <p class="mt-2 font-mono text-sm text-text-secondary">
-        <span class="text-[#a6e3a1]">$</span> curl -s hacking.pwnvader.com/api/tools | jq '.'
-      </p>
+    <header class="mb-8 animate-fade-up">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/tools</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">curl -s hacking.pwnvader.com/api/tools | jq '.'</span>
+      </h2>
     </header>
 
     <!-- Prominent Subdomain CTA (Top-level) -->
     <div class="mb-10 animate-fade-up" style="animation-delay: 100ms;">
-      <div class="relative overflow-hidden rounded-xl border border-[#fab387]/40 bg-[#fab387]/5 p-6 sm:p-8 text-center shadow-[0_0_30px_rgba(250,179,135,0.08)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(250,179,135,0.18)] hover:border-[#fab387]/70">
+      <div class="relative bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-6 sm:p-8 text-center transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50">
         
         <!-- Blinking operational badge -->
-        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#a6e3a1]/10 border border-[#a6e3a1]/30 font-mono text-[9px] sm:text-[10px] text-[#a6e3a1] uppercase tracking-wider font-semibold animate-pulse">
-          <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#a6e3a1] opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-[#a6e3a1]"></span>
-          </span>
-          Live Lab
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 px-2.5 py-1 text-slate-500 font-mono text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold">
+          [ LIVE LAB ]
         </div>
-
-        <!-- Tech corner brackets -->
-        <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#fab387]/40"></div>
-        <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#fab387]/40"></div>
 
         <div class="flex flex-col items-center">
           <p class="font-mono text-xs text-text-muted mb-3 flex items-center gap-1.5">
-            <span class="text-[#a6e3a1]">$</span> xdg-open https://hacking.pwnvader.com
+            <span class="text-slate-400">$</span> xdg-open https://hacking.pwnvader.com
           </p>
 
           <h2 class="text-text-primary text-base sm:text-lg md:text-xl font-bold leading-relaxed font-mono max-w-2xl mt-1 mb-6">
@@ -47,7 +37,7 @@ import { Icon } from 'astro-icon/components';
               href="https://hacking.pwnvader.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-[#fab387] font-bold underline decoration-2 underline-offset-4 hover:text-[#f9e2af] transition-colors"
+              class="text-slate-400 font-bold underline decoration-2 underline-offset-4 hover:text-[#f9e2af] transition-colors"
             >
               hacking.pwnvader.com
             </a>
@@ -57,7 +47,7 @@ import { Icon } from 'astro-icon/components';
             href="https://hacking.pwnvader.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 px-8 py-4 font-mono text-sm sm:text-base font-bold rounded border-2 border-[#fab387] text-[#fab387] bg-[#fab387]/15 transition-all duration-300 hover:bg-[#fab387]/25 hover:shadow-[0_0_35px_rgba(250,179,135,0.4)] hover:scale-105 active:scale-95 transform cursor-pointer"
+            class="inline-flex items-center gap-3 px-8 py-4 font-mono text-sm sm:text-base font-bold bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 text-slate-400 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 transform cursor-pointer"
           >
             <Icon name="lucide:shield-check" class="w-5 h-5 animate-pulse" />
             Acceder al Laboratorio
@@ -66,10 +56,12 @@ import { Icon } from 'astro-icon/components';
       </div>
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- Available Tools -->
-    <div class="mb-12 animate-fade-up" style="animation-delay: 200ms;">
+    <div class="animate-fade-up" style="animation-delay: 300ms;">
       <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
-        <span class="text-[#a6e3a1]">#</span> cat available_tools.txt
+        <span class="text-slate-400">#</span> cat available_tools.txt
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {[
@@ -77,7 +69,7 @@ import { Icon } from 'astro-icon/components';
             icon: 'lucide:network',
             label: 'Networking / RevShell',
             desc: 'Calculadora de subnetting IPv4 interactiva y generador de reverse shells multi-lenguaje con encoding.',
-            color: 'text-[#89b4fa]',
+            color: 'text-slate-400',
             border: 'border-[#89b4fa]/20 hover:border-[#89b4fa]/50 hover:shadow-[0_0_15px_rgba(137,180,250,0.1)]',
             href: 'https://hacking.pwnvader.com/networking'
           },
@@ -85,7 +77,7 @@ import { Icon } from 'astro-icon/components';
             icon: 'lucide:shield-alert',
             label: 'CMS Audit',
             desc: 'Auditoría pasiva de seguridad para WordPress: chequeo de cabeceras, enumeración de usuarios y endpoints expuestos.',
-            color: 'text-[#cba6f7]',
+            color: 'text-slate-400',
             border: 'border-[#cba6f7]/20 hover:border-[#cba6f7]/50 hover:shadow-[0_0_15px_rgba(203,166,247,0.1)]',
             href: 'https://hacking.pwnvader.com/cms'
           },
@@ -93,7 +85,7 @@ import { Icon } from 'astro-icon/components';
             icon: 'lucide:sparkles',
             label: 'Encoders / Stegano',
             desc: 'Codificaciones (Base64, URL, Hex, ROT) y esteganografía especial para ocultar texto invisible dentro de emojis.',
-            color: 'text-[#f38ba8]',
+            color: 'text-slate-400',
             border: 'border-[#f38ba8]/20 hover:border-[#f38ba8]/50 hover:shadow-[0_0_15px_rgba(243,139,168,0.1)]',
             href: 'https://hacking.pwnvader.com/encoders'
           },
@@ -102,7 +94,7 @@ import { Icon } from 'astro-icon/components';
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            class={`group rounded-lg border ${item.border} bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 block`}
+            class="group bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-4 transition-all duration-300 transform hover:bg-slate-800/40 hover:border-slate-600/50 block"
           >
             <div class="flex items-center justify-between mb-3">
               <Icon name={item.icon} class={`w-5 h-5 ${item.color} transition-transform group-hover:scale-110`} />
@@ -110,35 +102,28 @@ import { Icon } from 'astro-icon/components';
             </div>
             <p class={`font-mono text-sm font-bold ${item.color} group-hover:text-text-primary transition-colors`}>{item.label}</p>
             <p class="font-mono text-xs text-text-muted mt-2 leading-relaxed">{item.desc}</p>
-            <span class="inline-block mt-4 font-mono text-[10px] text-[#a6e3a1] border border-[#a6e3a1]/30 bg-[#a6e3a1]/5 rounded px-2 py-0.5 font-semibold">
-              online
+            <span class="inline-block mt-4 font-mono text-[10px] text-slate-500">
+              [ ONLINE ]
             </span>
           </a>
         ))}
       </div>
     </div>
 
-    <!-- Terminal with build progress (Deployment log) -->
-    <div class="animate-fade-up" style="animation-delay: 300ms;">
-      <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-4">
-        <span class="text-[#a6e3a1]">#</span> tail -n 25 deploy.log
-      </h2>
-      <div class="rounded-lg border border-border overflow-hidden shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
+    <hr class="border-t border-slate-800/60 my-14" />
 
-        <!-- Title bar -->
-        <div class="flex items-center gap-2 bg-bg-elevated px-4 py-2.5 border-b border-border">
-          <div class="flex gap-1.5">
-            <span class="w-3 h-3 rounded-full bg-[#f38ba8]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#f9e2af]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#a6e3a1]"></span>
-          </div>
-          <span class="ml-2 font-mono text-xs text-text-muted">hacking.pwnvader.com — build log</span>
-        </div>
+    <!-- Terminal with build progress (Deployment log) -->
+    <div class="animate-fade-up" style="animation-delay: 400ms;">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/tools</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">tail -n 25 deploy.log</span>
+      </h2>
+      <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 transition-all duration-300">
 
         <!-- Terminal body -->
-        <div class="bg-bg-surface p-4 sm:p-6 font-mono text-xs sm:text-sm space-y-2 leading-relaxed">
+        <div class="p-4 sm:p-6 font-mono text-xs sm:text-sm space-y-2 leading-relaxed">
           <p>
-            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~/tools</span><span class="text-text-muted">$</span>
+            <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/tools</span><span class="text-text-muted">$</span>
             <span class="ml-2 text-text-primary">git clone https://github.com/pwnvader/tools.git</span>
           </p>
           <p class="text-text-muted pl-4">Cloning into 'tools'...</p>
@@ -147,13 +132,13 @@ import { Icon } from 'astro-icon/components';
           <div class="h-1"></div>
 
           <p>
-            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~/tools</span><span class="text-text-muted">$</span>
+            <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/tools</span><span class="text-text-muted">$</span>
             <span class="ml-2 text-text-primary">make build</span>
           </p>
-          <p class="text-text-muted pl-4">[<span class="text-[#fab387]">  0%</span>] Compiling offensive toolkit...</p>
+          <p class="text-text-muted pl-4">[<span class="text-slate-400">  0%</span>] Compiling offensive toolkit...</p>
           <p class="text-text-muted pl-4">[<span class="text-[#f9e2af]"> 33%</span>] Integrating security modules...</p>
-          <p class="text-text-muted pl-4">[<span class="text-[#89b4fa]"> 66%</span>] Testing in controlled environments...</p>
-          <p class="text-[#a6e3a1] pl-4">[<span class="text-[#a6e3a1]">100%</span>] Toolkit compiled successfully!</p>
+          <p class="text-text-muted pl-4">[<span class="text-slate-400"> 66%</span>] Testing in controlled environments...</p>
+          <p class="text-slate-400 pl-4">[<span class="text-slate-400">100%</span>] Toolkit compiled successfully!</p>
 
           <div class="h-1"></div>
 
@@ -164,17 +149,17 @@ import { Icon } from 'astro-icon/components';
               <div class="h-full w-full bg-[#a6e3a1] rounded-full shadow-[0_0_10px_rgba(166,227,161,0.5)]"></div>
             </div>
             <span class="text-text-muted">]</span>
-            <span class="text-[#a6e3a1] text-xs">100%</span>
+            <span class="text-slate-400 text-xs">100%</span>
           </div>
 
           <div class="h-1"></div>
 
-          <p class="text-[#a6e3a1] font-bold">
+          <p class="text-slate-400 font-bold">
             [SUCCESS] Offensive tools successfully deployed to hacking.pwnvader.com
           </p>
 
           <p>
-            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~/tools</span><span class="text-text-muted">$</span>
+            <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/tools</span><span class="text-text-muted">$</span>
             <span class="ml-2 text-text-muted animate-pulse">█</span>
           </p>
         </div>

@@ -10,26 +10,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Palette: Catppuccin Mocha ── */
+  /* ── Palette: Sober Technical ── */
 
-  /* Accent — Blue (prompts, paths, interactive elements) */
-  --color-accent: #89b4fa;
+  /* Accent — Violet (text-violet-400) */
+  --color-accent: #A78BFA;
 
-  /* Link — Sapphire (distinct from accent for visual depth) */
-  --color-link: #74c7ec;
+  /* Link — A slightly darker violet for contrast, or just use accent */
+  --color-link: #8B5CF6;
 
-  /* Background scale — Mocha depths */
-  --color-bg-base: #11111b;     /* Crust  */
-  --color-bg-surface: #181825;  /* Mantle  — one step deeper than stock Base for richer card contrast */
-  --color-bg-elevated: #313244; /* Surface0 */
+  /* Background scale — Navy/Slate */
+  --color-bg-base: #050810;     /* Navy Profundo (Slate 950 approx) */
+  --color-bg-surface: #0F172A;  /* Slate 900 (Paneles) */
+  --color-bg-elevated: #1E293B; /* Slate 800 */
 
   /* Text scale */
-  --color-text-primary: #cdd6f4;   /* Text     */
-  --color-text-secondary: #bac2de; /* Subtext1 */
-  --color-text-muted: #7f849c;     /* Overlay1 */
+  --color-text-primary: #F8FAFC;   /* Slate 100 (Blanco técnico) */
+  --color-text-secondary: #94A3B8; /* Slate 400 */
+  --color-text-muted: #64748B;     /* Slate 500 */
 
-  /* Border — Surface1 */
-  --color-border: #45475a;
+  /* Border — Slate 700 */
+  --color-border: #334155;
 
   /* Typography */
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
@@ -141,6 +141,8 @@ body {
     rgba(0, 0, 0, 0.04) 2px,
     rgba(0, 0, 0, 0.04) 4px
   );
+  will-change: transform;
+  contain: strict;
 }
 
 /* ── Scan beam effect ── */
@@ -160,4 +162,17 @@ body {
   animation: scan 8s linear infinite;
   pointer-events: none;
   z-index: 9998;
+  will-change: transform;
+}
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .scan-beam::before {
+    animation: none !important;
+  }
 }

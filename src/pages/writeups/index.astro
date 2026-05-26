@@ -17,34 +17,24 @@ const writeups = await getWriteups();
     <div class="absolute inset-x-0 -top-10 h-[400px] w-full max-w-2xl mx-auto bg-[radial-gradient(ellipse_at_top,_var(--color-link)_0%,_transparent_60%)] opacity-[0.06] pointer-events-none blur-[80px]"></div>
     <!-- Page header -->
     <header class="mb-8 animate-fade-up">
-      <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
-        <span class="text-[#cba6f7]">~/</span>writeups
-      </h1>
-      <p class="mt-2 font-mono text-sm text-text-secondary">
-        <span class="text-[#a6e3a1]">$</span> curl -s docs.pwnvader.com/api/writeups | jq '.'
-      </p>
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">curl -s docs.pwnvader.com/api/writeups | jq '.'</span>
+      </h2>
     </header>
 
     <!-- Prominent Subdomain CTA (Top-level) -->
     <div class="mb-10 animate-fade-up" style="animation-delay: 100ms;">
-      <div class="relative overflow-hidden rounded-xl border border-[#cba6f7]/40 bg-[#cba6f7]/5 p-6 sm:p-8 text-center shadow-[0_0_30px_rgba(203,166,247,0.08)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(203,166,247,0.18)] hover:border-[#cba6f7]/70">
+      <div class="relative bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-6 sm:p-8 text-center transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50">
         
         <!-- Blinking operational badge -->
-        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#a6e3a1]/10 border border-[#a6e3a1]/30 font-mono text-[9px] sm:text-[10px] text-[#a6e3a1] uppercase tracking-wider font-semibold animate-pulse">
-          <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#a6e3a1] opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-[#a6e3a1]"></span>
-          </span>
-          Live Docs
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 px-2.5 py-1 text-slate-500 font-mono text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold">
+          [ LIVE DOCS ]
         </div>
-
-        <!-- Tech corner brackets -->
-        <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#cba6f7]/40"></div>
-        <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#cba6f7]/40"></div>
 
         <div class="flex flex-col items-center">
           <p class="font-mono text-xs text-text-muted mb-3 flex items-center gap-1.5">
-            <span class="text-[#a6e3a1]">$</span> xdg-open https://docs.pwnvader.com
+            <span class="text-slate-400">$</span> xdg-open https://docs.pwnvader.com
           </p>
 
           <h2 class="text-text-primary text-base sm:text-lg md:text-xl font-bold leading-relaxed font-mono max-w-2xl mt-1 mb-6">
@@ -53,7 +43,7 @@ const writeups = await getWriteups();
               href="https://docs.pwnvader.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-[#cba6f7] font-bold underline decoration-2 underline-offset-4 hover:text-[#f5c2e7] transition-colors"
+              class="text-slate-400 font-bold underline decoration-2 underline-offset-4 hover:text-slate-300 transition-colors"
             >
               docs.pwnvader.com
             </a>
@@ -63,7 +53,7 @@ const writeups = await getWriteups();
             href="https://docs.pwnvader.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 px-8 py-4 font-mono text-sm sm:text-base font-bold rounded border-2 border-[#cba6f7] text-[#cba6f7] bg-[#cba6f7]/15 transition-all duration-300 hover:bg-[#cba6f7]/25 hover:shadow-[0_0_35px_rgba(203,166,247,0.4)] hover:scale-105 active:scale-95 transform cursor-pointer"
+            class="inline-flex items-center gap-3 px-8 py-4 font-mono text-sm sm:text-base font-bold bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 text-slate-400 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 transform cursor-pointer"
           >
             <Icon name="lucide:book-open" class="w-5 h-5 animate-pulse" />
             Explorar Documentación
@@ -72,10 +62,13 @@ const writeups = await getWriteups();
       </div>
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- CTF Profile Section -->
-    <div class="mb-12 animate-fade-up" style="animation-delay: 50ms;">
-      <h2 class="font-mono text-sm text-text-muted mb-5">
-        <span class="text-[#cba6f7]">$</span> ls ~/profiles/ctf/
+    <div class="animate-fade-up" style="animation-delay: 250ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">ls ~/profiles/ctf/</span>
       </h2>
 
       <div class="grid gap-4 sm:grid-cols-2">
@@ -84,10 +77,10 @@ const writeups = await getWriteups();
           href="https://app.hackthebox.com/users/1247070"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
         >
           <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
-            <Icon name="tech-htb" class="w-10 h-10 text-[#3fb950]" />
+            <Icon name="tech-htb" class="w-10 h-10" />
           </div>
           <div>
             <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#3fb950] transition-colors">
@@ -108,10 +101,10 @@ const writeups = await getWriteups();
           href="https://tryhackme.com/p/pwnVader"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#f85149] hover:shadow-[0_0_20px_rgba(248,81,73,0.25)] overflow-hidden"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#f85149] hover:shadow-[0_0_20px_rgba(248,81,73,0.25)] overflow-hidden"
         >
           <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
-            <Icon name="social-thm" class="w-10 h-10 text-[#f85149]" />
+            <Icon name="social-thm" class="w-10 h-10" />
           </div>
           <div>
             <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#f85149] transition-colors">
@@ -129,10 +122,13 @@ const writeups = await getWriteups();
       </div>
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- HTB Academy Section -->
-    <div class="animate-fade-up" style="animation-delay: 100ms;">
-      <h2 class="font-mono text-sm text-text-muted mb-5">
-        <span class="text-[#cba6f7]">$</span> ls ~/writeups/htb-academy/
+    <div class="animate-fade-up" style="animation-delay: 350ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">ls ~/writeups/htb-academy/</span>
       </h2>
 
       <div class="grid gap-4 sm:grid-cols-2">
@@ -141,10 +137,10 @@ const writeups = await getWriteups();
           href="https://github.com/pwnVader/CybersecurityDocs/tree/main/writeups_src/htb-academy/coae"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#9388d4] hover:shadow-[0_0_20px_rgba(147,136,212,0.25)] overflow-hidden"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#9388d4] hover:shadow-[0_0_20px_rgba(147,136,212,0.25)] overflow-hidden"
         >
           <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
-            <img src="/images/certs/coae.webp" alt="COAE Badge" class="w-12 h-12 object-contain" />
+            <img src="/images/certs/coae.webp" alt="COAE Badge" class="w-12 h-12 object-contain grayscale opacity-80" />
           </div>
           <div>
             <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#9388d4] transition-colors">
@@ -165,10 +161,10 @@ const writeups = await getWriteups();
           href="https://github.com/pwnVader/CybersecurityDocs/tree/main/writeups_src/htb-academy/cpts"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex items-center gap-4 rounded-lg border border-border bg-bg-surface px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
         >
           <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
-            <img src="/images/certs/cpts.webp" alt="CPTS Badge" class="w-12 h-12 object-contain" />
+            <img src="/images/certs/cpts.webp" alt="CPTS Badge" class="w-12 h-12 object-contain grayscale opacity-80" />
           </div>
           <div>
             <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#3fb950] transition-colors">
@@ -186,10 +182,13 @@ const writeups = await getWriteups();
       </div>
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- Dynamic writeup table -->
-    <div class="mt-14 animate-fade-up" style="animation-delay: 200ms;">
-      <h2 class="font-mono text-sm text-text-muted mb-5">
-        <span class="text-[#cba6f7]">$</span> ls ~/writeups/machines/
+    <div class="animate-fade-up" style="animation-delay: 450ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">ls ~/writeups/machines/</span>
       </h2>
       <WriteupTable writeups={writeups} />
     </div>

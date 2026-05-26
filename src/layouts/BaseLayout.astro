@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import EcosystemStrip from '../components/EcosystemStrip.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -55,17 +56,20 @@ const canonicalURL = new URL(Astro.url.pathname, "https://pwnvader.com");
     <ClientRouter />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
 
   <body class="scanlines scan-beam flex flex-col min-h-screen">
+    <AnimatedBackground />
     <div class="sticky top-0 z-30">
       <EcosystemStrip />
       <Header />
     </div>
-    <main class="flex-1">
+    <main class="flex-1 relative z-10">
       <slot />
     </main>
-    <Footer />
+    <div class="relative z-10">
+      <Footer />
+    </div>
   </body>
 </html>

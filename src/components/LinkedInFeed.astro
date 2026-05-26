@@ -57,7 +57,7 @@ function formatNumber(n: number): string {
       href={post.url}
       target="_blank"
       rel="noopener noreferrer"
-      class="group block rounded-lg border border-border bg-bg-surface overflow-hidden transition-all duration-200 hover:border-link/50 hover:shadow-[0_0_20px_rgba(88,166,255,0.06)] animate-fade-up"
+      class="group block bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-sky-500/50 overflow-hidden transition-all duration-200 hover:shadow-[0_0_20px_rgba(14,165,233,0.08)] animate-fade-up"
       style={`animation-delay: ${i * 80}ms;`}
     >
       {/* Image container — 16:9 standardized */}
@@ -65,8 +65,11 @@ function formatNumber(n: number): string {
         <img
           src={post.image}
           alt={post.title}
+          width="640"
+          height="360"
           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
           loading="lazy"
+          decoding="async"
         />
         {/* Subtle overlay on hover */}
         <div class="absolute inset-0 bg-bg-base/0 group-hover:bg-bg-base/10 transition-colors duration-200"></div>

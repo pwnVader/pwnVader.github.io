@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Terminal from '../components/Terminal.astro';
 import SocialFastfetch from '../components/SocialFastfetch.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { Icon } from 'astro-icon/components';
@@ -8,19 +7,13 @@ import { Icon } from 'astro-icon/components';
 
 <BaseLayout title="pwnVader — Pentester · eJPTv2 · COAE">
   <section class="relative mx-auto max-w-4xl px-4 pt-16 pb-20">
-    <!-- Ambient Glare -->
-    <div class="absolute inset-x-0 -top-10 h-[400px] w-full max-w-2xl mx-auto bg-[radial-gradient(ellipse_at_top,_var(--color-accent)_0%,_transparent_60%)] opacity-[0.07] pointer-events-none blur-[80px]"></div>
-
     <!-- Hero Terminal -->
     <div class="relative animate-fade-up">
-      <Terminal title="pwnvader@kali — bash">
-        <div class="space-y-1.5">
-          <!-- cat readme.txt command -->
-          <p>
-            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~</span><span class="text-text-muted">$</span>
-            <span class="ml-2 text-text-primary">cat readme.txt</span>
-          </p>
-
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-300">cat readme.txt</span>
+      </h2>
+      <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-6 sm:p-8 space-y-1.5">
           <div class="h-2"></div>
 
           <!-- Identity block -->
@@ -28,7 +21,7 @@ import { Icon } from 'astro-icon/components';
             <p class="text-2xl sm:text-3xl font-bold text-text-primary leading-tight">
               Jesus P Romero
             </p>
-            <p class="text-lg sm:text-xl font-bold text-[#cba6f7]">
+            <p class="text-lg sm:text-xl font-bold text-slate-400">
               pwnVader
             </p>
           </div>
@@ -38,28 +31,23 @@ import { Icon } from 'astro-icon/components';
           <!-- Tagline — IDE syntax pills. Cert tags wear their grid identity at rest. -->
           <div class="flex flex-wrap items-center gap-2">
             {[
-              { label: 'COAE', iconImg: '/images/certs/coae.webp', tone: 'text-[#cba6f7] border-[#cba6f7]/30', href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4' },
-              { label: 'eJPTv2', icon: 'cert-ejpt', tone: 'text-[#f5c2e7] border-[#f5c2e7]/30', href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt' },
-              { label: 'Pentester', tone: 'text-[#f38ba8]/90 border-[#f38ba8]/25' },
-              { label: 'Ing. Sistemas Computacionales', tone: 'text-[#89b4fa]/90 border-[#89b4fa]/25' },
+              { label: 'COAE', iconImg: '/images/certs/coae.webp', href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4' },
+              { label: 'eJPTv2', icon: 'cert-ejpt', href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt' },
+              { label: 'Pentester', icon: 'lucide:shield' },
+              { label: 'Ing. Sistemas Computacionales', icon: 'lucide:code' },
             ].map((tag) => {
-              const tagClass = `flex items-center gap-1.5 text-xs px-2.5 py-1 rounded border bg-bg-surface ${tag.tone}`;
               return tag.href ? (
-                <a href={tag.href} target="_blank" rel="noopener noreferrer" class={`${tagClass} transition-colors hover:brightness-110`}>
+                <a href={tag.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-slate-800/50 border border-slate-700 text-slate-300 font-mono text-xs transition-colors hover:bg-slate-800 hover:border-slate-500/50 hover:text-slate-200">
                   {tag.iconImg ? (
-                    <img src={tag.iconImg} alt="" class="w-4 h-4 object-contain" />
-                  ) : tag.icon ? (
+                    <img src={tag.iconImg} alt={tag.label} class="w-4 h-4 object-contain grayscale opacity-80" />
+                  ) : (
                     <Icon name={tag.icon} class="w-4 h-4" />
-                  ) : null}
+                  )}
                   {tag.label}
                 </a>
               ) : (
-                <span class={tagClass}>
-                  {tag.iconImg ? (
-                    <img src={tag.iconImg} alt="" class="w-4 h-4 object-contain" />
-                  ) : tag.icon ? (
-                    <Icon name={tag.icon} class="w-4 h-4" />
-                  ) : null}
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-slate-800/50 border border-slate-700 text-slate-300 font-mono text-xs cursor-default">
+                  <Icon name={tag.icon} class="w-4 h-4" />
                   {tag.label}
                 </span>
               );
@@ -71,12 +59,12 @@ import { Icon } from 'astro-icon/components';
           <!-- Bio — snapshot only; full story vive en /about -->
           <div class="text-text-secondary text-sm leading-relaxed max-w-xl space-y-2">
             <p>
-              Pentester especializado en <span class="text-[#f38ba8]">seguridad ofensiva</span>: redes,
-              aplicaciones web y <span class="text-[#89b4fa]">Active Directory</span>.
+              Pentester especializado en <span class="text-slate-100 font-semibold">seguridad ofensiva</span>: redes,
+              aplicaciones web y <span class="text-slate-100 font-semibold">Active Directory</span>.
             </p>
             <p>
-              Entrenamiento continuo en <span class="text-[#a6e3a1]">plataformas de hacking</span> y
-              <span class="text-[#94e2d5]">laboratorios técnicos</span>.
+              Entrenamiento continuo en <span class="text-slate-100 font-semibold">plataformas de hacking</span> y
+              <span class="text-slate-100 font-semibold">laboratorios técnicos</span>.
             </p>
           </div>
 
@@ -84,43 +72,46 @@ import { Icon } from 'astro-icon/components';
 
           <!-- Hint to deeper page -->
           <p class="font-mono text-xs text-text-muted">
-            <span class="text-text-muted">→</span> <a href="/about/" class="text-accent hover:underline">cat /etc/pwnvader/profile.conf</a> para detalle completo
+            <span class="text-text-muted">→</span> <a href="/about/" class="text-slate-400 hover:text-slate-200 transition-colors">cat /etc/pwnvader/profile.conf</a> para detalle completo
           </p>
 
           <div class="h-3"></div>
 
           <!-- Prompt cursor -->
           <p class="flex items-center gap-1">
-            <span class="text-[#a6e3a1]">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-[#89b4fa]">~</span><span class="text-text-muted">$</span>
+            <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~</span><span class="text-text-muted">$</span>
             <span class="ml-2 text-text-muted animate-pulse">█</span>
           </p>
-        </div>
-      </Terminal>
+      </div>
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- Fastfetch — Kali ASCII + socials info (collapsible) -->
-    <div class="mt-10 animate-fade-up" style="animation-delay: 200ms;">
+    <div class="animate-fade-up" style="animation-delay: 200ms;">
       <SocialFastfetch />
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- Ecosistema pwnVader — consolidated web assets card -->
-    <div class="mt-10 animate-fade-up" style="animation-delay: 250ms;">
+    <div class="animate-fade-up" style="animation-delay: 250ms;">
       <h2 class="font-mono text-sm text-text-muted mb-4">
-        <span class="text-accent">$</span> cat ecosystem.json
+        <span class="text-slate-400">$</span> cat ecosystem.json
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <!-- Portfolio card -->
         <a 
           href="/" 
-          class="group relative overflow-hidden rounded-lg border border-[#89b4fa]/20 bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#89b4fa]/50 hover:shadow-[0_0_15px_rgba(137,180,250,0.1)] block"
+          class="group relative overflow-hidden bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-4 transition-all duration-300 block hover:bg-slate-800/40 hover:border-slate-600/50 transform hover:-translate-y-1 hover:-translate-x-1"
         >
           <div class="flex items-center justify-between mb-3">
-            <Icon name="lucide:terminal" class="w-5 h-5 text-[#89b4fa]" />
-            <span class="text-[9px] sm:text-[10px] text-[#89b4fa] border border-[#89b4fa]/30 bg-[#89b4fa]/5 px-2 py-0.5 rounded font-mono uppercase font-bold select-none">active</span>
+            <Icon name="lucide:terminal" class="w-5 h-5 text-slate-400" />
+            <span class="text-slate-500 text-xs font-mono font-bold select-none">[ ACTIVE ]</span>
           </div>
-          <p class="font-mono text-sm font-bold text-[#89b4fa] group-hover:text-text-primary transition-colors">pwnvader.com</p>
-          <p class="font-mono text-xs text-text-secondary mt-1 font-semibold">Portfolio Principal</p>
-          <p class="font-mono text-[11px] text-text-muted mt-2 leading-relaxed">Presentación profesional, certificaciones, trayectoria y contacto ejecutivo.</p>
+          <p class="font-mono text-sm font-bold text-slate-100 transition-colors">pwnvader.com</p>
+          <p class="font-mono text-xs text-slate-400 mt-1 font-semibold">Portfolio Principal</p>
+          <p class="font-mono text-[11px] text-slate-400 mt-2 leading-relaxed">Presentación profesional, certificaciones, trayectoria y contacto ejecutivo.</p>
         </a>
 
         <!-- Lab card -->
@@ -128,15 +119,15 @@ import { Icon } from 'astro-icon/components';
           href="https://hacking.pwnvader.com" 
           target="_blank" 
           rel="noopener noreferrer" 
-          class="group relative overflow-hidden rounded-lg border border-border bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#fab387]/50 hover:shadow-[0_0_15px_rgba(250,179,135,0.1)] block"
+          class="group relative overflow-hidden bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-4 transition-all duration-300 block hover:bg-slate-800/40 hover:border-slate-600/50 transform hover:-translate-y-1 hover:-translate-x-1"
         >
           <div class="flex items-center justify-between mb-3">
-            <Icon name="lucide:shield-check" class="w-5 h-5 text-[#fab387]" />
-            <span class="text-[9px] sm:text-[10px] text-zinc-500 border border-zinc-700 bg-zinc-800/10 px-2 py-0.5 rounded font-mono uppercase select-none">external</span>
+            <Icon name="lucide:shield-check" class="w-5 h-5 text-slate-400" />
+            <span class="text-slate-500 text-xs font-mono select-none">• EXTERNAL</span>
           </div>
-          <p class="font-mono text-sm font-bold text-[#fab387] group-hover:text-text-primary transition-colors font-semibold">hacking.pwnvader.com</p>
-          <p class="font-mono text-xs text-text-secondary mt-1 font-semibold">Laboratorio Táctico</p>
-          <p class="font-mono text-[11px] text-text-muted mt-2 leading-relaxed">Suite de herramientas ofensivas (RevShells, subnetting, encoders, auditorías de CMS).</p>
+          <p class="font-mono text-sm font-bold text-slate-100 transition-colors">hacking.pwnvader.com</p>
+          <p class="font-mono text-xs text-slate-400 mt-1 font-semibold">Laboratorio Táctico</p>
+          <p class="font-mono text-[11px] text-slate-400 mt-2 leading-relaxed">Suite de herramientas ofensivas (RevShells, subnetting, encoders, auditorías de CMS).</p>
         </a>
 
         <!-- Docs card -->
@@ -144,23 +135,25 @@ import { Icon } from 'astro-icon/components';
           href="https://docs.pwnvader.com" 
           target="_blank" 
           rel="noopener noreferrer" 
-          class="group relative overflow-hidden rounded-lg border border-border bg-bg-surface p-4 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#cba6f7]/50 hover:shadow-[0_0_15px_rgba(203,166,247,0.1)] block"
+          class="group relative overflow-hidden bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-4 transition-all duration-300 block hover:bg-slate-800/40 hover:border-slate-600/50 transform hover:-translate-y-1 hover:-translate-x-1"
         >
           <div class="flex items-center justify-between mb-3">
-            <Icon name="lucide:book-open" class="w-5 h-5 text-[#cba6f7]" />
-            <span class="text-[9px] sm:text-[10px] text-zinc-500 border border-zinc-700 bg-zinc-800/10 px-2 py-0.5 rounded font-mono uppercase select-none">external</span>
+            <Icon name="lucide:book-open" class="w-5 h-5 text-slate-400" />
+            <span class="text-slate-500 text-xs font-mono select-none">• EXTERNAL</span>
           </div>
-          <p class="font-mono text-sm font-bold text-[#cba6f7] group-hover:text-text-primary transition-colors font-semibold">docs.pwnvader.com</p>
-          <p class="font-mono text-xs text-text-secondary mt-1 font-semibold">Writeups & Docs</p>
-          <p class="font-mono text-[11px] text-text-muted mt-2 leading-relaxed">Metodologías, cheatsheets y guías detalladas de explotación de máquinas (HTB, THM).</p>
+          <p class="font-mono text-sm font-bold text-slate-100 transition-colors">docs.pwnvader.com</p>
+          <p class="font-mono text-xs text-slate-400 mt-1 font-semibold">Writeups & Docs</p>
+          <p class="font-mono text-[11px] text-slate-400 mt-2 leading-relaxed">Metodologías, cheatsheets y guías detalladas de explotación de máquinas (HTB, THM).</p>
         </a>
       </div>
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- Social Links Section — functional click-through cards -->
-    <div class="mt-10 animate-fade-up" style="animation-delay: 300ms;">
+    <div class="animate-fade-up" style="animation-delay: 300ms;">
       <h2 class="font-mono text-sm text-text-muted mb-4">
-        <span class="text-accent">$</span> cat social_links.txt
+        <span class="text-slate-400">$</span> cat social_links.txt
       </h2>
       <SocialLinks />
     </div>

@@ -10,21 +10,19 @@ import { skillCategories } from '../../data/skills';
   description="Habilidades técnicas de pwnVader organizadas por categoría: Seguridad Ofensiva, Sistemas & Redes, IA & Automatización, Power Platform y CTFs."
 >
   <section class="mx-auto max-w-5xl px-4 pt-16 pb-20">
-    <!-- Page header -->
-    <header class="mb-10 animate-fade-up">
-      <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
-        <span class="text-[#89b4fa]">~/</span>skills
-      </h1>
-      <p class="mt-2 font-mono text-sm text-text-secondary">
-        <span class="text-[#a6e3a1]">$</span> cat /proc/skills | sort --category
-      </p>
+    <!-- Hacking Skills Section -->
+    <header class="mb-8 animate-fade-up">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/skills</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">cat /proc/skills | sort --category</span>
+      </h2>
     </header>
 
     <!-- Skills Grid -->
     <div class="grid gap-5 md:grid-cols-2">
       {skillCategories.map((category, catIdx) => (
         <div
-          class={`animate-fade-up rounded-lg border border-border bg-bg-surface overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:-translate-x-1 ${category.hoverClass}`}
+          class={`animate-fade-up bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:-translate-x-1 ${category.hoverClass}`}
           style={`animation-delay: ${catIdx * 100}ms;`}
         >
           <!-- Category header -->
@@ -48,7 +46,7 @@ import { skillCategories } from '../../data/skills';
               <li class="flex items-center justify-between gap-3 font-mono text-sm">
                 <span class="text-text-secondary flex items-center gap-2">
                   {skill.icon ? (
-                    <Icon name={skill.icon} class={`w-3.5 h-3.5 ${category.colorClass} opacity-90`} />
+                    <Icon name={skill.icon} class="w-3.5 h-3.5 opacity-90" />
                   ) : (
                     <span class={`text-[10px] pl-[1px] ${category.colorClass} opacity-70`}>▸</span>
                   )}

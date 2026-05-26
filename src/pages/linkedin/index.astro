@@ -19,28 +19,30 @@ const metrics = {
 >
   <section class="mx-auto max-w-5xl px-4 pt-16 pb-20">
     <!-- Page header -->
-    <header class="mb-10 animate-fade-up">
-      <h1 class="font-mono text-2xl sm:text-3xl font-bold text-text-primary">
-        <span class="text-[#a6e3a1]">~/</span>linkedin
-      </h1>
-      <p class="mt-2 font-mono text-sm text-text-secondary">
-        <span class="text-[#a6e3a1]">$</span> curl -s api.linkedin.com/pwnvader | jq '.community'
-      </p>
+    <header class="mb-8 animate-fade-up">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/linkedin</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">curl -s api.linkedin.com/pwnvader | jq '.community'</span>
+      </h2>
     </header>
 
     <!-- Community Highlights — LinkedIn Feed (Now first) -->
     <div class="animate-fade-up" style="animation-delay: 100ms;">
-      <h2 class="font-mono text-sm text-text-muted mb-5">
-        <span class="text-[#a6e3a1]">$</span> cat recent_posts.txt
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/linkedin</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">cat recent_posts.txt</span>
         <span class="block text-xs mt-1 text-text-muted/70"># Algunos de los posts más relevantes de mi comunidad en línea</span>
       </h2>
       <LinkedInFeed />
     </div>
 
-    <!-- Topics -->
-    <div class="mb-12 animate-fade-up" style="animation-delay: 300ms;">
-      <h2 class="font-mono text-sm text-text-muted mb-3">
-        <span class="text-[#a6e3a1]">$</span> echo $TOPICS
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- LinkedIn Engagement Grid -->
+    <div class="animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-sm mb-3">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/linkedin</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">echo $TOPICS</span>
       </h2>
       <div class="flex flex-wrap gap-2">
         {metrics.mainTopics.map((topic) => (
@@ -51,13 +53,15 @@ const metrics = {
       </div>
     </div>
 
+    <hr class="border-t border-slate-800/60 my-14" />
+
     <!-- CTA -->
-    <div class="mt-10 text-center animate-fade-up" style="animation-delay: 700ms;">
+    <div class="text-center animate-fade-up" style="animation-delay: 700ms;">
       <a
         href="https://www.linkedin.com/in/jesuspromero/"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-surface px-6 py-2.5 font-mono text-sm text-text-primary transition-colors hover:border-accent hover:text-accent"
+        class="inline-flex items-center gap-2 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-6 py-2.5 font-mono text-sm text-text-primary transition-colors hover:text-slate-300"
       >
         <Icon name="social-linkedin" class="w-4 h-4 shrink-0 block" />
         Conectar en LinkedIn
