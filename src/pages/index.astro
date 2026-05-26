@@ -39,7 +39,7 @@ import { Icon } from 'astro-icon/components';
               return tag.href ? (
                 <a href={tag.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-slate-800/50 border border-slate-700 text-slate-300 font-mono text-xs transition-colors hover:bg-slate-800 hover:border-slate-500/50 hover:text-slate-200">
                   {tag.iconImg ? (
-                    <img src={tag.iconImg} alt={tag.label} class="w-4 h-4 object-contain grayscale opacity-80" />
+                    <img src={tag.iconImg} alt={tag.label} class="w-4 h-4 object-contain" />
                   ) : (
                     <Icon name={tag.icon} class="w-4 h-4" />
                   )}
