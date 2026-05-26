@@ -103,17 +103,37 @@
 
   function scatter() {
     const minR = Math.min(W, H);
-    shapes = Array.from({ length: N }, (_, i) => ({
-      x:        Math.random() * W,
-      y:        Math.random() * H,
-      vx:       (Math.random() - 0.5) * SPEED * 2,
-      vy:       (Math.random() - 0.5) * SPEED * 2,
-      wx:       (Math.random() - 0.5) * 0.40,
-      wy:       (Math.random() - 0.5) * 0.35,
-      wz:       (Math.random() - 0.5) * 0.25,
-      scale:    minR * (0.03 + Math.random() * 0.07),
-      solidIdx: i % SOLIDS.length,
-    }));
+
+    // Grid-based placement: divide viewport into cols×rows cells,
+    // place one shape per cell with random jitter — prevents clustering.
+    const cols = Math.ceil(Math.sqrt(N * W / H));
+    const rows = Math.ceil(N / cols);
+    const cellW = W / cols;
+    const cellH = H / rows;
+
+    // Shuffle cell indices so solid types aren't arranged in a grid pattern
+    const cells = Array.from({ length: cols * rows }, (_, i) => i);
+    for (let i = cells.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cells[i], cells[j]] = [cells[j], cells[i]];
+    }
+
+    const PAD = 0.15; // keep shapes away from cell edges
+    shapes = Array.from({ length: N }, (_, i) => {
+      const col = cells[i] % cols;
+      const row = Math.floor(cells[i] / cols);
+      return {
+        x:        (col + PAD + Math.random() * (1 - 2 * PAD)) * cellW,
+        y:        (row + PAD + Math.random() * (1 - 2 * PAD)) * cellH,
+        vx:       (Math.random() - 0.5) * SPEED * 2,
+        vy:       (Math.random() - 0.5) * SPEED * 2,
+        wx:       (Math.random() - 0.5) * 0.40,
+        wy:       (Math.random() - 0.5) * 0.35,
+        wz:       (Math.random() - 0.5) * 0.25,
+        scale:    minR * (0.03 + Math.random() * 0.07),
+        solidIdx: i % SOLIDS.length,
+      };
+    });
   }
 
   // ── Main loop ────────────────────────────────────────────────────
