@@ -22,8 +22,8 @@ const osConfig: Record<string, { icon: string; label: string; class: string }> =
 const diffConfig: Record<string, { class: string }> = {
   Easy:   { class: 'text-text-secondary border-border bg-bg-elevated/40' },
   Medium: { class: 'text-text-secondary border-border bg-bg-elevated/40' },
-  Hard:   { class: 'text-sky-500 border-sky-500/30 bg-sky-500/10' },
-  Insane: { class: 'text-sky-500 border-sky-500/30 bg-sky-500/10' },
+  Hard:   { class: 'text-slate-400 border-slate-500/30 bg-slate-500/10' },
+  Insane: { class: 'text-slate-400 border-slate-500/30 bg-slate-500/10' },
   'N/A':  { class: 'text-text-muted border-border bg-transparent' },
 };
 
@@ -56,7 +56,7 @@ const platformConfig: Record<string, { icon: string; label: string; class: strin
             href={entry.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group grid grid-cols-1 sm:grid-cols-[100px_minmax(0,1.4fr)_minmax(0,1fr)_120px_90px] gap-0 items-center transition-all duration-150 hover:bg-sky-500/10 border-l-[3px] border-transparent hover:border-sky-500 animate-fade-up"
+            class="group grid grid-cols-1 sm:grid-cols-[100px_minmax(0,1.4fr)_minmax(0,1fr)_120px_90px] gap-0 items-center transition-all duration-150 hover:bg-slate-500/10 border-l-[3px] border-transparent hover:border-slate-500 animate-fade-up"
             style={`animation-delay: ${i * 30}ms;`}
           >
             {/* Platform */}
@@ -71,7 +71,7 @@ const platformConfig: Record<string, { icon: string; label: string; class: strin
             </span>
 
             {/* Title */}
-            <span class="px-4 sm:px-3 py-3 font-mono text-sm text-text-primary group-hover:text-sky-500 transition-colors">
+            <span class="px-4 sm:px-3 py-3 font-mono text-sm text-text-primary group-hover:text-slate-400 transition-colors">
               {entry.title}
               <span class="text-text-muted text-xs ml-1.5">↗</span>
             </span>
@@ -163,7 +163,7 @@ const platformConfig: Record<string, { icon: string; label: string; class: strin
       <div class="px-4 py-8 text-center font-mono text-sm text-text-muted">
         <p>No writeups found.</p>
         <p class="mt-1 text-xs text-text-muted/60">
-          <span class="text-sky-500/60">$</span> echo "Check back soon..."
+          <span class="text-slate-400/60">$</span> echo "Check back soon..."
         </p>
       </div>
     )}
@@ -172,7 +172,7 @@ const platformConfig: Record<string, { icon: string; label: string; class: strin
   <!-- Footer status -->
   <div class="mt-3 font-mono text-[11px] text-text-muted/60 flex items-center justify-between px-1">
     <span>
-      <span class="text-sky-500/40">$</span> total: {writeups.length} file(s)
+      <span class="text-slate-400/40">$</span> total: {writeups.length} file(s)
     </span>
     <span>
       source: github.com/{`${Astro.props.writeups.length > 0 ? 'pwnVader/CybersecurityDocs' : 'static fallback'}`}

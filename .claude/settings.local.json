@@ -10,7 +10,23 @@
       "PowerShell(npx astro build 2>&1 | Select-Object -Last 20)",
       "Bash(curl *)",
       "PowerShell(npx astro build 2>&1 | Select-Object -Last 10)",
-      "PowerShell(npx astro build 2>&1 | Select-Object -Last 15)"
+      "PowerShell(npx astro build 2>&1 | Select-Object -Last 15)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git push *)",
+      "Bash(git restore *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\DeepPanda\\\\Documents\\\\DocsHacking\\\\public\" -Recurse -Force | Select-Object -ExpandProperty FullName | ForEach-Object { $_ -replace [regex]::Escape\\(\"C:\\\\Users\\\\DeepPanda\\\\Documents\\\\DocsHacking\\\\public\\\\\"\\), \"\" } | Sort-Object)",
+      "Bash(git revert *)",
+      "Bash(git cherry-pick *)",
+      "Bash(grep -v \".md$\")",
+      "Bash(xargs grep -l \"cat-\\\\|emerald\\\\|#cba6f7\")",
+      "Bash(xargs grep -l \"#cba6f7\\\\|cat-mauve\\\\|cat-sapphire\\\\|cat-mantle\\\\|cat-surface1\\\\|cat-subtext\\\\|cat-text\\\\|text-emerald\")",
+      "Bash(xargs grep -l \"#cba6f7\\\\|cat-mauve\\\\|cat-sapphire\\\\|cat-text\\\\|cat-subtext\\\\|cat-mantle\\\\|cat-surface\\\\|text-emerald\\\\|bg-emerald\\\\|border-emerald\")",
+      "Bash(grep -c \"#cba6f7\\\\|cat-\" src/content/docs/en/metodologias/web/attacking-common-applications.md)",
+      "Bash(grep -c \"#cba6f7\\\\|cat-\" src/content/docs/metodologias/web/attacking-common-applications.md)",
+      "Bash(xargs grep -lE \"#cba6f7|cat-mauve|cat-sapphire|cat-text\\\\b|cat-subtext|cat-mantle|cat-surface|text-emerald|bg-emerald|border-emerald\")"
     ]
   }
 }

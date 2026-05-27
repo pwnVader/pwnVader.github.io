@@ -14,7 +14,7 @@ const navLinks = [
 
 
 const connectLinks = [
-  { label: 'Email', href: 'mailto:contacto@pwnvader.com?subject=Contacto%20desde%20pwnvader.com', icon: 'social-proton', color: 'text-sky-500' },
+  { label: 'Email', href: 'mailto:contacto@pwnvader.com?subject=Contacto%20desde%20pwnvader.com', icon: 'social-proton', color: 'text-slate-400' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jesuspromero/', icon: 'social-linkedin', color: 'text-text-primary' },
   { label: 'GitHub', href: 'https://github.com/pwnvader', icon: 'social-github', color: 'text-text-primary' },
 ];
@@ -31,7 +31,7 @@ function isActive(href: string): boolean {
 >
   <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
     <!-- Logo -->
-    <a href="/" class="group flex items-center transition-all duration-300 transform active:scale-95" aria-label="Inicio pwnVader">
+    <a href="/" class="group flex items-center transition-all duration-300 transform active:scale-95 animate-cyber-glitch" aria-label="Inicio pwnVader">
       <img src="/brand-marca.webp" width="200" height="200" class="h-12 w-auto" alt="pwnVader" loading="eager" decoding="async" />
     </a>
 
@@ -43,25 +43,30 @@ function isActive(href: string): boolean {
           const isWriteups = link.label === 'Docs';
           const active = isActive(link.href);
           return (
-            <li>
+            <li class="relative group">
               <a
                 href={link.href}
-                title={link.title}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 class:list={[
-                  'px-3 py-1.5 font-mono text-sm rounded border transition-all',
+                  'px-3 py-1.5 font-mono text-sm rounded border transition-all flex items-center',
                   active
-                    ? isTools || isWriteups
-                      ? 'text-sky-500 border-sky-500/30 bg-sky-500/10'
-                      : 'text-slate-300 border-transparent bg-transparent'
+                    ? 'bg-slate-800/40 border-slate-700 text-white font-semibold'
                     : isTools || isWriteups
-                      ? 'text-slate-400 border-transparent hover:text-sky-500 hover:border-sky-500/30 hover:bg-sky-500/5'
-                      : 'text-text-secondary border-transparent hover:text-text-primary hover:border-border',
+                      ? 'border-transparent text-slate-300 hover:text-slate-100 animate-cyber-glitch'
+                      : 'border-transparent text-slate-400 hover:text-slate-100 transition-colors',
                 ]}
               >
-                {active ? `> ${link.label}` : link.label}{(isTools || isWriteups) && ' ↗'}
+                {active ? `> ${link.label}` : link.label}
+                {(isTools || isWriteups) && <span class="text-slate-500 ml-1.5 text-xs">↗</span>}
               </a>
+              
+              {(isTools || isWriteups) && (
+                <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-slate-900/90 border border-slate-800 px-3 py-2 rounded-md font-mono text-xs opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50 pointer-events-none shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
+                  <p class="text-white">{isTools ? 'hacking.pwnvader.com' : 'docs.pwnvader.com'}</p>
+                  <p class="text-slate-400 mt-1">{isTools ? 'Suite de herramientas web' : 'Notas y guías de estudio'}</p>
+                </div>
+              )}
             </li>
           );
         })}
@@ -71,7 +76,7 @@ function isActive(href: string): boolean {
       <div class="relative ml-2" id="connect-wrapper">
         <button
           id="connect-btn"
-          class="flex items-center gap-1.5 px-3 py-1.5 font-mono text-sm rounded border border-sky-500/30 text-sky-500 bg-sky-500/5 transition-all hover:bg-sky-500/10 hover:border-sky-500/50 hover:shadow-[0_0_12px_rgba(14,165,233,0.15)]"
+          class="flex items-center gap-1.5 px-3 py-1.5 font-mono text-sm rounded border border-slate-700 bg-transparent text-slate-300 transition-all hover:bg-slate-800/50 hover:text-white"
           aria-expanded="false"
         >
           <Icon name="lucide:terminal" class="w-3.5 h-3.5" />
@@ -107,7 +112,7 @@ function isActive(href: string): boolean {
     <!-- Mobile hamburger -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden flex flex-col gap-1 p-2 text-text-secondary hover:text-slate-300 group-hover:text-sky-500 transition-colors"
+      class="md:hidden flex flex-col gap-1 p-2 text-text-secondary hover:text-slate-300 group-hover:text-slate-400 transition-colors"
       aria-label="Toggle menu"
       aria-expanded="false"
     >
@@ -131,14 +136,13 @@ function isActive(href: string): boolean {
           <li>
             <a
               href={link.href}
-              title={link.title}
               target={link.href.startsWith('http') ? '_blank' : undefined}
               rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
               class:list={[
                 'block px-3 py-2 font-mono text-sm rounded border transition-all',
                 active
-                  ? 'text-sky-500 border-sky-500/30 bg-sky-500/10'
-                  : 'text-slate-300 border-transparent hover:text-sky-500 hover:border-sky-500/30 hover:bg-sky-500/5',
+                  ? 'bg-slate-800 border-slate-700 text-white font-semibold'
+                  : 'border-transparent text-slate-400 hover:text-slate-100 transition-colors',
               ]}
             >
               {active ? `> ${link.label}` : `  ${link.label}`}{(isTools || isWriteups) && ' ↗'}
@@ -228,3 +232,33 @@ function isActive(href: string): boolean {
     });
   });
 </script>
+
+<style>
+  @keyframes chromatic-glitch {
+    0%, 96%, 100% { 
+      text-shadow: none; 
+      filter: none; 
+      transform: none; 
+    }
+    97% { 
+      text-shadow: 2px 0 rgba(255, 0, 85, 0.8), -2px 0 rgba(0, 255, 255, 0.8); 
+      filter: drop-shadow(2px 0 0 rgba(255, 0, 85, 0.8)) drop-shadow(-2px 0 0 rgba(0, 255, 255, 0.8)); 
+      transform: skewX(2deg); 
+    }
+    98% { 
+      text-shadow: -2px 0 rgba(255, 0, 85, 0.8), 2px 0 rgba(0, 255, 255, 0.8); 
+      filter: drop-shadow(-2px 0 0 rgba(255, 0, 85, 0.8)) drop-shadow(2px 0 0 rgba(0, 255, 255, 0.8)); 
+      transform: skewX(-2deg); 
+    }
+    99% { 
+      text-shadow: 2px 0 rgba(255, 0, 85, 0.8), -2px 0 rgba(0, 255, 255, 0.8); 
+      filter: drop-shadow(2px 0 0 rgba(255, 0, 85, 0.8)) drop-shadow(-2px 0 0 rgba(0, 255, 255, 0.8)); 
+      transform: none; 
+    }
+  }
+
+  .animate-cyber-glitch {
+    animation: chromatic-glitch 3s infinite;
+    display: inline-block;
+  }
+</style>

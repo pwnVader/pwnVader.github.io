@@ -200,7 +200,7 @@ const timeline = [
                 <p class="font-mono text-sm font-semibold text-slate-100 leading-snug">{item.title}</p>
                 <!-- Org/Subtitle -->
                 {item.subtitle && (
-                  <p class="font-mono text-xs text-sky-500/80 mt-1.5">{item.subtitle}</p>
+                  <p class="font-mono text-xs text-slate-400/80 mt-1.5">{item.subtitle}</p>
                 )}
               </div>
             </div>
@@ -217,12 +217,26 @@ const timeline = [
         <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/about</span><span class="text-text-muted">$</span>
         <span class="ml-2 text-slate-100">echo $NEXT_OBJECTIVE</span>
       </h2>
-      <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-5 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 block transform hover:-translate-y-1">
-        <div class="flex items-center gap-4">
-          <img src="/images/certs/cpts.webp" alt="CPTS" class="w-12 h-12 object-contain shrink-0 grayscale opacity-80" />
-          <div>
-            <p class="font-mono text-sm text-slate-100 font-bold">CPTS — Certified Penetration Testing Specialist</p>
-            <p class="font-mono text-xs text-text-muted mt-1">Hack The Box · En progreso</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- CPTS -->
+        <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-5 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 block transform hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            <img src="/images/certs/cpts.webp" alt="CPTS" class="w-12 h-12 object-contain shrink-0" />
+            <div>
+              <p class="font-mono text-sm text-slate-100 font-bold">CPTS — Certified Penetration Testing Specialist</p>
+              <p class="font-mono text-xs text-text-muted mt-1">Hack The Box · En progreso</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CWES -->
+        <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-5 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 block transform hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            <img src="/images/certs/cwes.webp" alt="CWES" class="w-12 h-12 object-contain shrink-0" />
+            <div>
+              <p class="font-mono text-sm text-slate-100 font-bold">CWES — Certified Web Exploitation Specialist</p>
+              <p class="font-mono text-xs text-text-muted mt-1">Hack The Box · Siguiente</p>
+            </div>
           </div>
         </div>
       </div>
