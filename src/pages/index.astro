@@ -105,8 +105,10 @@ import { Icon } from 'astro-icon/components';
           class="relative overflow-hidden bg-slate-900/40 backdrop-blur-sm rounded-lg border border-cyan-500/20 p-4 shadow-[0_0_15px_rgba(6,182,212,0.03)] block select-none"
         >
           <div class="flex items-center justify-between mb-3">
-            <Icon name="lucide:terminal" class="w-5 h-5 text-cyan-400" />
-            <span class="text-cyan-400 text-xs font-mono font-bold select-none">[ ESTAS AQUI ]</span>
+            <div class="flex items-center justify-center p-1.5 rounded bg-cyan-900/30 border border-cyan-800/30 text-cyan-400">
+              <Icon name="lucide:terminal" class="w-4 h-4" />
+            </div>
+            <span class="bg-cyan-900/30 border border-cyan-800/30 text-cyan-400 text-[10px] px-2 py-0.5 rounded font-mono font-bold select-none">ESTAS AQUI</span>
           </div>
           <p class="font-mono text-sm font-bold text-slate-100">pwnvader.com</p>
           <p class="font-mono text-xs text-slate-400 mt-1 font-semibold">Portfolio Principal</p>
