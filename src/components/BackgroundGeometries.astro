@@ -6,7 +6,7 @@
 <script>
   // ── Palette ──────────────────────────────────────────────────────
   const C_STROKE = [210, 225, 240] as const;
-  const A_SHAPE  = 0.014;
+  const A_SHAPE  = 0.025;
   const SPEED    = 0.12;
 
   // ── Platonic Solids (vertices normalized to unit sphere) ─────────
@@ -101,6 +101,8 @@
 
   function scatter() {
     const minR = Math.min(W, H);
+    const isMobile = W < 768;
+    const scaleFactor = isMobile ? 2.0 : 1.0;
 
     // Grid-based placement: divide viewport into cols×rows cells,
     // place one shape per cell with random jitter — prevents clustering.
@@ -128,7 +130,7 @@
         wx:       (Math.random() - 0.5) * 0.40,
         wy:       (Math.random() - 0.5) * 0.35,
         wz:       (Math.random() - 0.5) * 0.25,
-        scale:    minR * (0.03 + Math.random() * 0.07),
+        scale:    minR * (0.03 + Math.random() * 0.07) * scaleFactor,
         solidIdx: i % SOLIDS.length,
       };
     });
