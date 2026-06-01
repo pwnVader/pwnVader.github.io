@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LinkedInFeed from '../../../components/LinkedInFeed.astro';
+import { Icon } from 'astro-icon/components';
+
+const metrics = {
+  mainTopics: [
+    { name: 'Ciberseguridad' },
+    { name: 'Red Team' },
+    { name: 'Carrera en Tech' },
+    { name: 'IA & Hacking' },
+  ],
+};
+---
+
+<BaseLayout
+  title="LinkedIn — pwnVader"
+  description="Comunidad y presencia de pwnVader en LinkedIn y TikTok: 28.3K seguidores en TikTok, 2.2K en LinkedIn, posts sobre ciberseguridad, Red Team y carrera en tech."
+>
+  <section class="mx-auto max-w-5xl px-4 pt-16 pb-20">
+    <!-- Page header -->
+    <header class="mb-8 animate-fade-up">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/linkedin</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">curl -s api.linkedin.com/pwnvader | jq '.community'</span>
+      </h2>
+    </header>
+
+    <!-- Community Highlights — LinkedIn Feed (Now first) -->
+    <div class="animate-fade-up" style="animation-delay: 100ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/linkedin</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">cat recent_posts.txt</span>
+        <span class="block text-xs mt-1 text-text-muted/70"># Algunos de los posts más relevantes de mi comunidad en línea</span>
+      </h2>
+      <LinkedInFeed />
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- LinkedIn Engagement Grid -->
+    <div class="animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-sm mb-3">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/linkedin</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">echo $TOPICS</span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        {metrics.mainTopics.map((topic) => (
+          <span class="font-mono text-xs px-3 py-1.5 rounded-full border bg-bg-surface border-border text-text-primary">
+            {topic.name}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- CTA -->
+    <div class="text-center animate-fade-up" style="animation-delay: 700ms;">
+      <a
+        href="https://www.linkedin.com/in/jesuspromero/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-6 py-2.5 font-mono text-sm text-text-primary transition-colors hover:text-slate-300"
+      >
+        <Icon name="social-linkedin" class="w-4 h-4 shrink-0 block" />
+        Conectar en LinkedIn
+      </a>
+    </div>
+  </section>
+</BaseLayout>

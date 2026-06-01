@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import WriteupTable from '../../../components/WriteupTable.astro';
+import { Icon } from 'astro-icon/components';
+import { getWriteups } from '../../../utils/fetchWriteups';
+
+// Build-time fetch: recursive GitHub API call with static fallback
+const writeups = await getWriteups();
+---
+
+<BaseLayout
+  title="Writeups — pwnVader"
+  description="Writeups de HackTheBox, TryHackMe, CTFs y VulnHub por pwnVader. Soluciones paso a paso con técnicas de pentesting."
+>
+  <section class="relative mx-auto max-w-4xl px-4 pt-16 pb-20">
+    <!-- Ambient Glare -->
+    <div class="absolute inset-x-0 -top-10 h-[400px] w-full max-w-2xl mx-auto bg-[radial-gradient(ellipse_at_top,_var(--color-link)_0%,_transparent_60%)] opacity-[0.06] pointer-events-none blur-[80px]"></div>
+    <!-- Page header -->
+    <header class="mb-8 animate-fade-up">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">curl -s docs.pwnvader.com/api/writeups | jq '.'</span>
+      </h2>
+    </header>
+
+    <!-- Prominent Subdomain CTA (Top-level) -->
+    <div class="mb-10 animate-fade-up" style="animation-delay: 100ms;">
+      <div class="relative bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-6 sm:p-8 text-center transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50">
+        
+        <!-- Blinking operational badge -->
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 px-2.5 py-1 text-slate-500 font-mono text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold">
+          [ LIVE DOCS ]
+        </div>
+
+        <div class="flex flex-col items-center">
+          <p class="font-mono text-xs text-text-muted mb-3 flex items-center gap-1.5">
+            <span class="text-slate-400">$</span> xdg-open https://docs.pwnvader.com
+          </p>
+
+          <h2 class="text-text-primary text-base sm:text-lg md:text-xl font-bold leading-relaxed font-mono max-w-2xl mt-1 mb-6">
+            Accede al centro consolidado de writeups, metodologías y guías de explotación en
+            <a 
+              href="https://docs.pwnvader.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-slate-400 font-bold underline decoration-2 underline-offset-4 hover:text-slate-300 transition-colors"
+            >
+              docs.pwnvader.com
+            </a>
+          </h2>
+
+          <a
+            href="https://docs.pwnvader.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 px-8 py-4 font-mono text-sm sm:text-base font-bold bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 text-slate-400 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 transform cursor-pointer"
+          >
+            <Icon name="lucide:book-open" class="w-5 h-5 animate-pulse" />
+            Explorar Documentación
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- CTF Profile Section -->
+    <div class="animate-fade-up" style="animation-delay: 250ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">ls ~/profiles/ctf/</span>
+      </h2>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <!-- HackTheBox Card -->
+        <a
+          href="https://app.hackthebox.com/users/1247070"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <Icon name="tech-htb" class="w-10 h-10" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#3fb950] transition-colors">
+              HackTheBox
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Profile · pwnVader
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#3fb950]/60 border border-[#3fb950]/20 bg-[#3fb950]/5 px-1.5 py-0.5 rounded">
+            CTF
+          </span>
+        </a>
+
+        <!-- TryHackMe Card -->
+        <a
+          href="https://tryhackme.com/p/pwnVader"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#f85149] hover:shadow-[0_0_20px_rgba(248,81,73,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <Icon name="social-thm" class="w-10 h-10" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#f85149] transition-colors">
+              TryHackMe
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Top 1% · pwnVader
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#f85149]/60 border border-[#f85149]/20 bg-[#f85149]/5 px-1.5 py-0.5 rounded">
+            CTF
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- HTB Academy Section -->
+    <div class="animate-fade-up" style="animation-delay: 350ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">ls ~/writeups/htb-academy/</span>
+      </h2>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <!-- COAE Card — lavender identity, matches home cert tag -->
+        <a
+          href="https://github.com/pwnVader/CybersecurityDocs/tree/main/writeups_src/htb-academy/coae"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#9388d4] hover:shadow-[0_0_20px_rgba(147,136,212,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <img src="/images/certs/coae.webp" alt="COAE Badge" class="w-12 h-12 object-contain" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#9388d4] transition-colors">
+              COAE
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Certified Offensive AI Expert
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#9388d4]/60 border border-[#9388d4]/20 bg-[#9388d4]/5 px-1.5 py-0.5 rounded">
+            HTB Academy
+          </span>
+        </a>
+
+        <!-- CPTS Card — HTB green identity -->
+        <a
+          href="https://github.com/pwnVader/CybersecurityDocs/tree/main/writeups_src/htb-academy/cpts"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 px-5 py-5 transition-all duration-300 transform hover:-translate-y-1 hover:border-[#3fb950] hover:shadow-[0_0_20px_rgba(63,185,80,0.25)] overflow-hidden"
+        >
+          <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-md overflow-hidden">
+            <img src="/images/certs/cpts.webp" alt="CPTS Badge" class="w-12 h-12 object-contain" />
+          </div>
+          <div>
+            <p class="font-mono text-sm font-bold text-text-primary group-hover:text-[#3fb950] transition-colors">
+              CPTS
+              <span class="text-text-muted text-xs ml-1.5">↗</span>
+            </p>
+            <p class="font-mono text-xs text-text-muted mt-0.5">
+              Certified Penetration Testing Specialist
+            </p>
+          </div>
+          <span class="absolute top-2 right-3 font-mono text-[10px] text-[#3fb950]/60 border border-[#3fb950]/20 bg-[#3fb950]/5 px-1.5 py-0.5 rounded">
+            HTB Academy
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- Dynamic writeup table -->
+    <div class="animate-fade-up" style="animation-delay: 450ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/writeups</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">ls ~/writeups/machines/</span>
+      </h2>
+      <WriteupTable writeups={writeups} />
+    </div>
+  </section>
+</BaseLayout>

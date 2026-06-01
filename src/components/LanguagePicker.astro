@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+import { languages, defaultLang } from '../i18n/ui';
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+const currentPath = Astro.url.pathname;
+
+// Remove the lang prefix to get the clean route path
+const routeWithoutLang = currentPath.startsWith(`/${lang}/`) 
+  ? currentPath.replace(`/${lang}/`, '/') 
+  : currentPath.startsWith(`/${lang}`) 
+    ? currentPath.replace(`/${lang}`, '/') 
+    : currentPath;
+
+// Determine the target language to switch to
+const targetLang = lang === 'es' ? 'en' : 'es';
+
+// Determine target path
+const targetPath = translatePath(routeWithoutLang, targetLang);
+---
+
+<a 
+  href={targetPath}
+  class="group flex items-center justify-center gap-1.5 px-2 py-1.5 ml-1 font-mono text-xs rounded border border-slate-700/60 bg-slate-800/20 text-slate-400 transition-all hover:bg-slate-800/80 hover:text-slate-200 hover:border-slate-500/50"
+  title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+>
+  <Icon name="lucide:globe" class="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
+  <span class="font-bold">{targetLang.toUpperCase()}</span>
+</a>

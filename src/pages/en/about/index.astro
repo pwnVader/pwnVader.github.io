@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const certifications = [
+  {
+    name: 'COAE',
+    fullName: 'Certified Offensive AI Expert',
+    org: 'Hack The Box',
+    date: 'May 2026',
+    color: 'text-slate-400',
+    borderColor: 'border-slate-600/50',
+    glowColor: '',
+    href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4',
+    iconImg: '/images/certs/coae.webp',
+  },
+  {
+    name: 'eJPTv2',
+    fullName: 'eLearnSecurity Junior Penetration Tester',
+    org: 'INE Security',
+    date: '2025',
+    color: 'text-slate-400',
+    borderColor: 'border-slate-600/50',
+    glowColor: '',
+    href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt',
+    icon: 'cert-ejpt',
+  },
+];
+
+const typeIcon = {
+  cert: 'lucide:award',
+  speaker: 'lucide:mic',
+  work: 'lucide:briefcase',
+  mentor: 'lucide:users',
+};
+
+const typeLabel = {
+  cert: 'CERT',
+  speaker: 'TALK',
+  work: 'WORK',
+  mentor: 'MENTOR',
+};
+
+const timeline = [
+  {
+    date: 'May 2026',
+    title: 'Certified Offensive AI Expert (COAE)',
+    type: 'cert',
+  },
+  {
+    date: 'Mar 2026',
+    title: 'Technical Clinics: Road to eJPT — Lab Series',
+    subtitle: 'Instructor · NicaSecurity',
+    type: 'speaker',
+  },
+  {
+    date: 'Jan 2026',
+    title: 'Workshop Agentic Workflow: Pentest with AI and MCP',
+    subtitle: 'Speaker · NetSentinel Academy',
+    type: 'speaker',
+  },
+  {
+    date: 'Dec 2025',
+    title: 'Internship — Audit Automation',
+    subtitle: 'Volkswagen Group',
+    type: 'work',
+  },
+  {
+    date: 'Nov 2025',
+    title: 'Cybersecurity Mentor',
+    subtitle: 'Nación Hacker',
+    type: 'mentor',
+  },
+  {
+    date: '2025',
+    title: 'eJPTv2 Certified',
+    type: 'cert',
+  },
+];
+---
+
+<BaseLayout
+  title="About — pwnVader"
+  description="Meet Jesus P Romero (pwnVader) — COAE and eJPTv2 certified pentester, speaker, mentor, and cybersecurity content creator."
+>
+  <section class="mx-auto max-w-4xl px-4 pt-16 pb-20">
+    <!-- Page header -->
+    <header class="mb-8 animate-fade-up">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/about</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">cat /etc/pwnvader/profile.conf</span>
+      </h2>
+    </header>
+
+    <!-- Bio Section -->
+    <div class="animate-fade-up space-y-6" style="animation-delay: 100ms;">
+      <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 hover:bg-slate-800/40 hover:border-slate-600/50 p-6 sm:p-8 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="space-y-4">
+          <div>
+            <h2 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-3">
+              <span class="text-slate-400">#</span> whoami
+            </h2>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              I'm <span class="text-text-primary font-medium">Jesus Perez Romero</span>. A Pentester focused on
+              <span class="text-slate-100 font-semibold">offensive security</span>.
+            </p>
+          </div>
+
+          <p class="text-text-secondary text-sm leading-relaxed">
+            I am currently in my final year studying
+            <span class="text-slate-100 font-semibold">Computer Systems Engineering</span>.
+          </p>
+
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Outside of pentesting, I teach workshops at
+            <span class="text-slate-100 font-semibold">NicaSecurity</span> and
+            <span class="text-slate-100 font-semibold">NetSentinel Academy</span> about
+            <span class="text-slate-100 font-semibold">pentesting with AI</span>, as well as guided technical labs for certification prep like the <span class="text-slate-100 font-semibold">eJPTv2</span>.
+          </p>
+
+          <p class="text-text-secondary text-sm leading-relaxed">
+            In parallel, I maintain an active presence on
+            <span class="text-slate-100 font-semibold">LinkedIn</span>, where I break down and share technical
+            <span class="text-slate-100 font-semibold">offensive security</span> concepts to provide value and strengthen the
+            <span class="text-slate-100 font-semibold">cybersecurity community</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- Certifications -->
+    <div class="animate-fade-up" style="animation-delay: 200ms;">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/about</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">certifications --verified</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {certifications.map((cert) => (
+          <a
+            href={cert.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-4 bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-5 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 block transform hover:-translate-y-1 hover:-translate-x-1"
+          >
+            <div class="shrink-0">
+              {cert.iconImg ? (
+                <img src={cert.iconImg} alt="" class="w-10 h-10 object-contain" />
+              ) : (
+                <Icon name={cert.icon!} class="w-10 h-10" />
+              )}
+            </div>
+            <div>
+              <p class={`font-mono text-sm font-bold ${cert.color}`}>{cert.name}</p>
+              <p class="font-mono text-xs text-text-secondary mt-0.5">{cert.fullName}</p>
+              <p class="font-mono text-[10px] text-text-muted mt-1">{cert.org} · {cert.date}</p>
+            </div>
+            <Icon name="lucide:external-link" class="w-3.5 h-3.5 text-text-muted ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- Timeline -->
+    <div class="animate-fade-up" style="animation-delay: 300ms;">
+      <h2 class="font-mono text-sm mb-5">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/about</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">cat /var/log/career.log | tail -6</span>
+      </h2>
+
+      <!-- Visual Timeline -->
+      <div class="relative space-y-3 mt-4">
+        {timeline.map((item, i) => (
+          <div class="flex gap-4 animate-fade-up" style={`animation-delay: ${300 + i * 60}ms;`}>
+            <!-- Icon column + vertical connector -->
+            <div class="flex flex-col items-center shrink-0">
+              <div class="w-8 h-8 rounded-full bg-slate-900/60 border border-slate-700/60 flex items-center justify-center">
+                <Icon name={typeIcon[item.type as keyof typeof typeIcon]} class="w-3.5 h-3.5 text-slate-400" />
+              </div>
+              {i < timeline.length - 1 && (
+                <div class="w-px flex-1 bg-slate-800/60 mt-1 min-h-[12px]"></div>
+              )}
+            </div>
+
+            <!-- Content card -->
+            <div class="flex-1 pb-1">
+              <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-4 hover:bg-slate-800/40 hover:border-slate-600/50 transition-all duration-200 transform hover:-translate-y-0.5">
+                <!-- Type badge + Date -->
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-800/60 border border-slate-700/50 text-slate-400 uppercase tracking-wider">
+                    {typeLabel[item.type as keyof typeof typeLabel]}
+                  </span>
+                  <span class="font-mono text-xs text-slate-500">{item.date}</span>
+                </div>
+                <!-- Title -->
+                <p class="font-mono text-sm font-semibold text-slate-100 leading-snug">{item.title}</p>
+                <!-- Org/Subtitle -->
+                {item.subtitle && (
+                  <p class="font-mono text-xs text-slate-400/80 mt-1.5">{item.subtitle}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="border-t border-slate-800/60 my-14" />
+
+    <!-- Current Focus -->
+    <div class="animate-fade-up" style="animation-delay: 400ms;">
+      <h2 class="font-mono text-sm mb-4">
+        <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/about</span><span class="text-text-muted">$</span>
+        <span class="ml-2 text-slate-100">echo $NEXT_OBJECTIVE</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- CPTS -->
+        <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-5 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 block transform hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            <img src="/images/certs/cpts.webp" alt="CPTS" class="w-12 h-12 object-contain shrink-0" />
+            <div>
+              <p class="font-mono text-sm text-slate-100 font-bold">CPTS — Certified Penetration Testing Specialist</p>
+              <p class="font-mono text-xs text-text-muted mt-1">Hack The Box · In progress</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CWES -->
+        <div class="bg-slate-900/30 backdrop-blur-sm rounded-lg border border-slate-800/50 p-5 transition-all duration-300 hover:bg-slate-800/40 hover:border-slate-600/50 block transform hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            <img src="/images/certs/cwes.webp" alt="CWES" class="w-12 h-12 object-contain shrink-0" />
+            <div>
+              <p class="font-mono text-sm text-slate-100 font-bold">CWES — Certified Web Exploitation Specialist</p>
+              <p class="font-mono text-xs text-text-muted mt-1">Hack The Box · Up next</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

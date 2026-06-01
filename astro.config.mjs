@@ -5,6 +5,13 @@ import icon from 'astro-icon';
 
 export default defineConfig({
   site: 'https://pwnvader.com',
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
