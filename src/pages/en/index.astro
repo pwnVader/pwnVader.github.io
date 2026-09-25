@@ -34,6 +34,8 @@ import { Icon } from 'astro-icon/components';
               { label: 'COAE', iconImg: '/images/certs/coae.webp', href: 'https://academy.hackthebox.com/achievement/badge/847979fe-4aca-11f1-82d1-bea50ffe6cb4' },
               { label: 'eJPTv2', icon: 'cert-ejpt', href: 'https://certs.ine.com/a3d19feb-3d6e-4102-ba75-75e6013bfeee#acc.SaZlAfnt' },
               { label: 'Pentester at Grupo Scanda', icon: 'tech-kali' },
+              { label: 'Security Researcher', icon: 'role-researcher' },
+              { label: 'Bug Hunter', icon: 'role-bughunter' },
               { label: 'Computer Systems Engineer', icon: 'tech-linux-computer' },
             ].map((tag) => {
               return tag.href ? (
@@ -59,13 +61,30 @@ import { Icon } from 'astro-icon/components';
           <!-- Bio — snapshot only; full story vive en /about -->
           <div class="text-text-secondary text-sm leading-relaxed max-w-xl space-y-2">
             <p>
-              Pentester at <span class="text-slate-100 font-semibold">Grupo Scanda</span> specialized in <span class="text-slate-100 font-semibold">offensive security</span>: networks,
-              web applications and <span class="text-slate-100 font-semibold">Active Directory</span>.
+              Pentester at <span class="text-slate-100 font-semibold">Grupo Scanda</span> and <span class="text-slate-100 font-semibold">Security Researcher</span> specialized in <span class="text-slate-100 font-semibold">offensive security</span>: networks, web applications, <span class="text-slate-100 font-semibold">Active Directory</span>, and infrastructure security assessments across the <span class="text-slate-100 font-semibold">banking and financial sector</span>.
             </p>
             <p>
-              Continuous training on <span class="text-slate-100 font-semibold">hacking platforms</span> and
-              <span class="text-slate-100 font-semibold">technical laboratories</span>.
+              Active in vulnerability research and <span class="text-slate-100 font-semibold">Bug Bounty</span> with confirmed and accepted findings in responsible disclosure programs.
             </p>
+          </div>
+
+          <div class="h-2"></div>
+
+          <!-- Vulnerabilities found in -->
+          <div class="pt-2 border-t border-slate-800/50">
+            <p class="font-mono text-xs text-text-muted mb-2">
+              Vulnerabilities found in:
+            </p>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800/50 border border-slate-700/60 text-slate-200 font-mono text-xs">
+                <img src="/images/logos/nasa.svg" alt="NASA" class="w-5 h-4 object-contain" />
+                <span class="font-medium text-slate-200">NASA</span>
+              </div>
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800/50 border border-slate-700/60 text-slate-200 font-mono text-xs">
+                <img src="/images/logos/filescom.svg" alt="Files.com" class="w-4 h-4 object-contain" />
+                <span class="font-medium text-slate-200">Files.com</span>
+              </div>
+            </div>
           </div>
 
           <div class="h-3"></div>

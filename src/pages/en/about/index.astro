@@ -32,6 +32,7 @@ const typeIcon = {
   speaker: 'lucide:mic',
   work: 'lucide:briefcase',
   mentor: 'lucide:users',
+  bounty: 'role-bughunter',
 };
 
 const typeLabel = {
@@ -39,9 +40,16 @@ const typeLabel = {
   speaker: 'TALK',
   work: 'WORK',
   mentor: 'MENTOR',
+  bounty: 'BOUNTY',
 };
 
 const timeline = [
+  {
+    date: 'Sep 2026',
+    title: 'Vulnerabilities found',
+    subtitle: 'NASA · Files.com',
+    type: 'bounty',
+  },
   {
     date: 'Jul 2026',
     title: 'Pentester',
@@ -107,8 +115,8 @@ const timeline = [
               <span class="text-slate-400">#</span> whoami
             </h2>
             <p class="text-text-secondary text-sm leading-relaxed">
-              I'm <span class="text-text-primary font-medium">Jesus Perez Romero</span>. Pentester at <span class="text-slate-100 font-semibold">Grupo Scanda</span> focused on
-              <span class="text-slate-100 font-semibold">offensive security</span>.
+              I'm <span class="text-text-primary font-medium">Jesus Perez Romero</span>. Pentester at <span class="text-slate-100 font-semibold">Grupo Scanda</span> and <span class="text-slate-100 font-semibold">Security Researcher</span> focused on
+              <span class="text-slate-100 font-semibold">offensive security</span>, with experience assessing infrastructure and applications for the <span class="text-slate-100 font-semibold">banking and financial sector</span>.
             </p>
           </div>
 
@@ -174,7 +182,7 @@ const timeline = [
     <div class="animate-fade-up" style="animation-delay: 300ms;">
       <h2 class="font-mono text-sm mb-5">
         <span class="text-slate-400">pwnvader@kali</span><span class="text-text-muted">:</span><span class="text-slate-400">~/about</span><span class="text-text-muted">$</span>
-        <span class="ml-2 text-slate-100">cat /var/log/career.log | tail -7</span>
+        <span class="ml-2 text-slate-100">cat /var/log/career.log | tail -8</span>
       </h2>
 
       <!-- Visual Timeline -->
