@@ -13,6 +13,7 @@ yarn-error.log*
 pnpm-debug.log*
 pnpm-lock.yaml
 pnpm-workspace.yaml
+GITHUB_PROFILE_README.md
 
 
 # environment variables
